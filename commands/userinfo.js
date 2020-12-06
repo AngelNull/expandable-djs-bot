@@ -9,7 +9,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 5,
-    execute: async (message, args) => {
+    execute: async (message, lang, translator, args) => {
         let user = message.mentions.members.first();
         let invalidUser = false;
         if (!user) {
@@ -18,7 +18,7 @@ module.exports = {
                 invalidUser = true;
             });
         }
-        if (invalidUser == true) return message.channel.send('That user could not be found.');
+        if (invalidUser == true) return message.channel.send(translator.translate('USER_NOT_FOUND', lang));
 
         /* Building the embed */
         const embedContent = {

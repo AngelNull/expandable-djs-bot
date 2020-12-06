@@ -1,18 +1,14 @@
 module.exports = {
-    /* Command Info */
     name: 'ping',
     description: 'Displays the bots ping',
     aliases: ['p'],
-    /* Arguments & Usage */
     args: false,
     usage: '',
-    /* Command Permissions */
     permission: '',
     devOnly: false,
-    /* Command Cooldown */
     cooldown: 2,
-    execute: async (message) => {
-        const m = await message.channel.send('Pinging...');
-        m.edit(`Pong!\nLatency is **${m.createdTimestamp - message.createdTimestamp}**ms.`);
+    execute: async (message, lang, tr) => {
+        const m = await message.channel.send(tr.translate('PING_PINGING', lang));
+        m.edit(tr.translate('PING_RESPONSE', lang, m.createdTimestamp - message.createdTimestamp));
     },
 };
