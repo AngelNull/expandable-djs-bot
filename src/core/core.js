@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const config = require('./configs/config.json');
-const translator = require('../translations/translator');
+const translator = require('../../translations/translator');
 
 const client = new Discord.Client({
     disableMentions: 'everyone',
