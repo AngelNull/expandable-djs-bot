@@ -14,9 +14,10 @@
 		"ecmaVersion": 2017
 	},
 	"rules": {
-		"prettier/prettier": [
-			"error"
+		"prettier/prettier": ["error",{
+			"endOfLine": "lf"}
 		],
+			
 		"no-unused-vars": [
 			"error",
 			{
@@ -27,6 +28,7 @@
 		"semi": [
 			"error",
 			"always"
-		]
+		],
+		"linebreak-style": 0
 	}
 }
