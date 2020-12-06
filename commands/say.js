@@ -1,15 +1,11 @@
 module.exports = {
-    /* Command Info */
     name: 'say',
     description: 'Repeats the given message',
     aliases: ['repeat', 's'],
-    /* Arguments & Usage */
     args: true,
     usage: '[mesage]',
-    /* Command Permissions */
     permission: '',
     devOnly: true,
-    /* Command Cooldown */
     cooldown: 1,
     execute: async (message, args) => {
         /* Join all args together */

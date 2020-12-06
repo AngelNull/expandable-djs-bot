@@ -1,17 +1,13 @@
 const { MessageEmbed } = require('discord.js');
 const { embedColour } = require('../core/configs/embedcolours.json');
 module.exports = {
-    /* Command Info */
     name: 'serverinfo',
     description: 'Shows information about the server',
     aliases: ['guildinfo', 'guild'],
-    /* Arguments & Usage */
     args: false,
     usage: '',
-    /* Command Permissions */
     permission: '',
     devOnly: false,
-    /* Command Cooldown */
     cooldown: 3,
     execute: async (message) => {
         const embed = new MessageEmbed();

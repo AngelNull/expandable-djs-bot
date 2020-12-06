@@ -1,6 +1,7 @@
 {
     "prefix":"",
     "ownerID":"",
+    "language:"en", 
 
     "botStatus":"online",
     "enableCustomActivity":false,

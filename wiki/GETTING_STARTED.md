@@ -29,12 +29,13 @@ DISCORD_AUTH_TOKEN = 43CtVD4f6A4Mxq9v6a9RghBBo2YJlnmLpqUY9VOzgZ3DN
 ```
 
 ## **Step 5.** 
-Now, go to the `core/configs` directory and rename `config.json.example` to `config.json` and fill in the values inside, they should look something along the lines of this: 
+Now, go to the `core/configs` directory and rename `config.json.example` to `config.json` and fill in the values inside, when filled they should look something along the lines of this: 
 
 ```json
 {
     "prefix":">",
     "ownerID":"12345678910112",
+    "language":"en",
 
     "botStatus":"online",
     "enableCustomActivity":true,
@@ -45,13 +46,25 @@ Now, go to the `core/configs` directory and rename `config.json.example` to `con
 }
 ```
 
-The "Bot Status" field can be filled in with the following EXACT values
+
+**The "language" field allows for the following languages (please use the two letter code instead of the full name)**
+
+```
+✔ - Written by Native
+⁉ - Written by AI Translator 
+
+- English (en) ✔
+- French (fr) ⁉
+```
+
+
+**The "Bot Status" field can be filled in with the following EXACT values**
 - online
 - idle
 - invisible
 - dnd 
 
-The "BotActivityType" filed can be filled in with the following EXACT values
+**The "BotActivityType" filed can be filled in with the following EXACT values**
 - PLAYING
 - STREAMING
 - LISTENING
