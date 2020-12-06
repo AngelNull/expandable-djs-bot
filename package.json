@@ -4,7 +4,7 @@
   "description": "An easily expandable discord.js bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ext .js,.jsx ."
   },
   "repository": {
     "type": "git",
