@@ -3,30 +3,24 @@ const { prefix } = require('../core/configs/config.json');
 const Discord = require('discord.js');
 
 module.exports = {
-    /* Command Info */
     name: 'help',
     description: 'Shows a list of commands or details about a specific command',
     aliases: ['h', 'commands'],
-    /* Arguments & Usage */
     args: false,
     usage: '[command]',
-    /* Command Permissions */
     permission: '',
     devOnly: false,
-    /* Command Cooldown */
     cooldown: 3,
-    execute: async (message, args) => {
+    execute: async (message, lang, tr, args) => {
         /* If the user does not provide any args; send them the generic help message in direct messages instead */
         if (args.length == 0) {
             const helpList = new Discord.MessageEmbed();
             /* Build the embed */
-            helpList.setTitle('Help');
-            helpList.setDescription(
-                `Want to get a list of all of ${message.client.user.username}'s commands?\nWant to report a bug or request a feature?\nWant to see ${message.client.user.username}'s Github Repo?\nUse the links below.`,
-            );
-            helpList.addField('Commands List', `[Click Here](https://github.com/angelicaldev/expandable-djs-bot/tree/main/commands)`, true);
-            helpList.addField('Bugs/Features', `[Click Here](https://github.com/angelicaldev/expandable-djs-bot/issues)`, true);
-            helpList.addField('GitHub Repo', `[Click Here](https://github.com/angelicaldev/expandable-djs-bot)`, true);
+            helpList.setTitle(tr.translate('HELP_TITLE', lang));
+            helpList.setDescription(tr.translate('HELP_DESCRIPTION', lang, message.client.user.username));
+            helpList.addField(tr.translate('HELP_COMMANDS', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/angelicaldev/expandable-djs-bot/tree/main/commands)`, true);
+            helpList.addField(tr.translate('HELP_BUGS_FEATURES', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/angelicaldev/expandable-djs-bot/issues)`, true);
+            helpList.addField(tr.translate('HELP_GITHUB_REPO', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/angelicaldev/expandable-djs-bot)`, true);
             helpList.setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, size: 256 }));
             helpList.setColor(embedColour);
             /* Send the embed to the user; if the user has direct messages closed, react to the original message with a cross, otherwise with a tick */
@@ -54,7 +48,7 @@ module.exports = {
         const command = commands.get(name) || commands.find((c) => c.aliases && c.aliases.includes(name));
 
         /* If the command could not be found, return an error message */
-        if (!command) return message.reply("that's not a valid command!");
+        if (!command) return message.channel.send(tr.translate('INVALID COMMAND', lang));
 
         /* Build a new embed for the command help message and push all applicable data to the array*/
 

@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const config = require('./configs/config.json');
+const translator = require('../translations/translator');
 
 const client = new Discord.Client({
     disableMentions: 'everyone',
@@ -13,4 +14,4 @@ client.commands = new Discord.Collection();
 
 client.login(process.env.DISCORD_AUTH_TOKEN);
 
-module.exports = { client, ratelimitCooldown, cooldowns, config };
+module.exports = { client, ratelimitCooldown, cooldowns, config, translator };

@@ -1,5 +1,6 @@
 const { Collection } = require('discord.js');
-const { ratelimitCooldown, cooldowns, config } = require('../core/core.js');
+const { ratelimitCooldown, cooldowns, config, translator: tr } = require('../core/core.js');
+let lang = config.language;
 
 module.exports = async (client, message) => {
     /* If the author is a bot, or the message was not sent in a guild; return */
@@ -14,7 +15,7 @@ module.exports = async (client, message) => {
     /* This is where we check if the message starts with the prefix defined in ./core/config.json, if not; return */
     if (message.content.startsWith(config.prefix)) {
         /* Due to the fact you cannot send an Embed unless EMBED_LINKS is granted; the bot will require it */
-        if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send('I require the `EMBED_LINKS` permission to operate.');
+        if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send(tr.translate('NEED_EMBED_PERMS', lang));
 
         /* A messy but easy way to check if the user is spamming the bot; when the user uses a command, the bot will ignore the next command used if it was within a small timeframe */
         if (ratelimitCooldown.has(message.author.id)) return;
@@ -25,18 +26,15 @@ module.exports = async (client, message) => {
     }
 
     /* Check if the user executing the command is the owner of the bot, if not, return it */
-    if (command.devOnly && config.ownerID != message.author.id) return message.channel.send(`You do not have permission to use this command, ${message.author}.`);
+    if (command.devOnly && config.ownerID != message.author.id) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
 
     /* If the command has a permission object, and the user does not have that permission; deny the user from executing the command and return. */
-    if (command.permission && !message.member.hasPermission(command.permission)) return message.channel.send(`You do not have permission to use this command, ${message.author}.`);
+    if (command.permission && !message.member.hasPermission(command.permission)) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
 
     /* If the command requires args and the user does not pass them; tell the user the correct usage of the command and return */
     if (command.args && !args.length) {
-        /* Build the error message, if there is no usage example in the command, simply tell the user the usage was incorrect */
-        let reply = `**Incorrect usage!** `;
-        if (command.usage) reply += `The correct usage is: \n> \`${config.prefix}${commandName} ${command.usage}\``;
         /* Send the error message; delete the authors message and error message after elapsed time */
-        let errmsg = await message.channel.send(reply);
+        let errmsg = await message.channel.send(tr.translate('INCORRECT_USAGE', lang, config.prefix, commandName, command.usage));
         message.delete({ timeout: 6000 });
         return errmsg.delete({ timeout: 8000 });
     }
@@ -55,7 +53,7 @@ module.exports = async (client, message) => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
-            let cooldownMessage = await message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+            let cooldownMessage = await message.channel.send(tr.translate('ON_COOLDOWN', lang, message.author, timeLeft.toFixed(1), command.name));
             message.delete({ timeout: 4000 }).catch(() => {});
             return cooldownMessage.delete({ timeout: 2500 }).catch(() => {
                 return;
@@ -68,10 +66,10 @@ module.exports = async (client, message) => {
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
         /* Execute the command */
-        command.execute(message, args);
+        command.execute(message, lang, tr, args);
     } catch (error) {
         /* If we end up here; that means the command has failed to execute properly. */
         console.error(error);
-        message.reply('An error occured while trying to execute this command.');
+        message.channel.send(tr.translate('ERROR_OUTPUT', lang));
     }
 };
