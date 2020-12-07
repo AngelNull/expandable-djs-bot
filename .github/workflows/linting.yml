@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  lint:
+  Lint:
 
     runs-on: ubuntu-latest
 
