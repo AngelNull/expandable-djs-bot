@@ -18,9 +18,9 @@ module.exports = {
             /* Build the embed */
             helpList.setTitle(tr.translate('HELP_TITLE', lang));
             helpList.setDescription(tr.translate('HELP_DESCRIPTION', lang, message.client.user.username));
-            helpList.addField(tr.translate('HELP_COMMANDS', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/angelicaldev/expandable-djs-bot/tree/main/commands)`, true);
-            helpList.addField(tr.translate('HELP_BUGS_FEATURES', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/angelicaldev/expandable-djs-bot/issues)`, true);
-            helpList.addField(tr.translate('HELP_GITHUB_REPO', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/angelicaldev/expandable-djs-bot)`, true);
+            helpList.addField(tr.translate('HELP_COMMANDS', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot/tree/main/commands)`, true);
+            helpList.addField(tr.translate('HELP_BUGS_FEATURES', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot/issues)`, true);
+            helpList.addField(tr.translate('HELP_GITHUB_REPO', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot)`, true);
             helpList.setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, size: 256 }));
             helpList.setColor(embedColour);
             /* Send the embed to the user; if the user has direct messages closed, react to the original message with a cross, otherwise with a tick */
