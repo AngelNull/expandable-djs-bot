@@ -2,7 +2,7 @@ require('dotenv').config();
 const fs = require('fs');
 const { client } = require('./core/core.js');
 
-fs.readdir('./events/', (err, files) => {
+fs.readdir('./src/events/', (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith('.js')) return;
@@ -14,7 +14,7 @@ fs.readdir('./events/', (err, files) => {
     });
 });
 
-fs.readdir('./commands/', (err, files) => {
+fs.readdir('./src/commands/', (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith('.js')) return;
