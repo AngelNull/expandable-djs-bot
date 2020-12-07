@@ -1,11 +1,8 @@
-name: Linting Check
+name: Testing
 
 on:
   push:
-    branches: 
-    - main 
-    - pr/*
-    - test/*
+    branches: [ main] 
   pull_request:
     branches: [ main ]
 
