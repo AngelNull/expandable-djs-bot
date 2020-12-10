@@ -1,5 +1,5 @@
-const { translateEN } = require('./en');
-const { translateFR } = require('./fr');
+const { translateEN } = require('./languages/en');
+const { translateFR } = require('./languages/fr');
 
 const translations = {
     en: translateEN,
