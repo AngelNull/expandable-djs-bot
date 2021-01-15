@@ -23,7 +23,7 @@ Click "Add Bot" and confirm the pop-up that appears on your screen.
 
 ## **Step 4.** 
 
-Go to `src/core/configs` and rename `config.json.example` to `config.json`. Then, open up your terminal and navigate to the install directory and run `npm run config`
+Go to `src/core/configs` and rename `config.json.example` to `config.json` and in the root directory rename `.env.example` to `.env` Then, open up your terminal and navigate to the install directory and run `npm run config`
 
 Navigate through the setup prompts, once finished you will recieve confirmation.
 
