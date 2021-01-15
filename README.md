@@ -1,7 +1,6 @@
 ![logo](/assets/logo_269x150.png)
-
-![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
 # Expandable-DJS-Bot
+## ![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
 ## Purpose
 Extendable-DJS-Bot (EDB) is a discord.js bot framework, allowing for easy expansion with new commands, translations and more. 
 
