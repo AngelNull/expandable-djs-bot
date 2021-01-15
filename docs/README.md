@@ -1,4 +1,4 @@
-# Initial page
+# Home Page
 
 This is a test
 

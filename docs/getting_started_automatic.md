@@ -1,4 +1,4 @@
-# GETTING\_STARTED\_AUTOMATIC
+# Getting Started \(Auto\)
 
 ## Setting Up The Bot
 

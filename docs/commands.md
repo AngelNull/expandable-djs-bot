@@ -1,4 +1,4 @@
-# COMMANDS
+# Commands
 
 ## Disabling/Enabling Commands
 

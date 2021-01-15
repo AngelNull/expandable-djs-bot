@@ -1,4 +1,4 @@
-# TRANSLATIONS
+# Translations
 
 ## Translations
 
