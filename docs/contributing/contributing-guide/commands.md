@@ -112,7 +112,7 @@ message.channel.send('Hey!');
 
 Once this has been added, run the reload command with your bots own prefix, for this example, the prefix is `!` so we will run `!reload hello`. Now, when we do `!hello` the bot should reply like this:
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](../../.gitbook/assets/image.png)
 
 And that's it! You've created a fully operational command. From here-on out, it's up to you to decide what you want to create using discord.js.
 

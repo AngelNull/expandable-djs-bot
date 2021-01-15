@@ -40,15 +40,15 @@ Never share your discord token with anyone, it can and most likely will me used 
 
 Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application
 
-![](../../.gitbook/assets/image%20%283%29.png)
+![](../../.gitbook/assets/image%20%282%29.png)
 
 Enter a name for your application, and then click on the "bot" tab on the sidebar.
 
-![](../../.gitbook/assets/image.png)
+![](../../.gitbook/assets/image%20%283%29.png)
 
 Click the **Add Bot** button, and then confirm the pop-up on your screen.
 
-![](../../.gitbook/assets/image%20%281%29.png)
+![](../../.gitbook/assets/image%20%284%29.png)
 
 Configure the bot to your liking.
 

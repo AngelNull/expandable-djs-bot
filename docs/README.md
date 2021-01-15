@@ -1,6 +1,6 @@
 # Information
 
-![](.gitbook/assets/nginex%20%283%29.png)
+![](.gitbook/assets/nginex.png)
 
 ![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
 
