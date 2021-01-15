@@ -36,9 +36,7 @@ Click "Add Bot" and confirm the pop-up that appears on your screen.
 
 ## **Step 4.**
 
-{% hint style="danger" %}
 Never share your discord token with anyone, it can and most likely **will** me used maliciously
-{% endhint %}
 
 Rename the `.env.example` file in the root directory to just `.env`, and then copy the token from the bot application page into your `.env` file, it should look something like this:
 
@@ -133,4 +131,3 @@ You must choose from one of the following activity types, and enter them exactly
 * LISTENING
 * WATCHING
 * COMPETING
-
