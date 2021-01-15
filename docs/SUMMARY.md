@@ -2,10 +2,10 @@
 
 * [Information](README.md)
 
-## Installation <a id="installations"></a>
+## Installation
 
-* [Getting Setup](installations/getting-setup/README.md)
-  * [Getting Setup \(Manual\)](installations/getting-setup/getting-setup-manual.md)
+* [Getting Setup](installation/getting-setup/README.md)
+  * [Getting Setup \(Manual\)](installation/getting-setup/getting-setup-manual.md)
 
 ## Contributing
 

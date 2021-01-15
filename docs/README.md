@@ -14,7 +14,7 @@ The framework has been created from the ground up based on multiple discord bots
 
 Please check this guide to set up the project for production/development usage
 
-{% page-ref page="installations/getting-setup/" %}
+{% page-ref page="installation/getting-setup/" %}
 
 ## How do I contribute to EDB?
 
