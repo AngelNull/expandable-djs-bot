@@ -22,13 +22,9 @@ Pull Requests should be made to the `main` branch, preferably from a branch in y
 
 When a PR is made, it will be reviewed by a maintainer, and must pass all checks before being merged.
 
-### Titles
+### Commit Conventions
 
-Pull request titles should start with the something along the lines of the following to make them easy to read.
-
-`Feature:`  
-`Docs:`  
-`Bug Fix:`
+All commits must follow the repository [commit convention](https://github.com/AngelNull/expandable-djs-bot/blob/main/.github/COMMIT_CONVENTION.md), keep this in mind when making commits as it will not be checked pre-commit.
 
 ### Codebase Changes
 

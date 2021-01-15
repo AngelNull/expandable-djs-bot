@@ -40,7 +40,7 @@ Never share your discord token with anyone, it can and most likely will me used 
 
 Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](../../.gitbook/assets/image%20%282%29%20%281%29.png)
 
 Enter a name for your application, and then click on the "bot" tab on the sidebar.
 
