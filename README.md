@@ -13,7 +13,7 @@ A full version of the setup guide can be found [here](https://angelnull.gitbook.
 Assuming you already have a discord bot application setup:
 ```
 1. Clone Project
-2. Run npm install`
+2. Run npm install
 3. Run npm run config 
 4. Run node .
 ````
