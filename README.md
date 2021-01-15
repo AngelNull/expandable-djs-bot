@@ -2,25 +2,23 @@
 
 ![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
 # Expandable-DJS-Bot
-Expandable-DJS-Bot (herein, EDB) is a basic outline of a Discord.js discord-bot with some barebones structure and features. 
+## Purpose
+Extendable-DJS-Bot (EDB) is a discord.js bot framework, allowing for easy expansion with new commands, translations and more. 
 
-EDB allows for developers to add their own commands to an already structured discord bot, as well for users to be able to just install the required dependacies, fill in a few configurations and launch. 
+The framework has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
 
-## Setting Up
+## Setup
+A full version of the setup guide can be found [here](https://angelnull.gitbook.io/edb/installation/getting-setup)
 
-In order to learn how to set up and deploy the bot, please check out the wiki page [here](https://github.com/AngelNull/expandable-djs-bot/wiki/Getting-Started), or the GETTING_STARTED.md file in the docs directory.
+Assuming you already have a discord bot application setup:
+```
+1. Clone Project
+2. Run npm install`
+3. Run npm run config 
+4. Run node .
+````
+## Documentation
+The documentation for this project can be found [here on GitBook](https://angelnull.gitbook.io/edb/) or inside of the `/docs/` folder. 
 
-## Contributing to EDB 
-
-### Own Code
-Contributions to this project are welcomed and appreciated, anything from adding new commands to optimising the existing files. If you plan to contribute, please use the eslint and prettier configurations in this project and ensure all code has been locally tested. 
-
-### Commands
-If you wish to create your own commands and want a guide on setting up the basics check out the wiki page [here](https://github.com/AngelNull/expandable-djs-bot/wiki/Commands).
-
-### Translations
-If you wish to create a language file and want a guide on doing so, check [here](https://github.com/AngelNull/expandable-djs-bot/wiki/Translations)
-
-### Reporting Bugs
-If you find a bug whilst running EDB please open an issue under the "Report a Bug" template and follow the formatting provided. No support is offered for 3rd party plugins or modifications unless they are being processed through this repository 
-
+## Contributing
+The guide to contributing to this project can be found [here](https://angelnull.gitbook.io/edb/contributing/contributing-guide)
