@@ -1,3 +1,6 @@
+![logo](/assets/logo_269x150.png)
+
+![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
 # Expandable-DJS-Bot
 Expandable-DJS-Bot (herein, EDB) is a basic outline of a Discord.js discord-bot with some barebones structure and features. 
 
