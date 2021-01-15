@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint --ext .js,.jsx .",
-    "config": "node src/scripts/setup.js"
+    "config": "node src/scripts/setup.js",
+    "release:major": "changelog -M",
+    "release:minor": "changelog -m",
+    "release:patch": "changelog -p"
   },
   "repository": {
     "type": "git",
@@ -13,6 +16,10 @@
   },
   "author": "AngelNull",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AngelNull/expandable-djs-bot/issues"
+  },
+  "homepage": "https://github.com/AngelNull/expandable-djs-bot#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
@@ -24,6 +31,7 @@
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "generate-changelog": "^1.8.0",
     "prettier": "^2.2.1"
   }
 }
