@@ -66,6 +66,27 @@ const translations = {
 };
 ```
 
+## **Step 4.**
+Adding the language to the automated setup handler. To do this, go to `scripts/setup.js` and navigate to this part of the file
+
+```javascript
+    {
+        type: 'select',
+        name: 'language',
+        message: 'Bot Language?',
+        choices: [
+            { title: 'English (Source)', value: 'en' },
+            { title: 'French (Translation)', value: 'fr' },
+            // { title: 'LANG (Translation)', value: 'LANG' },
+        ],
+        initial: 0,
+    },
+```
+
+Add your new language in to the choices list, and set the value to be the same as the language code.
+
+Run through the setup handler by doing `npm run config` and ensure that the new option works successfully.
+
 ## **Congratulations**
 
 You should now successfully have your language pack recognised by the bot, now it's time to start modifying the language file itself.
@@ -79,4 +100,6 @@ The translation-template will have provided all values pre-filled in English wit
 Once you have managed to translate everything accurately, open up a pull-request and it'll be reviewed. All of your translations will be reviewed and the translation pack will be ensured it has been setup properly.
 
 If everything has gone smoothly, your translation pack will be merged into the project.
+
+Thank you! :)
 

@@ -5,7 +5,7 @@ EDB allows for developers to add their own commands to an already structured dis
 
 ## Setting Up
 
-In order to learn how to set up and deploy the bot, please check out the wiki page [here](https://github.com/AngelNull/expandable-djs-bot/wiki/Getting-Started), or the GETTING_STARTED.md file in the wiki directory.
+In order to learn how to set up and deploy the bot, please check out the wiki page [here](https://github.com/AngelNull/expandable-djs-bot/wiki/Getting-Started), or the GETTING_STARTED.md file in the docs directory.
 
 ## Contributing to EDB 
 

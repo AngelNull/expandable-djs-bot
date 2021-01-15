@@ -4,7 +4,8 @@
   "description": "An easily expandable discord.js bot",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint --ext .js,.jsx ."
+    "lint": "eslint --ext .js,.jsx .",
+    "config": "node src/scripts/setup.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
+    "prompts": "^2.4.0",
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
