@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { confirmReaction } = require('../utils/utils');
+const utils = require('../utils/');
 const { successColour, embedColour, errorColour } = require('../core/configs/embedcolours.json');
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
             embed.setColor(embedColour);
             let confirmMessage = await message.channel.send(embed);
             /* Run the confirm reaction function from utils */
-            let confirmReact = await confirmReaction(confirmMessage, message.author.id, embed);
+            let confirmReact = await utils.reacts.confirm(confirmMessage, message.author.id, embed);
             /* If the user confirmed the reaction from the function */
             if (confirmReact == 'confirmed') {
                 message.delete().catch(() => {});
