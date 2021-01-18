@@ -9,7 +9,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 3,
-    execute: async (message) => {
+    execute: (message) => {
         const embed = new MessageEmbed();
         embed.setColor(embedColour);
         embed.setTitle('Server Info');
