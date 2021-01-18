@@ -21,11 +21,11 @@ const translate = (messageId, language, ...params) => {
                 throw new Error('Unrecognized translation type');
             }
         } else {
-            console.log(`Translation message ${messageId} not available in ${language}`);
+            console.warn(`Translation message ${messageId} not available in ${language}`);
             return null;
         }
     } else {
-        console.log(`No translation file available for: ${language}`);
+        console.warn(`No translation file available for: ${language}`);
         return null;
     }
 };
