@@ -53,10 +53,11 @@ module.exports = {
         /* Build a new embed for the command help message and push all applicable data to the array*/
 
         const embed = new Discord.MessageEmbed().setTitle(`Command: ${args[0].toLowerCase().capitalize()}`).setColor(embedColour);
+        if (command.devOnly) embed.setTitle(`Command: ${args[0].toLowerCase().capitalize()} - Developer Only`);
         if (command.description) data.push(`${command.description}\n`);
         if (command.aliases) data.push(`**Aliases:** ${command.name}, ${command.aliases.join(', ')}`);
         if (command.usage) data.push(`**Usage:** ${prefix}${args[0].toLowerCase()} ${command.usage}`);
-        if (command.permission) data.push(`**Permission:** ${command.permission} | ${command.rolePermission}`);
+        if (command.permission) data.push(`**Permission:** ${command.permission}`);
         data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
         embed.setDescription(data);
         message.channel.send(embed);
