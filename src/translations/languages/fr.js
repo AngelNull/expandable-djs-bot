@@ -1,6 +1,6 @@
 const translateFR = {
     /*
-    READ WIKI/TRANSLATIONS.md AND THIS BEFORE MAKING ANY CHANGES:
+    READ THE DOCUMENTATION BEFORE CREATING A TRANSLATION
     
 	When translating this file, please only change the parts in backticks and nothing else. all variables need to be used.
     These can be placed anywhere within the string, refer back to the source language (English) for their original placement.
@@ -24,6 +24,7 @@ const translateFR = {
     ON_COOLDOWN: (user, cooldown, command) => `${user}, veuillez patienter ${cooldown} seconde (s) de plus avant d'utiliser à nouveau \`${command}\`.`,
     ERROR_OUTPUT: `Une erreur inattendue s'est produite.`,
     ERROR_OUTPUT_TRACE: (err) => `Une erreur inattendue s'est produite.: ${err}.`,
+    NEED_PERMS: (permissionName) => `Je n'ai pas l'autorisation ${permissionName}, veuillez m'accorder ceci avant de réessayer.`,
 
     /*          
         Events Files
@@ -32,7 +33,6 @@ const translateFR = {
     
     /* events/message.js */
     INCORRECT_USAGE: (prefix, command, usage) => `Une utilisation incorrecte! L'utilisation correcte est: \n \`${prefix}${command} ${usage}\``,
-    NEED_EMBED_PERMS: `J'ai besoin de l'autorisation \`EMBED_LINKS\` pour être utilisée.`,
 
     /* 
         Commands
@@ -66,6 +66,9 @@ const translateFR = {
     INVITE_INVALID_DESC: `Impossible de trouver les informations pour cette invitation, elle est probablement invalide ou a expiré.`,
     INVITE_INFORMATION: `Invite Information`,
     INVITE_CTR_IN_GUILD: (guild) => `\`Invite creator est également membre de ${guild}\``,
+
+    /* commands/list.js */
+    LIST_INVALID_CHOICE: (options) => `Option de générateur de liste non valide, les options valides sont: ${options}.`,
 
     /* commands/ping.js */
     PING_PINGING: `S'il vous plaît, attendez...`,

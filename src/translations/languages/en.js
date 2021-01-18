@@ -1,6 +1,6 @@
 const translateEN = {
     /*
-    READ WIKI/TRANSLATIONS.md AND THIS BEFORE MAKING ANY CHANGES:
+    READ THE DOCUMENTATION BEFORE CREATING A TRANSLATION
     
 	When translating this file, please only change the parts in backticks and nothing else. all variables need to be used.
     These can be placed anywhere within the string, refer back to the source language (English) for their original placement.
@@ -24,7 +24,7 @@ const translateEN = {
     ON_COOLDOWN: (user, cooldown, command) => `${user}, Please wait ${cooldown} more second(s) before using \`${command}\` again.`,
     ERROR_OUTPUT: `An unexpected error occured.`,
     ERROR_OUTPUT_TRACE: (err) => `An unexpected error occured: ${err}.`,
-
+    NEED_PERMS: (permissionName) => `I lack the permission ${permissionName}, please grant me this before trying again.`,
     /*          
         Events Files
         Every single event-only translation goes here. 
@@ -32,7 +32,6 @@ const translateEN = {
     
     /* events/message.js */
     INCORRECT_USAGE: (prefix, command, usage) => `Incorrect usage! The correct usage is: \n \`${prefix}${command} ${usage}\``,
-    NEED_EMBED_PERMS: `I require the \`EMBED_LINKS\` permission to be used.`,
 
     /* 
         Commands
@@ -65,6 +64,9 @@ const translateEN = {
     INVITE_INVALID_DESC: `Could not find information for that invite, it is likely invalid or has expired.`,
     INVITE_INFORMATION: `Invite Information`,
     INVITE_CTR_IN_GUILD: (guild) => `\`Invite creator is also a member of ${guild}\``,
+
+    /* commands/list.js */
+    LIST_INVALID_CHOICE: (options) => `Invalid list generator option, the valid options are: ${options}.`,
 
     /* commands/ping.js */
     PING_PINGING: `Pinging...`,
