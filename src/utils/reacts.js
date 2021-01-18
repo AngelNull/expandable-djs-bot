@@ -1,10 +1,14 @@
 const { successColour, errorColour } = require('../core/configs/embedcolours.json');
 
-/*
+/**
  * This function sets up a "confirm/deny" reaction event on the given message, userid is for what user can confirm or deny this event and embed is for
  * the specified embed to edit
+ * @param {any} message The discord message object
+ * @param {string} userID The invoking users discord ID
+ * @param {any} embed The discord embed object
  */
-const confirmReaction = async (message, userID, embed) => {
+
+const confirm = async (message, userID, embed) => {
     let isError = false;
 
     await message.react('✅').catch(() => {
@@ -53,4 +57,4 @@ const confirmReaction = async (message, userID, embed) => {
     }
 };
 
-module.exports = { confirmReaction };
+module.exports = { confirm };

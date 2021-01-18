@@ -15,7 +15,7 @@ module.exports = async (client, message) => {
     /* This is where we check if the message starts with the prefix defined in ./core/config.json, if not; return */
     if (message.content.startsWith(config.prefix)) {
         /* Due to the fact you cannot send an Embed unless EMBED_LINKS is granted; the bot will require it */
-        if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send(tr.translate('NEED_EMBED_PERMS', lang));
+        if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send(tr.translate('NEED_PERMS', lang, 'EMBED_LINKS'));
 
         /* A messy but easy way to check if the user is spamming the bot; when the user uses a command, the bot will ignore the next command used if it was within a small timeframe */
         if (ratelimitCooldown.has(message.author.id)) return;
