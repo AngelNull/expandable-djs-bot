@@ -9,5 +9,6 @@
     "botActivityType":"",
     "streamingURL":"",
 
+    "keepOutFiles":false,
     "advancedDebugging":false
 }

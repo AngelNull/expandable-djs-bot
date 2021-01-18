@@ -68,8 +68,8 @@ const questions = [
         name: 'enableCustomActivity',
         message: 'Enable playing status?',
         initial: true,
-        active: 'true',
-        inactive: 'false',
+        active: 'yes',
+        inactive: 'no',
     },
     // Set the bots custom status
     {
@@ -99,6 +99,16 @@ const questions = [
         name: 'streamingURL',
         message: ' Bot Streaming URL?',
         initial: config.streamingURL || 'twitch.tv/youtube.com',
+    },
+
+    // Advanced debugging
+    {
+        type: 'toggle',
+        name: 'keepOutFiles',
+        message: 'Keep Outputted Files?',
+        initial: true,
+        active: 'yes',
+        inactive: 'no',
     },
 
     // Advanced debugging
@@ -140,6 +150,7 @@ const onCancel = () => {
         "botActivityType":"${response.botActivityType || ''}",
         "streamingURL":"${response.streamingURL || 'None'}",
     
+        "keepOutFiles":${response.keepOutFiles},
         "advancedDebugging":${response.advancedDebugging}
 }`,
         (err) => {
