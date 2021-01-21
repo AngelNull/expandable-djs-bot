@@ -48,7 +48,7 @@ module.exports = {
         const command = commands.get(name) || commands.find((c) => c.aliases && c.aliases.includes(name));
 
         /* If the command could not be found, return an error message */
-        if (!command) return message.channel.send(tr.translate('INVALID COMMAND', lang));
+        if (!command) return message.channel.send(tr.translate('COMMAND_NOT_FOUND', lang));
 
         /* Build a new embed for the command help message and push all applicable data to the array*/
 
