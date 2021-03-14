@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  bot:
+    restart: always
+    container_name: "Bot-Instance"
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    container_name: "MySQL-Data"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+        - 3306:3306
+        
+  adminer:
+    container_name: "MySQL-Adminer"
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
