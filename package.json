@@ -27,12 +27,10 @@
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
-    "mysql": "^2.18.1",
     "prompts": "^2.4.0",
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
-    "db-migrate": "^0.11.12",
     "db-migrate-mysql": "^2.1.2",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
