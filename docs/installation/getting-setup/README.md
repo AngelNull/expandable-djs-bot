@@ -69,7 +69,7 @@ Open up your terminal and navigate to the install directory and run the followin
 npm run config
 ```
 
-You will then be guided through configuring the bot, if you need to chance value at any time, you can run the same command again
+You will then be guided through configuring the bot, if you need to change a value at any time, you can run the same command again
 
 ## 7. **Launching**
 
