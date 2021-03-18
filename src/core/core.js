@@ -4,6 +4,7 @@ const translator = require('../translations/translator.js');
 
 const client = new Discord.Client({
     disableMentions: 'everyone',
+    shards: 'auto',
 });
 
 const ratelimitCooldown = new Set();
