@@ -4,8 +4,7 @@
 
 ## Installation
 
-* [Getting Setup](installation/getting-setup/README.md)
-  * [Getting Setup \(Manual\)](installation/getting-setup/getting-setup-manual.md)
+* [Getting Setup](installation/getting-setup.md)
 
 ## Contributing
 

@@ -11,14 +11,14 @@
 [Canary Version \(Beta Features\)](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)
 
 **Clone the Repistory**  
-[https://github.com/AngelNull/expandable-djs-bot.git](https://github.com/AngelNull/expandable-djs-bot.git)  
-  
+[https://github.com/AngelNull/expandable-djs-bot.git](https://github.com/AngelNull/expandable-djs-bot.git)
+
 **Open in GitHub Desktop**  
-x-github-client://openRepo/https://github.com/AngelNull/expandable-djs-bot
+x-github-client://openRepo/[https://github.com/AngelNull/expandable-djs-bot](https://github.com/AngelNull/expandable-djs-bot)
 
 ## 2. Install Dependancies
 
-Open up the [terminal ](https://github.com/Microsoft/Terminal)of your choice and navigate to the directory of the project. 
+Open up the [terminal ](https://github.com/Microsoft/Terminal)of your choice and navigate to the directory of the project.
 
 ### Users
 
@@ -40,15 +40,15 @@ Never share your discord token with anyone, it can and most likely will me used 
 
 Go to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application
 
-![](../../.gitbook/assets/image%20%282%29%20%281%29.png)
+![](../.gitbook/assets/image%20%282%29%20%281%29.png)
 
 Enter a name for your application, and then click on the "bot" tab on the sidebar.
 
-![](../../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
 Click the **Add Bot** button, and then confirm the pop-up on your screen.
 
-![](../../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 Configure the bot to your liking.
 
@@ -58,8 +58,8 @@ Invite the bot to the server of your choice, you can do this with the bots OAuth
 
 ## 5. Renaming Files
 
-Go to `src/core/configs` and create a copy of `config.json.example` and rename it to `config.json`   
-Go to the the root directory and create a copy of `.env.example` and rename it to `.env` 
+Go to `src/core/configs` and create a copy of `config.json.example` and rename it to `config.json`  
+Go to the the root directory and create a copy of `.env.example` and rename it to `.env`
 
 ## 6. Configuration
 
@@ -73,8 +73,8 @@ You will then be guided through configuring the bot, if you need to change a val
 
 ## 7. **Launching**
 
-You should now be ready to launch the bot and get it online.  
-  
+You should now be ready to launch the bot and get it online.
+
 To do this, simply run the following
 
 ```text
@@ -107,9 +107,7 @@ You have either entered a status that is too long for discord, given it an inval
 
 ## Further Reading
 
-{% page-ref page="../../contributing/contributing-guide/commands.md" %}
+{% page-ref page="../contributing/contributing-guide/commands.md" %}
 
-{% page-ref page="../../contributing/contributing-guide/translations.md" %}
-
-
+{% page-ref page="../contributing/contributing-guide/translations.md" %}
 
