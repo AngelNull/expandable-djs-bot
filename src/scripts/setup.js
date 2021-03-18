@@ -130,12 +130,17 @@ const onCancel = () => {
 (async () => {
     // Get the response from the prompts
     const response = await prompts(questions, { onCancel });
+
+    // Warn if escape character detected
+    if (response.prefix.match(/\\/g)) return console.error('\x1b[31m', '\nYour prefix contains an escape character, configuration aborted.\n', '\x1b[0m');
+
     console.log(`\n-----------------------------------\n          Bot Configured\n-----------------------------------\n\nTo reconfigure, simply do 'npm run config'\n`);
 
     // Write the bots authentication token
     fs.writeFile('.env', `DISCORD_AUTH_TOKEN = ${response.token}`, (err) => {
         if (err) throw err;
     });
+
     // Write the configuration for the bot
     fs.writeFile(
         './src/core/configs/config.json',
