@@ -38,12 +38,12 @@ const confirm = async (message, userID, embed) => {
         if (collected.first().emoji.name === '✅') {
             embed.setTitle('Action Confirmed');
             embed.setColor(successColour);
-            await message.reactions.removeAll().catch(() => {});
+            await message.reactions.removeAll().catch();
             return 'confirmed';
         } else {
             embed.setTitle('Action Cancelled');
             embed.setColor(errorColour);
-            await message.reactions.removeAll().catch(() => {});
+            await message.reactions.removeAll().catch();
             return 'denied';
         }
     } catch (error) {
@@ -51,8 +51,8 @@ const confirm = async (message, userID, embed) => {
         embed.setColor(errorColour);
         embed.setDescription('You failed to react in time so the action was automatically cancelled.');
         embed.setFooter('Reactions fail to appear? Check your server permissions.');
-        await message.reactions.removeAll().catch(() => {});
-        await message.edit(embed).catch(() => {});
+        await message.reactions.removeAll().catch();
+        await message.edit(embed).catch();
         return 'error';
     }
 };

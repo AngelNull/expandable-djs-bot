@@ -53,7 +53,7 @@ module.exports = async (client, message) => {
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
                 let cooldownMessage = await message.channel.send(tr.translate('ON_COOLDOWN', lang, message.author, timeLeft.toFixed(1), command.name));
-                message.delete({ timeout: 4000 }).catch(() => {});
+                message.delete({ timeout: 4000 }).catch();
                 return cooldownMessage.delete({ timeout: 2500 }).catch(() => {
                     return;
                 });

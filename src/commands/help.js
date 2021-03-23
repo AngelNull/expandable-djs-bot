@@ -24,7 +24,7 @@ module.exports = {
             helpList.setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, size: 256 }));
             helpList.setColor(embedColour);
             /* Send the embed to the user; if the user has direct messages closed, react to the original message with a cross, otherwise with a tick */
-            return await message.author
+            return message.author
                 .send(helpList)
                 .then(() => {
                     return message.react('✅').catch(() => {

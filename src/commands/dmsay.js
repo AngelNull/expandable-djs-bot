@@ -32,7 +32,7 @@ module.exports = {
             let confirmReact = await utils.reacts.confirm(confirmMessage, message.author.id, embed);
             /* If the user confirmed the reaction from the function */
             if (confirmReact == 'confirmed') {
-                message.delete().catch(() => {});
+                message.delete().catch();
                 embed.setTitle(tr.translate('DM_CONFIRMED_TITLE'));
                 embed.setDescription(tr.translate('DM_CONFIRMED_DESC', lang, user, args));
                 embed.setThumbnail(`https://i.imgur.com/Jg0azl4.gif`);
