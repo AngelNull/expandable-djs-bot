@@ -1,16 +1,14 @@
-name: Testing
+name: Quality
 
 on:
   push:
     branches: [ main ] 
   pull_request:
-    branches: [ main ]
-
+    types: [opened, synchronize, reopened]
+  
 jobs:
   Lint:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [ 14.x ]
