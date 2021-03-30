@@ -17,7 +17,7 @@ Assuming you already have a discord bot application setup:
 4. Run node .
 ````
 ## Documentation
-The documentation for this project can be found [here on GitBook](https://angelnull.gitbook.io/edb/) or inside of the `/docs/` folder. 
+The documentation for this project can be found [here on GitBook](https://docs.foxgirls.cc/edb) or inside of the `/docs/` folder. 
 
 ## Contributing
-The guide to contributing to this project can be found [here](https://angelnull.gitbook.io/edb/contributing/contributing-guide)
+The guide to contributing to this project can be found [here](https://docs.foxgirls.cc/edb/contributing-guide)
