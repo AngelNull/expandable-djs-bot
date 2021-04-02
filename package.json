@@ -27,7 +27,7 @@
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "moment": "^2.29.1",
-    "prompts": "^2.4.0",
+    "prompts": "^2.4.1",
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
