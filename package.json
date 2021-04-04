@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "config": "node src/scripts/setup.js",
+    "config:force":"node src/scripts/forceSetup.js",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --fix",
     "migrate": "db-migrate up -e sql --config migrations.json",
