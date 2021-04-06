@@ -9,13 +9,14 @@ This boilerplate has been created from the ground up based on multiple discord b
 ## Setup
 A full version of the setup guide can be found [here](https://angelnull.gitbook.io/edb/installation/getting-setup)
 
-Assuming you already have a discord bot application setup:
+Quick Setup Version
 ```
 1. Clone Project
 2. Run npm install
 3. Run npm run config 
 4. Run node .
 ````
+
 ## Documentation
 The documentation for this project can be found [here on GitBook](https://docs.foxgirls.cc/edb) or inside of the `/docs/` folder. 
 
