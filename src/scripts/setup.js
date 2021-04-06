@@ -105,14 +105,14 @@ const questions = [
         type: 'toggle',
         name: 'enableCustomColours',
         message: 'Use Custom Embed colours?',
-        initial: false,
+        initial: true,
         active: 'yes',
         inactive: 'no',
     },
 
     // Set the bots default embed colour
     {
-        type: (prev) => (prev == true ? 'text' : '#ffa500'),
+        type: (prev) => (prev == true ? 'text' : null),
         name: 'embedColour',
         message: 'Basic Embed Colour? (#Hex)',
         initial: process.env.embedColour || '#ffa500',
@@ -120,7 +120,7 @@ const questions = [
 
     // Set the bots success colour
     {
-        type: (prev) => (prev.length >= 1 ? 'text' : '#1e90ff'),
+        type: (prev) => (prev.length >= 1 ? 'text' : null),
         name: 'successColour',
         message: 'Success Embed Colour? (#Hex)',
         initial: process.env.successColour || '#1e90ff',
@@ -128,7 +128,7 @@ const questions = [
 
     // Set the bots error colour
     {
-        type: (prev) => (prev.length >= 1 ? 'text' : '#8b0000'),
+        type: (prev) => (prev.length >= 1 ? 'text' : null),
         name: 'errorColour',
         message: 'Error Embed Colour? (#Hex)',
         initial: process.env.errorColour || '#8b0000',
@@ -188,9 +188,9 @@ const onCancel = () => {
     keepOutFiles=${response.keepOutFiles}
     advancedDebugging=${response.advancedDebugging}
     
-    embedColour=${response.embedColour}
-    successColour=${response.successColour}
-    errorColour=${response.errorColour}`,
+    embedColour=${response.embedColour || '#ffa500'}
+    successColour=${response.successColour || '#1e90ff'}
+    errorColour=${response.errorColour || '#8b0000'}`,
 
         (err) => {
             if (err) throw err;
