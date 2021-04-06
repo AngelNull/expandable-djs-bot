@@ -7,7 +7,7 @@ Expandable-DJS-Bot (EDB) is a discord.js bot boilerplate, allowing for easy expa
 This boilerplate has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
 
 ## Setup
-A full version of the setup guide can be found [here](https://angelnull.gitbook.io/edb/installation/getting-setup)
+A full version of the setup guide can be found [here](https://docs.foxgirls.cc/edb/installation/getting-setup)
 
 Quick Setup Version
 ```
