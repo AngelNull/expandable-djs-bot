@@ -7,8 +7,8 @@
 ## 1. Download/Clone the Repository
 
 **Download**  
-[Click To Download](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)  
-  
+[Click To Download](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)
+
 **Clone the Repository**  
 `git clone https://github.com/AngelNull/expandable-djs-bot.git`
 
@@ -55,12 +55,7 @@ Configure the bot to your liking.
 
 Invite the bot to the server of your choice, you can do this with the bots OAuth2 link.
 
-## 5. Renaming Files
-
-Go to `src/core/configs` and create a copy of `config.json.example` and rename it to `config.json`  
-Go to the the root directory and create a copy of `.env.example` and rename it to `.env`
-
-## 6. Configuration
+## 5. Configuration
 
 Open up your terminal and navigate to the install directory and run the following
 
@@ -70,7 +65,7 @@ npm run config
 
 You will then be guided through configuring the bot, if you need to change a value at any time, you can run the same command again
 
-## 7. **Launching**
+## 6. **Launching**
 
 You should now be ready to launch the bot and get it online.
 
