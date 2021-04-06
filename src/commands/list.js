@@ -17,7 +17,7 @@ module.exports = {
         /* This will output all roles in the server */
         if (type == 'roles') {
             /* As we are outputting a list of roles in the server, the permission MANAGE_ROLES will be needed. */
-            if (message.guild.me.permissions.has('MANAGE_ROLES')) message.channel.send(tr.translate('NEED_PERM', lang, 'MANAGE_ROLES'));
+            if (message.guild.me.permissions.has('MANAGE_ROLES')) message.channel.send(tr.translate('NEED_PERMS', lang, 'MANAGE_ROLES'));
 
             /* Build the output for the file */
             let toWrite = `Roles for ${message.guild} @ ${new Date()}\n`;
