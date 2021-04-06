@@ -1,19 +1,20 @@
 const { Collection } = require('discord.js');
-const { ratelimitCooldown, cooldowns, config, translator: tr } = require('../core/core.js');
-let lang = config.language;
+const { ratelimitCooldown, cooldowns, translator: tr } = require('../core/core.js');
+require('dotenv').config();
+let lang = process.env.language;
 
 module.exports = async (client, message) => {
     /* If the author is a bot, or the message was not sent in a guild; return */
     if (message.author.bot || !message.guild) return;
 
     /* This is where we define arguments, command name and find the command to execute, if no command is found; return */
-    const args = message.content.slice(config.prefix.length).split(/ +/);
+    const args = message.content.slice(process.env.prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command = client.commands.get(commandName) || client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
     if (!command) return;
 
-    /* This is where we check if the message starts with the prefix defined in ./core/config.json, if not; return */
-    if (message.content.startsWith(config.prefix)) {
+    /* This is where we check if the message starts with the prefix defined in .env, if not; return */
+    if (message.content.startsWith(process.env.prefix)) {
         /* Due to the fact you cannot send an Embed unless EMBED_LINKS is granted; the bot will require it */
         if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send(tr.translate('NEED_PERMS', lang, 'EMBED_LINKS'));
 
@@ -25,7 +26,7 @@ module.exports = async (client, message) => {
         }, 630);
 
         /* Check if the user executing the command is the owner of the bot, if not, return it */
-        if (command.devOnly && config.ownerID != message.author.id) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
+        if (command.devOnly && process.env.ownerID != message.author.id) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
 
         /* If the command has a permission object, and the user does not have that permission; deny the user from executing the command and return. */
         if (command.permission && !message.member.hasPermission(command.permission)) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
@@ -33,7 +34,7 @@ module.exports = async (client, message) => {
         /* If the command requires args and the user does not pass them; tell the user the correct usage of the command and return */
         if (command.args && !args.length) {
             /* Send the error message; delete the authors message and error message after elapsed time */
-            let errmsg = await message.channel.send(tr.translate('INCORRECT_USAGE', lang, config.prefix, commandName, command.usage));
+            let errmsg = await message.channel.send(tr.translate('INCORRECT_USAGE', lang, process.env.prefix, commandName, command.usage));
             message.delete({ timeout: 6000 });
             return errmsg.delete({ timeout: 8000 });
         }

@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const { embedColour } = require('../core/configs/embedcolours.json');
+require('dotenv').config();
 
 module.exports = {
     name: 'avatar',
@@ -31,7 +31,7 @@ module.exports = {
         if (user) {
             /* User Found */
             embed.setTitle(tr.translate('USERS_AVATAR', lang, user.user.tag));
-            embed.setColor(embedColour);
+            embed.setColor(process.env.embedColour);
             embed.setImage(user.user.displayAvatarURL({ dynamic: true, size: 2048 }));
             message.channel.send(embed);
         }

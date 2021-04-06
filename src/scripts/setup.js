@@ -1,6 +1,5 @@
 const prompts = require('prompts');
 const fs = require('fs');
-const config = require('../core/configs/config.json');
 
 require('dotenv').config();
 
@@ -27,14 +26,14 @@ const questions = [
         type: 'text',
         name: 'prefix',
         message: 'Bot Prefix?',
-        initial: config.prefix || '!',
+        initial: process.env.prefix || '!',
     },
     // The users ID
     {
         type: 'text',
         name: 'ownerID',
         message: 'Owner UserID?',
-        initial: config.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
+        initial: process.env.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
     },
     // The Bots Language
     // Every time a new translation is added, the option must be added to the choices list below here.
@@ -76,7 +75,7 @@ const questions = [
         type: (prev) => (prev == true ? 'text' : null),
         name: 'botActivity',
         message: 'Bot Status?',
-        initial: config.botActivity || 'Beep Boop',
+        initial: process.env.botActivity || 'Beep Boop',
     },
     // Set the bots custom status type
     {
@@ -98,7 +97,41 @@ const questions = [
         type: (prev) => (prev == true || prev == 'STREAMING' ? 'text' : null),
         name: 'streamingURL',
         message: ' Bot Streaming URL?',
-        initial: config.streamingURL || 'twitch.tv/youtube.com',
+        initial: process.env.streamingURL || 'twitch.tv/youtube.com',
+    },
+
+    // Enable/Disable custom embed colours
+    {
+        type: 'toggle',
+        name: 'enableCustomColours',
+        message: 'Use Custom Embed colours?',
+        initial: false,
+        active: 'yes',
+        inactive: 'no',
+    },
+
+    // Set the bots default embed colour
+    {
+        type: (prev) => (prev == true ? 'text' : '#ffa500'),
+        name: 'embedColour',
+        message: 'Basic Embed Colour? (#Hex)',
+        initial: process.env.embedColour || '#ffa500',
+    },
+
+    // Set the bots success colour
+    {
+        type: (prev) => (prev.length >= 1 ? 'text' : '#1e90ff'),
+        name: 'successColour',
+        message: 'Success Embed Colour? (#Hex)',
+        initial: process.env.successColour || '#1e90ff',
+    },
+
+    // Set the bots error colour
+    {
+        type: (prev) => (prev.length >= 1 ? 'text' : '#8b0000'),
+        name: 'errorColour',
+        message: 'Error Embed Colour? (#Hex)',
+        initial: process.env.errorColour || '#8b0000',
     },
 
     // Advanced debugging
@@ -137,27 +170,28 @@ const onCancel = () => {
     console.log(`\n-----------------------------------\n          Bot Configured\n-----------------------------------\n\nTo reconfigure, simply do 'npm run config'\n`);
 
     // Write the bots authentication token
-    fs.writeFile('.env', `DISCORD_AUTH_TOKEN = ${response.token}`, (err) => {
-        if (err) throw err;
-    });
-
-    // Write the configuration for the bot
     fs.writeFile(
-        './src/core/configs/config.json',
-        `{
-        "prefix":"${response.prefix}",
-        "ownerID":"${response.ownerID}",
-        "language":"${response.language}",
+        '.env',
+        `
+    DISCORD_AUTH_TOKEN=${response.token}
+
+    prefix=${response.prefix}
+    ownerID=${response.ownerID}
+    language=${response.language}
+
+    botStatus=${response.botStatus}
+    enableCustomActivity=${response.enableCustomActivity}
+    botActivity=${response.botActivity || ''}
+    botActivityType=${response.botActivityType || ''}
+    streamingURL=${response.streamingURL || 'None'}
+
+    keepOutFiles=${response.keepOutFiles}
+    advancedDebugging=${response.advancedDebugging}
     
-        "botStatus":"${response.botStatus}",
-        "enableCustomActivity":${response.enableCustomActivity},
-        "botActivity":"${response.botActivity || ''}",
-        "botActivityType":"${response.botActivityType || ''}",
-        "streamingURL":"${response.streamingURL || 'None'}",
-    
-        "keepOutFiles":${response.keepOutFiles},
-        "advancedDebugging":${response.advancedDebugging}
-}`,
+    embedColour=${response.embedColour}
+    successColour=${response.successColour}
+    errorColour=${response.errorColour}`,
+
         (err) => {
             if (err) throw err;
         },

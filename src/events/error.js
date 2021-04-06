@@ -1,5 +1,5 @@
-const { advancedDebugging } = require('../core/configs/config.json');
+require('dotenv').config();
 
 module.exports = (client) => {
-    if (advancedDebugging) console.log(`‼ ${client.error}`);
+    if (process.env.advancedDebugging == 'true') console.log(`‼ ${client.error}`);
 };

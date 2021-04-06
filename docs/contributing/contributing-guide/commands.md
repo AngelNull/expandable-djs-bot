@@ -116,7 +116,7 @@ Once this has been added, run the reload command with your bots own prefix, for 
 
 And that's it! You've created a fully operational command. From here-on out, it's up to you to decide what you want to create using discord.js.
 
-If you want to use predefined embed colour values, you can just import tham with `require`, and all other configuration as well as that can be found in `src/core/configs`
+If you want to use predefined embed colour values, you can just import tham with from the .env file.
 
 ## Further Reading
 

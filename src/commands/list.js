@@ -1,6 +1,6 @@
 const { MessageAttachment } = require('discord.js');
-const { keepOutFiles } = require('../core/configs/config.json');
 const utils = require('../utils/');
+require('dotenv').config();
 
 module.exports = {
     name: 'list',
@@ -31,12 +31,12 @@ module.exports = {
             utils.file.create(fileName, toWrite);
             const attachment = new MessageAttachment(`./out/${fileName}.txt`);
             await message.channel.send(attachment);
-            if (!keepOutFiles) utils.file.remove(fileName);
+            if (!process.env.keepOutFiles) utils.file.remove(fileName);
         } else if (type == 'members') {
             /* This will output all users in the server */
             let toWrite = `Members in ${message.guild} @ ${new Date()}\n`;
             await message.guild.members.cache.forEach((member) => {
-                toWrite = `${toWrite}-------\nUsername: ${member.tag}, ID: ${member.id}, Created: ${member.createdAt}\n`;
+                toWrite = `${toWrite}-------\nUsername: ${member.user.username}${member.user.discriminator}, ID: ${member.id}, Created: ${member.user.createdAt}\n`;
             });
 
             /* Define the outputted file name */
@@ -46,7 +46,7 @@ module.exports = {
             utils.file.create(fileName, toWrite);
             const attachment = new MessageAttachment(`./out/${fileName}.txt`);
             await message.channel.send(attachment);
-            if (!keepOutFiles) utils.file.remove(fileName);
+            if (process.env.keepOutFiles == 'false') utils.file.remove(fileName);
         } else {
             return message.channel.send(tr.translate('LIST_INVALID_CHOICE', lang, '`members`, `roles`'));
         }

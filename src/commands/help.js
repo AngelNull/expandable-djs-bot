@@ -1,6 +1,5 @@
-const { embedColour } = require('../core/configs/embedcolours.json');
-const { prefix } = require('../core/configs/config.json');
 const Discord = require('discord.js');
+require('dotenv').config();
 
 module.exports = {
     name: 'help',
@@ -22,7 +21,7 @@ module.exports = {
             helpList.addField(tr.translate('HELP_BUGS_FEATURES', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot/issues)`, true);
             helpList.addField(tr.translate('HELP_GITHUB_REPO', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot)`, true);
             helpList.setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, size: 256 }));
-            helpList.setColor(embedColour);
+            helpList.setColor(process.env.embedColour);
             /* Send the embed to the user; if the user has direct messages closed, react to the original message with a cross, otherwise with a tick */
             return message.author
                 .send(helpList)
@@ -52,11 +51,11 @@ module.exports = {
 
         /* Build a new embed for the command help message and push all applicable data to the array*/
 
-        const embed = new Discord.MessageEmbed().setTitle(`Command: ${args[0].toLowerCase().capitalize()}`).setColor(embedColour);
+        const embed = new Discord.MessageEmbed().setTitle(`Command: ${args[0].toLowerCase().capitalize()}`).setColor(process.env.embedColour);
         if (command.devOnly) embed.setTitle(`Command: ${args[0].toLowerCase().capitalize()} - Developer Only`);
         if (command.description) data.push(`${command.description}\n`);
         if (command.aliases) data.push(`**Aliases:** ${command.name}, ${command.aliases.join(', ')}`);
-        if (command.usage) data.push(`**Usage:** ${prefix}${args[0].toLowerCase()} ${command.usage}`);
+        if (command.usage) data.push(`**Usage:** ${process.env.prefix}${args[0].toLowerCase()} ${command.usage}`);
         if (command.permission) data.push(`**Permission:** ${command.permission}`);
         data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
         embed.setDescription(data);

@@ -56,12 +56,7 @@ Configure the bot to your liking.
 
 Invite the bot to the server of your choice, you can do this with the bots OAuth2 link.
 
-## 5. Renaming Files
-
-Go to `src/core/configs` and create a copy of `config.json.example` and rename it to `config.json`  
-Go to the the root directory and create a copy of `.env.example` and rename it to `.env`
-
-## 6. Configuration
+## 5. Configuration
 
 Open up your terminal and navigate to the install directory and run the following
 
@@ -69,7 +64,7 @@ Open up your terminal and navigate to the install directory and run the followin
 npm run config
 ```
 
-You will then be guided through configuring the bot, if you need to change a value at any time, you can run the same command again
+You will then be guided through configuring the bot, if you need to change a value at any time, you can run the same command again. This will create all the necessary configuration files you will need.
 
 ## 7. **Launching**
 
@@ -78,7 +73,7 @@ You should now be ready to launch the bot and get it online.
 To do this, simply run the following
 
 ```text
-node .
+npm run start
 ```
 
 You will see the following all of the bots commands being loaded. If everything goes successfully, the console should output
