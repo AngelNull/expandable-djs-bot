@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
-const { embedColour } = require('../core/configs/embedcolours.json');
+require('dotenv').config();
+
 module.exports = {
     name: 'serverinfo',
     description: 'Shows information about the server',
@@ -11,7 +12,7 @@ module.exports = {
     cooldown: 3,
     execute: (message) => {
         const embed = new MessageEmbed();
-        embed.setColor(embedColour);
+        embed.setColor(process.env.embedColour);
         embed.setTitle('Server Info');
         embed.addField('Guild Name', message.guild.name, true);
         embed.addField('Guild ID', message.guild.id, true);

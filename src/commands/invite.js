@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const request = require('snekfetch');
-const { embedColour, errorColour } = require('../core/configs/embedcolours.json');
+require('dotenv').config();
 
 module.exports = {
     name: 'invite',
@@ -22,7 +22,7 @@ module.exports = {
         const embed = new MessageEmbed();
 
         embed.setTitle(tr.translate('INVITE_CHECKING', lang));
-        embed.setColor(embedColour);
+        embed.setColor(process.env.embedColour);
 
         invitecode = invitecode.replace('discord.gg/', '').replace('discordapp.com/invites/', '').replace('https://', '').replace('www.', '');
 
@@ -32,7 +32,7 @@ module.exports = {
             isError = true;
             embed.setTitle(tr.translate('INVALID_INVITE_TITLE'), lang);
             embed.setDescription(tr.translate('INVALID_INVITE_DESC'), lang);
-            embed.setColor(errorColour);
+            embed.setColor(process.env.errorColour);
             return findMessage.edit(embed);
         });
 
@@ -55,7 +55,7 @@ module.exports = {
                     body.guild.id
                 }\n\n**Invite Creator:** ${guildUser}\n**Inviter Creator ID:** ${body.inviter.id}\n\n**Channel:** ${body.channel.name.capitalize()}\n**Channel ID:** ${body.channel.id}`,
             );
-        embed.setColor(embedColour);
+        embed.setColor(process.env.successColour);
         return findMessage.edit(embed);
     },
 };

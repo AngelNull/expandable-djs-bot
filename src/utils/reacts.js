@@ -1,4 +1,4 @@
-const { successColour, errorColour } = require('../core/configs/embedcolours.json');
+require('dotenv').config();
 
 /**
  * This function sets up a "confirm/deny" reaction event on the given message, userid is for what user can confirm or deny this event and embed is for
@@ -37,18 +37,18 @@ const confirm = async (message, userID, embed) => {
 
         if (collected.first().emoji.name === '✅') {
             embed.setTitle('Action Confirmed');
-            embed.setColor(successColour);
+            embed.setColor(process.env.successColour);
             await message.reactions.removeAll().catch();
             return 'confirmed';
         } else {
             embed.setTitle('Action Cancelled');
-            embed.setColor(errorColour);
+            embed.setColor(process.env.errorColour);
             await message.reactions.removeAll().catch();
             return 'denied';
         }
     } catch (error) {
         embed.setTitle('Action Timed Out');
-        embed.setColor(errorColour);
+        embed.setColor(process.env.errorColour);
         embed.setDescription('You failed to react in time so the action was automatically cancelled.');
         embed.setFooter('Reactions fail to appear? Check your server permissions.');
         await message.reactions.removeAll().catch();

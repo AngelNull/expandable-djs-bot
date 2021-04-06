@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const utils = require('../utils/');
-const { successColour, embedColour, errorColour } = require('../core/configs/embedcolours.json');
+require('dotenv').config();
 
 module.exports = {
     name: 'dmsay',
@@ -13,7 +13,7 @@ module.exports = {
     cooldown: 1,
     execute: async (message, lang, tr, args) => {
         /* Set up the embed */
-        let embed = new MessageEmbed().setColor(successColour);
+        let embed = new MessageEmbed().setColor(process.env.successColour);
         let sendToUser = args[0];
         let user = await message.client.users.cache.get(sendToUser);
 
@@ -26,7 +26,7 @@ module.exports = {
             /* Build the confirmation embed */
             embed.setTitle(tr.translate('DM_PENDING_TITLE'), lang);
             embed.setDescription(tr.translate('DM_PENDING_DESC', lang, user, args));
-            embed.setColor(embedColour);
+            embed.setColor(process.env.embedColour);
             let confirmMessage = await message.channel.send(embed);
             /* Run the confirm reaction function from utils */
             let confirmReact = await utils.reacts.confirm(confirmMessage, message.author.id, embed);
@@ -40,7 +40,7 @@ module.exports = {
                 await user.send(args).catch(() => {
                     embed.setTitle(tr.translate('DM_FAILED_TITLE'));
                     embed.setDescription(tr.translate('DM_FAILED_DESC', lang, user));
-                    embed.setColor(errorColour);
+                    embed.setColor(process.env.errorColour);
                     embed.setThumbnail('');
                 });
                 return confirmMessage.edit(embed);
