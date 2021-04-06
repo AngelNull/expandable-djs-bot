@@ -43,7 +43,7 @@ module.exports = {
             const fileName = `${message.guild.name}_members_${Math.floor(Math.random() * new Date())}`;
 
             /* Create the file and send it back to the chat, then delete the file */
-            await utils.file.create(fileName, toWrite);
+            utils.file.create(fileName, toWrite);
             const attachment = new MessageAttachment(`./out/${fileName}.txt`);
             await message.channel.send(attachment);
             if (process.env.keepOutFiles == 'false') utils.file.remove(fileName);
