@@ -85,7 +85,7 @@ You will see the following all of the bots commands being loaded. If everything 
 
 ### **"The bot isn't responding to the prefix I gave it"**
 
-The most common cause of this is empty spacing before or after the prefix in the config.json file; if this is not the cause and you have tried multiple prefixes, please open an issue [here](https://github.com/AngelNull/expandable-djs-bot/issues/new/choose).
+The most common cause of this is empty spacing before or after the prefix in the `.env` file; if this is not the cause and you have tried multiple prefixes, please open an issue [here](https://github.com/AngelNull/expandable-djs-bot/issues/new/choose).
 
 ### **"The bot won't respond to developer commands"**
 
