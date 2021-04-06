@@ -8,13 +8,13 @@
 
 **Download**  
 [Stable Version \(Production\)](https://github.com/AngelNull/expandable-djs-bot/archive/stable.zip)  
-[Canary Version \(Beta Features\)](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)
-
-**Clone the Repistory**  
-[https://github.com/AngelNull/expandable-djs-bot.git](https://github.com/AngelNull/expandable-djs-bot.git)
+[Canary Version \(Beta Features\)](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)  
+  
+**Clone the Repository**  
+`git clone https://github.com/AngelNull/expandable-djs-bot.git`
 
 **Open in GitHub Desktop**  
-x-github-client://openRepo/[https://github.com/AngelNull/expandable-djs-bot](https://github.com/AngelNull/expandable-djs-bot)
+`x-github-client://openRepo/https://github.com/AngelNull/expandable-djs-bot`
 
 ## 2. Install Dependancies
 
@@ -56,7 +56,12 @@ Configure the bot to your liking.
 
 Invite the bot to the server of your choice, you can do this with the bots OAuth2 link.
 
-## 5. Configuration
+## 5. Renaming Files
+
+Go to `src/core/configs` and create a copy of `config.json.example` and rename it to `config.json`  
+Go to the the root directory and create a copy of `.env.example` and rename it to `.env`
+
+## 6. Configuration
 
 Open up your terminal and navigate to the install directory and run the following
 
@@ -64,7 +69,7 @@ Open up your terminal and navigate to the install directory and run the followin
 npm run config
 ```
 
-You will then be guided through configuring the bot, if you need to change a value at any time, you can run the same command again. This will create all the necessary configuration files you will need.
+You will then be guided through configuring the bot, if you need to change a value at any time, you can run the same command again
 
 ## 7. **Launching**
 
@@ -73,7 +78,7 @@ You should now be ready to launch the bot and get it online.
 To do this, simply run the following
 
 ```text
-npm run start
+node .
 ```
 
 You will see the following all of the bots commands being loaded. If everything goes successfully, the console should output
