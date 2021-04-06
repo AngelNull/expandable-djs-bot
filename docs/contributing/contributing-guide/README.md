@@ -18,7 +18,7 @@ Issues should be descriptive and thought-out to a level, providing as much infor
 
 Pull requests linked to issues should reference them within their text so they can be automatically closed when the PR is merged. PRs that are unlinked to an issue should give as much information as possible for what is being changed. 
 
-Pull Requests should be made to the `main` branch, preferably from a branch in your fork with a similar name to the PR, for example a pull request for updating links would have a fork branch titled `pr-update-links` . Any request made to the stable branch will be rejected, unless made by a maintainer.
+Pull Requests should be made to the `main` branch, preferably from a branch in your fork with a similar name to the PR, for example a pull request for updating links would have a fork branch titled `pr-update-links` .
 
 When a PR is made, it will be reviewed by a maintainer, and must pass all checks before being merged.
 

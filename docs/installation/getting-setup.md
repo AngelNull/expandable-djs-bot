@@ -7,8 +7,7 @@
 ## 1. Download/Clone the Repository
 
 **Download**  
-[Stable Version \(Production\)](https://github.com/AngelNull/expandable-djs-bot/archive/stable.zip)  
-[Canary Version \(Beta Features\)](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)  
+[Click To Download](https://github.com/AngelNull/expandable-djs-bot/archive/main.zip)  
   
 **Clone the Repository**  
 `git clone https://github.com/AngelNull/expandable-djs-bot.git`
