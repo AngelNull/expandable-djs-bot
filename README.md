@@ -15,11 +15,13 @@
       <img src="https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg" align="center" alt='Testing' >
     <br />
     <br />
-    <a href="https://edb.foxgirls.cc"><strong>Documentation »</strong></a>
+    <a href="https://edb.foxgirls.cc"><strong>Website</strong></a> | 
+    <a href="https://edb.foxgirls.cc/docs/"><strong>Documentation</strong></a>
   </p>
 </p>
 
 #
+
 ## Purpose
 Expandable-DJS-Bot (EDB) is a discord.js bot boilerplate, allowing for easy expansion with new commands, translations and more. 
 
