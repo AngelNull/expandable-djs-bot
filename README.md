@@ -15,7 +15,7 @@
       <img src="https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg" align="center" alt='Testing' >
     <br />
     <br />
-    <a href="https://docs.foxgirls.cc/edb"><strong>Documentation »</strong></a>
+    <a href="https://edb.foxgirls.cc"><strong>Documentation »</strong></a>
   </p>
 </p>
 
@@ -26,7 +26,7 @@ Expandable-DJS-Bot (EDB) is a discord.js bot boilerplate, allowing for easy expa
 This boilerplate has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
 
 ## Setup
-A full version of the setup guide can be found [here](https://docs.foxgirls.cc/edb/installation/getting-setup)
+A full version of the setup guide can be found [here](https://edb.foxgirls.cc/docs/installation/getting-setup)
 
 Quick Setup Version
 ```
@@ -37,7 +37,7 @@ Quick Setup Version
 ````
 
 ## Documentation
-The documentation for this project can be found [here on GitBook](https://docs.foxgirls.cc/edb) or inside of the `/docs/` folder. 
+The documentation for this project can be found [here on GitBook](https://edb.foxgirls.cc/docs) or in the documentation branch.
 
 ## Contributing
-The guide to contributing to this project can be found [here](https://docs.foxgirls.cc/edb/contributing-guide)
+The guide to contributing to this project can be found [here](https://edb.foxgirls.cc/docs/contributing/guide)
