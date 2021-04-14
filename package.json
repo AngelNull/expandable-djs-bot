@@ -12,7 +12,9 @@
     "migrate": "db-migrate up -e sql --config migrations.json",
     "release:major": "changelog -M",
     "release:minor": "changelog -m",
-    "release:patch": "changelog -p"
+    "release:patch": "changelog -p",
+    "docusaurus": "docusaurus",
+    "build": "docusaurus build"
   },
   "repository": {
     "type": "git",

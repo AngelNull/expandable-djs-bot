@@ -17,9 +17,9 @@ jobs:
           node-version: '12.x'
       - name: Test Build
         run: |
-          if [ -e website/yarn.lock ]; then
+          if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
-          elif [ -e website/package-lock.json ]; then
+          elif [ -e package-lock.json ]; then
           npm ci
           else
           npm i
@@ -43,9 +43,9 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "gh-actions"
-          if [ -e website/yarn.lock ]; then
+          if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
-          elif [ -e website/package-lock.json ]; then
+          elif [ -e package-lock.json ]; then
           npm ci
           else
           npm i
