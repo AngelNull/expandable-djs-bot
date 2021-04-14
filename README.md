@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://docs.foxgirls.cc/edb">
-    <img src="/assets/logo_269x150.png" alt="Logo">
+    <img src="/assets/img/logo_269x150.png" alt="Logo">
   </a>
 
   <h3 align="center">Expandable-DJS-Bot</h3>
