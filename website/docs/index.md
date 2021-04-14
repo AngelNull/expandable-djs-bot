@@ -1,10 +1,8 @@
-# Information
-
-![](.gitbook/assets/nginex.png)
-
-![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
-
-## What is this project all about?
+---
+title: Welcome
+sidebar_label: Welcome
+slug: /
+---
 
 Expandable-DJS-Bot \(EDB\) is a discord.js bot boilerplate, allowing for easy expansion with new commands, translations and more.
 
@@ -12,9 +10,7 @@ This boilerplate has been created from the ground up based on multiple discord b
 
 ## How do I install/setup EDB?
 
-Please check this guide to set up the project for production/development usage
-
-{% page-ref page="installation/getting-setup.md" %}
+You can find a full guide to set up and configure EDB on the "getting setup" page.
 
 ## How do I contribute to EDB?
 

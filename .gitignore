@@ -1,3 +1,5 @@
 node_modules
 .env
 out/
+website/.docusaurus
+website/build

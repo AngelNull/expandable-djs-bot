@@ -1,4 +1,8 @@
-# Contributing Guide
+---
+title: Contributing Guide
+sidebar_label: Contributing Guide
+slug: /contributing/guide
+---
 
 ## How to Contribute
 
@@ -32,9 +36,8 @@ All codebase changes should be as clean as possible, with comments on key parts 
 
 #### If you are trying to make new commands or translations
 
-{% page-ref page="translations.md" %}
-
-{% page-ref page="commands.md" %}
+[Create Custom Commands](/docs/contributing/creating-commands)    
+[Create Translations](/docs/contributing/creating-translations)
 
 ### Documentation Changes
 

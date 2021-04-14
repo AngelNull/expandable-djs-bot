@@ -1,4 +1,8 @@
-# Creating Commands
+---
+title: Creating Commands
+sidebar_label: Creating Commands
+slug: /contributing/creating-commands
+---
 
 ## Enabling/Disabling Commands
 
@@ -22,7 +26,7 @@ Create a new file in the **commands** directory, we're going to call ours **hell
 
 Inside of your new file, paste the exports needed to for registering a command below and adjust them to your liking.
 
-### **Each Export Explained:**
+### Each Export Explained*
 
 ```javascript
 module.exports = {
@@ -112,7 +116,7 @@ message.channel.send('Hey!');
 
 Once this has been added, run the reload command with your bots own prefix, for this example, the prefix is `!` so we will run `!reload hello`. Now, when we do `!hello` the bot should reply like this:
 
-![](../../.gitbook/assets/image.png)
+![](../../static/img/result.png)
 
 And that's it! You've created a fully operational command. From here-on out, it's up to you to decide what you want to create using discord.js.
 
