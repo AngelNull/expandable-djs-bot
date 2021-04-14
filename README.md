@@ -1,43 +1,33 @@
-<!--PROJECT HEAD-->
-<br />
-<p align="center">
-  <a href="https://docs.foxgirls.cc/edb">
-    <img src="/assets/img/logo_269x150.png" alt="Logo">
-  </a>
+# Website
 
-  <h3 align="center">Expandable-DJS-Bot</h3>
+This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-  <p align="center">
-    Easy to use Discord.js bot template
-    <br />
-      <img src="https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg" align="center" alt='Testing' >
-      <img src="https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg" align="center" alt='Testing' >
-      <img src="https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg" align="center" alt='Testing' >
-    <br />
-    <br />
-    <a href="https://docs.foxgirls.cc/edb"><strong>Documentation »</strong></a>
-  </p>
-</p>
+## Installation
 
-#
-## Purpose
-Expandable-DJS-Bot (EDB) is a discord.js bot boilerplate, allowing for easy expansion with new commands, translations and more. 
-
-This boilerplate has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
-
-## Setup
-A full version of the setup guide can be found [here](https://docs.foxgirls.cc/edb/installation/getting-setup)
-
-Quick Setup Version
+```console
+yarn install
 ```
-1. Clone Project
-2. Run npm install
-3. Run npm run config 
-4. Run node .
-````
 
-## Documentation
-The documentation for this project can be found [here on GitBook](https://docs.foxgirls.cc/edb) or inside of the `/docs/` folder. 
+## Local Development
 
-## Contributing
-The guide to contributing to this project can be found [here](https://docs.foxgirls.cc/edb/contributing-guide)
+```console
+yarn start
+```
+
+This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+
+## Build
+
+```console
+yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+## Deployment
+
+```console
+GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

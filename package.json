@@ -1,44 +1,36 @@
 {
-  "name": "expandable-djs-bot",
-  "version": "4.0.0",
-  "description": "An easily expandable discord.js bot",
-  "main": "src/index.js",
+  "name": "docs",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node src/index.js",
-    "config": "node src/scripts/setup.js",
-    "config:force":"node src/scripts/forceSetup.js",
-    "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "eslint --fix",
-    "migrate": "db-migrate up -e sql --config migrations.json",
-    "release:major": "changelog -M",
-    "release:minor": "changelog -m",
-    "release:patch": "changelog -p",
     "docusaurus": "docusaurus",
-    "build": "docusaurus build"
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AngelNull/expandable-djs-bot.git"
-  },
-  "author": "AngelNull",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/AngelNull/expandable-djs-bot/issues"
-  },
-  "homepage": "https://github.com/AngelNull/expandable-djs-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3",
-    "dotenv": "^8.2.0",
-    "moment": "^2.29.1",
-    "prompts": "^2.4.1",
-    "snekfetch": "^4.0.4"
+    "@docusaurus/core": "2.0.0-alpha.72",
+    "@docusaurus/preset-classic": "2.0.0-alpha.72",
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
-  "devDependencies": {
-    "db-migrate-mysql": "^2.1.2",
-    "eslint": "^7.24.0",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "generate-changelog": "^1.8.0",
-    "prettier": "^2.2.1"
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
