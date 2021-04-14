@@ -4,7 +4,7 @@ module.exports = {
     title: 'EDB',
     tagline: '',
     url: 'https://angelnull.github.io/expandable-djs-bot',
-    baseUrl: '/',
+    baseUrl: '/website',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/logo.png',
