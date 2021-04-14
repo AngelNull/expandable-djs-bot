@@ -1,6 +1,25 @@
-![logo](/assets/logo_269x150.png)
-# Expandable-DJS-Bot
-## ![Testing](https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg) ![CodeQL](https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg) ![Dependancies](https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg)
+<!--PROJECT HEAD-->
+<br />
+<p align="center">
+  <a href="https://docs.foxgirls.cc/edb">
+    <img src="/assets/logo_269x150.png" alt="Logo">
+  </a>
+
+  <h3 align="center">Expandable-DJS-Bot</h3>
+
+  <p align="center">
+    Easy to use Discord.js bot template
+    <br />
+      <img src="https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg" align="center" alt='Testing' >
+      <img src="https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg" align="center" alt='Testing' >
+      <img src="https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg" align="center" alt='Testing' >
+    <br />
+    <br />
+    <a href="https://docs.foxgirls.cc/edb"><strong>Documentation »</strong></a>
+  </p>
+</p>
+
+#
 ## Purpose
 Expandable-DJS-Bot (EDB) is a discord.js bot boilerplate, allowing for easy expansion with new commands, translations and more. 
 
