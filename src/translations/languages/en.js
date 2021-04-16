@@ -13,6 +13,8 @@ const translateEN = {
     */
 
     CLICK_HERE: `Click Here`,
+    LOAD_EVENT: (event) => `⌛ Loading Event: ${event}`,
+    LOAD_COMMAND: (command) => `⌛ Loading Command: ${command}`,
 
     /*
 		Errors
@@ -29,7 +31,10 @@ const translateEN = {
         Events Files
         Every single event-only translation goes here. 
     *
-    
+
+    /* events/ready.js */
+    CLIENT_READY: (user, date) => `✅ Ready: ${user} @ ${date}`,
+
     /* events/message.js */
     INCORRECT_USAGE: (prefix, command, usage) => `Incorrect usage! The correct usage is: \n \`${prefix}${command} ${usage}\``,
 
