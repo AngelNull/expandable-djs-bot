@@ -134,7 +134,7 @@ const questions = [
         initial: process.env.errorColour || '#8b0000',
     },
 
-    // Advanced debugging
+    // Keep output files like commands/list.js
     {
         type: 'toggle',
         name: 'keepOutFiles',
