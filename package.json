@@ -6,13 +6,9 @@
   "scripts": {
     "start": "node src/index.js",
     "config": "node src/scripts/setup.js",
-    "config:force":"node src/scripts/forceSetup.js",
+    "config:force": "node src/scripts/forceSetup.js",
     "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "eslint --fix",
-    "migrate": "db-migrate up -e sql --config migrations.json",
-    "release:major": "changelog -M",
-    "release:minor": "changelog -m",
-    "release:patch": "changelog -p"
+    "lint:fix": "eslint --fix"
   },
   "repository": {
     "type": "git",
@@ -32,7 +28,6 @@
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
-    "db-migrate-mysql": "^2.1.2",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
