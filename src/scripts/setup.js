@@ -72,14 +72,14 @@ const questions = [
     },
     // Set the bots custom status
     {
-        type: (prev) => (prev == true ? 'text' : null),
+        type: (prev) => (prev === true ? 'text' : null),
         name: 'botActivity',
         message: 'Bot Status?',
         initial: process.env.botActivity || 'Beep Boop',
     },
     // Set the bots custom status type
     {
-        type: (prev) => (prev == true || prev.length >= 1 ? 'select' : null),
+        type: (prev) => (prev === true || prev.length >= 1 ? 'select' : null),
         name: 'botActivityType',
         message: ' Bot Status Type?',
         choices: [
@@ -94,7 +94,7 @@ const questions = [
 
     // Set the bots streaming URL for the "streaming" status
     {
-        type: (prev) => (prev == true || prev == 'STREAMING' ? 'text' : null),
+        type: (prev) => (prev === true || prev == 'STREAMING' ? 'text' : null),
         name: 'streamingURL',
         message: ' Bot Streaming URL?',
         initial: process.env.streamingURL || 'twitch.tv/youtube.com',
@@ -112,7 +112,7 @@ const questions = [
 
     // Set the bots default embed colour
     {
-        type: (prev) => (prev == true ? 'text' : null),
+        type: (prev) => (prev === true ? 'text' : null),
         name: 'embedColour',
         message: 'Basic Embed Colour? (#Hex)',
         initial: process.env.embedColour || '#ffa500',
