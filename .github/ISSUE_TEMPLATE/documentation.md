@@ -1,7 +1,7 @@
 ---
-name: Documentation
+name: 📃 Documentation
 about: Suggest edits or new documentation
-title: 'Docs: '
+title: 'DOCS: '
 labels: documentation
 ---
 ### Describe Changes
