@@ -23,9 +23,9 @@
 #
 
 ## Purpose
-Expandable-DJS-Bot (EDB) is a discord.js bot boilerplate, allowing for easy expansion with new commands, translations and more. 
+Expandable-DJS-Bot (EDB) is a discord.js bot template, allowing for easy expansion with new commands, translations and more. 
 
-This boilerplate has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
+This template has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
 
 ## Setup
 A full version of the setup guide can be found [here](https://edb.foxgirls.cc/docs/installation/getting-setup)
