@@ -2,7 +2,7 @@
 name: 🚀 Enhancement Request
 about: Suggest a change for the project.
 title: 'ENHANCE: '
-labels: enhancement
+labels: 'type: enhancement'
 ---
 ## Summary
 Brief explanation of the enhancement.

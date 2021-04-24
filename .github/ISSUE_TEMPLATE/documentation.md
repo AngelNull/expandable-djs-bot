@@ -2,7 +2,7 @@
 name: 📃 Documentation
 about: Suggest edits or new documentation
 title: 'DOCS: '
-labels: documentation
+labels: 'type: documentation'
 ---
 ### Describe Changes
 A clear and concise description of what is being added/changed
