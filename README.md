@@ -43,3 +43,6 @@ The documentation for this project can be found [here on GitBook](https://edb.fo
 
 ## Contributing
 The guide to contributing to this project can be found [here](https://edb.foxgirls.cc/docs/contributing/guide)
+
+## Version
+Versioning information can be found [here](./.github/VERSIONING.MD).

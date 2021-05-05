@@ -1,13 +1,11 @@
-name: App
+name: Testing
 
 on:
-  push:
-    branches: [ main ] 
   pull_request:
     types: [opened, synchronize, reopened]
   
 jobs:
-  Lint:
+  ESLint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,5 +17,7 @@ jobs:
       uses: actions/setup-node@v2.1.5
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run lint
+    - name: Install Dependancies
+      run: npm ci
+    - name: Run ESLint
+      run: npm run lint

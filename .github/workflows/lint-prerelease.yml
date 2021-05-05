@@ -1,0 +1,49 @@
+name: App
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  
+jobs:
+  # Run ESLint for the commit
+  ESLint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x ]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2.1.5
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Dependancies
+      run: npm ci
+    - name: Run ESLint
+      run: npm run lint
+
+  Pre-Release:
+    needs: ESLint
+    runs-on: ubuntu-latest
+
+    steps: 
+      # Checkout Repo
+    - name: Checkout Repository 
+      uses: actions/checkout@v2
+
+      # Fetch the package.json version
+    - name: Get Package Version
+      id: package-version
+      uses: tyankatsu0105/read-package-version-actions@v1
+      
+      # Push to the pre-release tag with the latest commit w/ a built artifact
+    - name: Update Pre-Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true 
+        title: "v${{ steps.package-version.outputs.version }}-devrelease"
