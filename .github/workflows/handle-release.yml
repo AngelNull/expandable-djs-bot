@@ -1,0 +1,34 @@
+name: "Version"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout Repo
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+      # Fetch the package.json version
+    - name: Get Package Version
+      id: package-version
+      uses: tyankatsu0105/read-package-version-actions@v1
+
+      # Download the Build Artifact from the make job
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v2
+      with:
+        path: ${{ github.workspace }}/artifacts
+
+      # Create the release for the pushed tag and generate a changelog
+    - name: Release Version
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        title: Version ${{ steps.package-version.outputs.version }}
+        prerelease: false
