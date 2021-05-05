@@ -32,14 +32,14 @@ A full version of the setup guide can be found [here](https://edb.foxgirls.cc/do
 
 Quick Setup Version
 ```
-1. Clone Project
+1. Clone/Download Project
 2. Run npm install
 3. Run npm run config 
 4. Run node .
 ````
 
 ## Documentation
-The documentation for this project can be found [here on GitBook](https://edb.foxgirls.cc/docs) or in the documentation branch.
+The documentation for this project can be found [here](https://edb.foxgirls.cc/docs) or in the documentation branch.
 
 ## Contributing
 The guide to contributing to this project can be found [here](https://edb.foxgirls.cc/docs/contributing/guide)
