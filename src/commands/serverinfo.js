@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 require('dotenv').config();
 
 module.exports = {
@@ -11,17 +10,25 @@ module.exports = {
     devOnly: false,
     cooldown: 3,
     execute: (message) => {
-        const embed = new MessageEmbed();
-        embed.setColor(process.env.embedColour);
-        embed.setTitle('Server Info');
-        embed.addField('Guild Name', message.guild.name, true);
-        embed.addField('Guild ID', message.guild.id, true);
-        embed.addField('Owner', message.guild.owner, true);
-        embed.addField('Members', message.guild.memberCount, true);
-        embed.addField('Channels', message.guild.channels.cache.size, true);
-        embed.addField('Roles', message.guild.roles.cache.size, true);
-        embed.setFooter(`Creation Date: ${message.guild.createdAt}`);
-        embed.setThumbnail(message.guild.iconURL({ dynamic: true }));
-        message.channel.send(embed);
+        const embedContent = {
+            color: process.env.embedColour,
+            title: message.guild.name,
+            thumbnail: {
+                url: message.guild.iconURL({ dynamic: true }),
+            },
+            footer: {
+                text: `Created At: ${message.guild.createdAt}`,
+            },
+            fields: [
+                { name: 'Guild Name', value: message.guild.name, inline: true },
+                { name: 'Guild ID', value: message.guild.id, inline: true },
+                { name: 'Owner', value: message.guild.owner, inline: true },
+                { name: 'Members', value: message.guild.memberCount, inline: true },
+                { name: 'Channels', value: message.guild.channels.cache.size, inline: true },
+                { name: 'Roles', value: message.guild.roles.cache.size, inline: true },
+            ],
+        };
+
+        return message.channel.send({ embed: embedContent });
     },
 };
