@@ -14,14 +14,18 @@ jobs:
         node-version: [ 14.x ]
 
     steps:
+      # Checkout Repo
     - name: Checkout Repository
       uses: actions/checkout@v2
+      # Setup Node
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2.1.5
       with:
         node-version: ${{ matrix.node-version }}
+      # Install Dependancies
     - name: Install Dependancies
       run: npm ci
+      # Run ESLint on code
     - name: Run ESLint
       run: npm run lint
 
