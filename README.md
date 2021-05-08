@@ -16,7 +16,7 @@
     <br />
     <br />
     <a href="https://edb.foxgirls.cc"><strong>Website</strong></a> | 
-    <a href="https://github.com/AngelNull/releases"><strong>Download</strong></a>
+    <a href="https://github.com/AngelNull/expandable-djs-bot/releases"><strong>Download</strong></a>
   </p>
 </p>
 
