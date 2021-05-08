@@ -9,7 +9,7 @@ git tag v0.0.0 HEAD
 ```
 Pushing the tag to the repository
 ```
-git push origin v.0.0.0
+git push origin v0.0.0
 ```
 
 ## CI 
