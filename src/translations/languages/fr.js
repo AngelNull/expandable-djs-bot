@@ -82,6 +82,22 @@ const translateFR = {
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `La commande \`${command}\` a été rechargée!`,
     RELOAD_ERROR: (command, err) => `Une erreur s'est produite lors du rechargement d'une commande \`${command}\`:\n\`\`\`\`${err}\`\`\`\``,
+
+    /* commands/serverinfo.js */
+    SINFO_GUILD_NAME: 'Nom de guilde',
+    SINFO_GUILD_ID: 'ID de guilde',
+    SINFO_GUILD_OWNER: 'Propriétaire',
+    SINFO_GUILD_MEMBERS: 'Membres',
+    SINFO_GUILD_CHANNELS: 'Canaux',
+    SINFO_GUILD_ROLES: 'Les rôles',
+    SINFO_GUILD_CREATEDAT: (date) => `Créé à: ${date}`,
+
+    /* commands/userinfo.js */
+    UINFO_USER_DISPLAYNAME: 'Afficher un nom',
+    UINFO_USER_ID: 'ID',
+    UINFO_USER_HIGHESTROLE: 'Rôle le plus élevé',
+    UINFO_USER_JOINEDAT: 'Rejoint',
+    UINFO_USER_CREATEDAT: 'Créé à',
 };
 
 module.exports = {
