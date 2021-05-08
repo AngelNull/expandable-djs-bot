@@ -9,7 +9,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 5,
-    execute: async (message, lang, translator, args) => {
+    execute: async (message, lang, tr, args) => {
         let user = message.mentions.members.first();
         let invalidUser = false;
         if (!user) {
@@ -18,7 +18,7 @@ module.exports = {
                 invalidUser = true;
             });
         }
-        if (invalidUser == true) return message.channel.send(translator.translate('USER_NOT_FOUND', lang));
+        if (invalidUser == true) return message.channel.send(tr.translate('USER_NOT_FOUND', lang));
 
         /* Building the embed */
         const embedContent = {
@@ -30,11 +30,31 @@ module.exports = {
                 url: user.user.displayAvatarURL({ dynamic: true }),
             },
             fields: [
-                { name: 'Display Name', value: user.displayName, inline: true },
-                { name: 'ID', value: user.id, inline: true },
-                { name: 'Highest Role', value: user.roles.highest, inline: true },
-                { name: 'Joined', value: `${moment(user.joinedAt).fromNow()} (${moment(user.joinedAt).format('MMMM Do YYYY, h:mm:ss a')})`, inline: false },
-                { name: 'Created At', value: `${moment(user.user.createdAt).fromNow()} (${moment(user.user.createdAt).format('MMMM Do YYYY, h:mm:ss a')})`, inline: false },
+                {
+                    name: tr.translate('UINFO_USER_DISPLAYNAME', lang),
+                    value: user.displayName,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('UINFO_USER_ID', lang),
+                    value: user.id,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('UINFO_USER_HIGHESTROLE', lang),
+                    value: user.roles.highest,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('UINFO_USER_JOINEDAT', lang),
+                    value: `${moment(user.joinedAt).fromNow()} (${moment(user.joinedAt).format('MMMM Do YYYY, h:mm:ss a')})`,
+                    inline: false,
+                },
+                {
+                    name: tr.translate('UINFO_USER_CREATEDAT', lang),
+                    value: `${moment(user.user.createdAt).fromNow()} (${moment(user.user.createdAt).format('MMMM Do YYYY, h:mm:ss a')})`,
+                    inline: false,
+                },
             ],
         };
 

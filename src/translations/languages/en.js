@@ -80,6 +80,22 @@ const translateEN = {
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `Command \`${command}\` was reloaded!`,
     RELOAD_ERROR: (command, err) => `There was an error while reloading a command \`${command}\`:\n\`\`\`\`${err}\`\`\`\``,
+
+    /* commands/serverinfo.js */
+    SINFO_GUILD_NAME: 'Guild Name',
+    SINFO_GUILD_ID: 'Guild ID',
+    SINFO_GUILD_OWNER: 'Owner',
+    SINFO_GUILD_MEMBERS: 'Members',
+    SINFO_GUILD_CHANNELS: 'Channels',
+    SINFO_GUILD_ROLES: 'Roles',
+    SINFO_GUILD_CREATEDAT: (date) => `Created at: ${date}`,
+
+    /* commands/userinfo.js */
+    UINFO_DISPLAYNAME: 'Display Name',
+    UINFO_ID: 'ID',
+    UINFO_HIGHESTROLE: 'Highest Role',
+    UINFO_JOINEDAT: 'Joined',
+    UINFO_CREATEDAT: 'Created At',
 };
 
 module.exports = {

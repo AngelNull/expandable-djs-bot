@@ -9,7 +9,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 3,
-    execute: (message) => {
+    execute: (message, lang, tr) => {
         const embedContent = {
             color: process.env.embedColour,
             title: message.guild.name,
@@ -17,15 +17,39 @@ module.exports = {
                 url: message.guild.iconURL({ dynamic: true }),
             },
             footer: {
-                text: `Created At: ${message.guild.createdAt}`,
+                text: tr.translate('SINFO_GUILD_CREATEDAT', lang, message.guild.createdAt),
             },
             fields: [
-                { name: 'Guild Name', value: message.guild.name, inline: true },
-                { name: 'Guild ID', value: message.guild.id, inline: true },
-                { name: 'Owner', value: message.guild.owner, inline: true },
-                { name: 'Members', value: message.guild.memberCount, inline: true },
-                { name: 'Channels', value: message.guild.channels.cache.size, inline: true },
-                { name: 'Roles', value: message.guild.roles.cache.size, inline: true },
+                {
+                    name: tr.translate('SINFO_GUILD_NAME', lang),
+                    value: message.guild.name,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('SINFO_GUILD_ID', lang),
+                    value: message.guild.id,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('SINFO_GUILD_OWNER', lang),
+                    value: message.guild.owner,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('SINFO_GUILD_MEMBERS', lang),
+                    value: message.guild.memberCount,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('SINFO_GUILD_CHANNELS', lang),
+                    value: message.guild.channels.cache.size,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('SINFO_GUILD_ROLES', lang),
+                    value: message.guild.roles.cache.size,
+                    inline: true,
+                },
             ],
         };
 
