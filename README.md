@@ -10,12 +10,12 @@
   <p align="center">
     Easy to use Discord.js bot template
     <br />
-      <img src="https://github.com/AngelNull/expandable-djs-bot/workflows/Testing/badge.svg" align="center" alt='Testing' >
-      <img src="https://github.com/AngelNull/expandable-djs-bot/workflows/CodeQL/badge.svg" align="center" alt='Testing' >
+      <img src="https://github.com/AngelNull/expandable-djs-bot/actions/workflows/lint-prerelease.yml/badge.svg" align="center" alt='App' >
+      <img src="https://github.com/AngelNull/expandable-djs-bot/actions/workflows/codeql-analysis.yml/badge.svg" align="center" alt='CodeQL' >
       <img src="https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg" align="center" alt='Testing' >
     <br />
     <br />
-    <a href="https://edb.foxgirls.cc"><strong>Website</strong></a> | 
+    <a href="https://edb.foxgirls.cc"><strong>Website</strong></a> ~
     <a href="https://github.com/AngelNull/expandable-djs-bot/releases"><strong>Download</strong></a>
   </p>
 </p>
