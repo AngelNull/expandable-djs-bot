@@ -70,7 +70,7 @@ Quick Setup Version
 The documentation for this project can be found on the [website](https://edb.foxgirls.cc/docs) or in the documentation branch, if you plan to make any changes please target your pull requests there.
 
 ## Contributing
-First of all, thank you for thinking about contributing! Everything you need to know to contribute can be found on the documentation site [here](https://edb.foxgirls.cc/docs/contributing/guide).
+First of all, thank you for thinking about contributing! Everything you need to know to contribute can be found [here](./.github/CONTRIBUTING.md)
 
 ## Version
 This project uses CI to release changelogs and new versions, you can learn more about this by checking [here](./.github/VERSIONING.MD).
