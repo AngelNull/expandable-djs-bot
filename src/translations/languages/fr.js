@@ -59,11 +59,12 @@ const translateFR = {
 
     /* commands/help.js */
     HELP_TITLE: `L'aide est arrivée!`,
-    HELP_DESCRIPTION: (username) =>
-        `Vous voulez obtenir une liste de toutes les commandes de ${username}?\nVoulez-vous signaler un bogue ou demander une fonctionnalité?\nVoulez-vous voir le dépôt Github de ${username}?\nUtilisez les liens ci-dessous.`,
+    HELP_DESCRIPTION: (username) => `Utilisez les informations ci-dessous pour en savoir plus sur ${username}`,
+    HELP_NO_LINKS_TITLE: `Oh non!`,
+    HELP_NO_LINKS_DESCRIPTION: `Le propriétaire du bot n'a pas fourni d'informations supplémentaires, désolé!`,
     HELP_COMMANDS: `Liste des commandes`,
-    HELP_BUGS_FEATURES: `Bugs/Fonctionnalités`,
-    HELP_GITHUB_REPO: `Repo GitHub`,
+    HELP_SUPPORT: `Support`,
+    HELP_REPOSITORY: `Référentiel`,
 
     /* commands/invite.js */
     INVITE_CHECKING: `Vérification de l'invitation`,
