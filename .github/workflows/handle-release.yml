@@ -19,12 +19,6 @@ jobs:
       id: package-version
       uses: tyankatsu0105/read-package-version-actions@v1
 
-      # Download the Build Artifact from the make job
-    - name: Download Build Artifact
-      uses: actions/download-artifact@v2
-      with:
-        path: ${{ github.workspace }}/artifacts
-
       # Create the release for the pushed tag and generate a changelog
     - name: Release Version
       uses: "marvinpinto/action-automatic-releases@latest"
