@@ -28,8 +28,8 @@ All codebase changes should be as clean as possible, with comments on key parts 
 
 #### If you are trying to make new commands or translations
 
-[Create Custom Commands](/docs/contributing/creating-commands)    
-[Create Translations](/docs/contributing/creating-translations)
+[Create Custom Commands](https://edb.foxgirls.cc/docs/contributing/creating-commands)   
+[Create Translations](https://edb.foxgirls.cc/docs/contributing/creating-translations)
 
 ### Documentation Changes
 
