@@ -57,11 +57,13 @@ const translateEN = {
     DM_CANCELLED: `Direct Message sending cancelled.`,
 
     /* commands/help.js */
-    HELP_TITLE: `Help has arrived!`,
-    HELP_DESCRIPTION: (username) => `Want to get a list of all of ${username}'s commands?\nWant to report a bug or request a feature?\nWant to see ${username}'s Github Repo?\nUse the links below.`,
+    HELP_TITLE: `Help Has Arrived`,
+    HELP_DESCRIPTION: (username) => `Use the information below to learn more about ${username}.`,
+    HELP_NO_LINKS_TITLE: `Oh No!`,
+    HELP_NO_LINKS_DESCRIPTION: `The bot owner hasn't provided any further information, sorry!`,
     HELP_COMMANDS: `Commands List`,
-    HELP_BUGS_FEATURES: `Bugs/Features`,
-    HELP_GITHUB_REPO: `GitHub Repo`,
+    HELP_SUPPORT: `Support`,
+    HELP_REPOSITORY: `Repository`,
 
     /* commands/invite.js */
     INVITE_CHECKING: `Checking Invite`,

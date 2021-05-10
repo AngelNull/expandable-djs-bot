@@ -12,16 +12,29 @@ module.exports = {
     cooldown: 3,
     execute: async (message, lang, tr, args) => {
         /* If the user does not provide any args; send them the generic help message in direct messages instead */
-        if (args.length == 0) {
-            const helpList = new Discord.MessageEmbed();
-            /* Build the embed */
-            helpList.setTitle(tr.translate('HELP_TITLE', lang));
-            helpList.setDescription(tr.translate('HELP_DESCRIPTION', lang, message.client.user.username));
-            helpList.addField(tr.translate('HELP_COMMANDS', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot/tree/main/commands)`, true);
-            helpList.addField(tr.translate('HELP_BUGS_FEATURES', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot/issues)`, true);
-            helpList.addField(tr.translate('HELP_GITHUB_REPO', lang), `[${tr.translate('CLICK_HERE', lang)}](https://github.com/AngelNull/expandable-djs-bot)`, true);
-            helpList.setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, size: 256 }));
-            helpList.setColor(process.env.embedColour);
+        if (!args) {
+            /* Setup the help embed, and set all the basics needed for it. */
+            const helpList = new Discord.MessageEmbed()
+                .setDescription(tr.translate('HELP_DESCRIPTION', lang, message.client.user.username))
+                .setTitle(tr.translate('HELP_TITLE', lang))
+                .setColor(process.env.embedColour)
+                .setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, size: 256 }));
+
+            if (process.env.isOpensource === 'true') {
+                /* If the bot is opensource, add extra links so users can find the repository */
+                helpList.addFields(
+                    { name: tr.translate('HELP_COMMANDS', lang), value: `[${tr.translate('CLICK_HERE', lang)}](${process.env.docsCommandsLocation})`, inline: true },
+                    { name: tr.translate('HELP_SUPPORT', lang), value: `[${tr.translate('CLICK_HERE', lang)}](${process.env.docsSupportLocation})`, inline: true },
+                    { name: tr.translate('HELP_REPOSITORY', lang), value: `[${tr.translate('CLICK_HERE', lang)}](${process.env.docsRepoLocation})`, inline: true },
+                );
+            } else if (process.env.docsSupportLocation !== 'unset') {
+                /* If the bot is not opensource, but has a support location set, add it as a link. */
+                helpList.addField(tr.translate('HELP_SUPPORT', lang), `[${tr.translate('CLICK_HERE', lang)}](${process.env.docsSupportLocation})`, true);
+            } else {
+                /* If the bot has no links configured, add a field saying no links are configured */
+                helpList.addField(tr.translate('HELP_NO_LINKS_TITLE', lang), tr.translate('HELP_NO_LINKS_DESCRIPTION', lang), true);
+            }
+
             /* Send the embed to the user; if the user has direct messages closed, react to the original message with a cross, otherwise with a tick */
             return message.author
                 .send(helpList)
