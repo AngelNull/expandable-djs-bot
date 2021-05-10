@@ -1,26 +1,54 @@
 <!--PROJECT HEAD-->
 <br />
 <p align="center">
-  <a href="https://docs.foxgirls.cc/edb">
-    <img src="/assets/logo_269x150.png" alt="Logo">
+  <a href="https://edb.foxgirls.cc">
+    <img src='assets/logo_269x150.png' alt='Logo'>
   </a>
 
   <h3 align="center">Expandable-DJS-Bot</h3>
 
   <p align="center">
-    Easy to use Discord.js bot template
+    The easy to use Discord.js v12 bot template
     <br />
-      <img src="https://github.com/AngelNull/expandable-djs-bot/actions/workflows/lint-prerelease.yml/badge.svg" align="center" alt='App' >
-      <img src="https://github.com/AngelNull/expandable-djs-bot/actions/workflows/codeql-analysis.yml/badge.svg" align="center" alt='CodeQL' >
-      <img src="https://status.david-dm.org/gh/AngelNull/expandable-djs-bot.svg" align="center" alt='Testing' >
+    <a href="https://github.com/AngelNull/expandable-djs-bot/releases"><strong>Download »</strong></a>
     <br />
     <br />
-    <a href="https://edb.foxgirls.cc"><strong>Website</strong></a> ~
-    <a href="https://github.com/AngelNull/expandable-djs-bot/releases"><strong>Download</strong></a>
+    <a href="#contributing">Contributing</a>
+    ·
+    <a href="https://github.com/AngelNull/expandable-djs-bot/issues">Issues</a>
+    ·
+    <a href="https://github.com/AngelNull/expandable-djs-bot/pulls">Pull Requests</a>
   </p>
 </p>
 
-#
+<p align="center">
+<!--Contributors-->
+<img src="https://img.shields.io/github/contributors/AngelNull/expandable-djs-bot.svg?style=for-the-badge" align="center" alt='Contributors'>
+<!--Forks-->
+<img src="https://img.shields.io/github/forks/AngelNull/expandable-djs-bot.svg?style=for-the-badge" align="center" alt='Forks' >
+<!--Stars-->
+<img src="https://img.shields.io/github/stars/AngelNull/expandable-djs-bot.svg?style=for-the-badge" align="center" alt='Stars' >
+<!--Issues-->
+<img src="https://img.shields.io/github/issues/AngelNull/expandable-djs-bot.svg?style=for-the-badge" align="center" alt='Issues' >
+</p>
+
+# 
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#purpose">Purpose</a>
+    </li>
+    <li>
+      <a href="#setup">Setup</a>
+    </li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#versioning">Versioning</a></li>
+  </ol>
+</details>
 
 ## Purpose
 Expandable-DJS-Bot (EDB) is a discord.js bot template, allowing for easy expansion with new commands, translations and more. 
@@ -39,10 +67,10 @@ Quick Setup Version
 ````
 
 ## Documentation
-The documentation for this project can be found [here](https://edb.foxgirls.cc/docs) or in the documentation branch.
+The documentation for this project can be found on the [website](https://edb.foxgirls.cc/docs) or in the documentation branch, if you plan to make any changes please target your pull requests there.
 
 ## Contributing
-The guide to contributing to this project can be found [here](https://edb.foxgirls.cc/docs/contributing/guide)
+First of all, thank you for thinking about contributing! Everything you need to know to contribute can be found on the documentation site [here](https://edb.foxgirls.cc/docs/contributing/guide).
 
 ## Version
-Versioning information can be found [here](./.github/VERSIONING.MD).
+This project uses CI to release changelogs and new versions, you can learn more about this by checking [here](./.github/VERSIONING.MD).
