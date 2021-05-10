@@ -16,10 +16,10 @@ console.log('-----------------------------------\n          Bot Configuration\n-
 const questions = [
     // The bots token
     {
-        type: 'text',
+        type: 'password',
         name: 'token',
         message: 'Bot Token?',
-        initial: process.env.DISCORD_AUTH_TOKEN || 'https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot',
+        initial: process.env.DISCORD_AUTH_TOKEN || '',
     },
     // The bots prefix
     {
@@ -27,6 +27,7 @@ const questions = [
         name: 'prefix',
         message: 'Bot Prefix?',
         initial: process.env.prefix || '!',
+        validate: (text) => text.length >= 1,
     },
     // The users ID
     {
@@ -35,6 +36,42 @@ const questions = [
         message: 'Owner UserID?',
         initial: process.env.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
     },
+
+    {
+        type: 'toggle',
+        name: 'isOpensource',
+        message: 'Is Your Bot Opensource?',
+        initial: false,
+        active: 'Yes',
+        inactive: 'No',
+    },
+
+    // Where the user can find a list of commands for the bot, as well as their information. Used for the help command.
+
+    {
+        type: (prev) => (prev === true ? 'text' : null),
+        name: 'docsCommandsLocation',
+        message: 'Bot Commands List Location?',
+        initial: process.env.docsCommandsLocation || 'https://github.com/AngelNull/expandable-djs-bot/tree/main/commands',
+        validate: (text) => text.length >= 1,
+    },
+
+    // Where the repository for the bot can be found, which is linked on the help command
+    {
+        type: (prev) => (prev.length >= 1 ? 'text' : null),
+        name: 'docsRepoLocation',
+        message: 'Bot Repository Location?',
+        initial: process.env.docsRepoLocation || 'https://github.com/AngelNull/expandable-djs-bot/',
+    },
+
+    // Where can the user get support for the bot, eg a discord server or GitHub repository.
+    {
+        type: 'text',
+        name: 'docsSupportLocation',
+        message: 'Bot Support Location?',
+        initial: process.env.docsSupportLocation || 'https://github.com/AngelNull/expandable-djs-bot/issues',
+    },
+
     // The Bots Language
     // Every time a new translation is added, the option must be added to the choices list below here.
     {
@@ -44,10 +81,10 @@ const questions = [
         choices: [
             { title: 'English (Source)', value: 'en' },
             { title: 'French (Translation)', value: 'fr' },
-            // { title: 'LANG (Translation)', value: 'LANG' },
         ],
         initial: 0,
     },
+
     // The bots presence
     {
         type: 'select',
@@ -61,15 +98,17 @@ const questions = [
         ],
         initial: 0,
     },
+
     // Enable/Disable the bots custom status
     {
         type: 'toggle',
         name: 'enableCustomActivity',
         message: 'Enable playing status?',
-        initial: true,
-        active: 'yes',
-        inactive: 'no',
+        initial: false,
+        active: 'Yes',
+        inactive: 'No',
     },
+
     // Set the bots custom status
     {
         type: (prev) => (prev === true ? 'text' : null),
@@ -77,6 +116,7 @@ const questions = [
         message: 'Bot Status?',
         initial: process.env.botActivity || 'Beep Boop',
     },
+
     // Set the bots custom status type
     {
         type: (prev) => (prev === true || prev.length >= 1 ? 'select' : null),
@@ -105,9 +145,9 @@ const questions = [
         type: 'toggle',
         name: 'enableCustomColours',
         message: 'Use Custom Embed colours?',
-        initial: true,
-        active: 'yes',
-        inactive: 'no',
+        initial: false,
+        active: 'Yes',
+        inactive: 'No',
     },
 
     // Set the bots default embed colour
@@ -139,9 +179,9 @@ const questions = [
         type: 'toggle',
         name: 'keepOutFiles',
         message: 'Keep Outputted Files?',
-        initial: true,
-        active: 'yes',
-        inactive: 'no',
+        initial: false,
+        active: 'Yes',
+        inactive: 'No',
     },
 
     // Advanced debugging
@@ -150,8 +190,8 @@ const questions = [
         name: 'advancedDebugging',
         message: 'Advanced Debugging?',
         initial: false,
-        active: 'yes',
-        inactive: 'no',
+        active: 'Yes',
+        inactive: 'No',
     },
 ];
 
@@ -190,7 +230,12 @@ const onCancel = () => {
     
     embedColour=${response.embedColour || '#ffa500'}
     successColour=${response.successColour || '#1e90ff'}
-    errorColour=${response.errorColour || '#8b0000'}`,
+    errorColour=${response.errorColour || '#8b0000'}
+
+    isOpensource=${response.isOpensource}
+    docsCommandsLocation=${response.docsCommandsLocation || 'unset'}
+    docsSupportLocation=${response.docsSupportLocation || 'unset'}
+    docsRepoLocation=${response.docsRepoLocation || 'unset'}`,
 
         (err) => {
             if (err) throw err;
