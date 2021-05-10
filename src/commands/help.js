@@ -12,7 +12,7 @@ module.exports = {
     cooldown: 3,
     execute: async (message, lang, tr, args) => {
         /* If the user does not provide any args; send them the generic help message in direct messages instead */
-        if (!args) {
+        if (!args[0]) {
             /* Setup the help embed, and set all the basics needed for it. */
             const helpList = new Discord.MessageEmbed()
                 .setDescription(tr.translate('HELP_DESCRIPTION', lang, message.client.user.username))
