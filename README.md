@@ -56,7 +56,7 @@ Expandable-DJS-Bot (EDB) is a discord.js bot template, allowing for easy expansi
 This template has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
 
 ## Setup
-A full version of the setup guide can be found [here](https://edb.foxgirls.cc/docs/installation/getting-setup)
+A full version of the setup guide can be found [here](https://edb.foxgirls.cc/docs/installation/setup)
 
 Quick Setup Version
 ```
