@@ -28,7 +28,7 @@
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "generate-changelog": "^1.8.0",
