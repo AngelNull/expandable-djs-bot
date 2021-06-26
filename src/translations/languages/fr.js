@@ -91,7 +91,7 @@ const translateFR = {
     SINFO_GUILD_MEMBERS: 'Membres',
     SINFO_GUILD_CHANNELS: 'Canaux',
     SINFO_GUILD_ROLES: 'Les rôles',
-    SINFO_GUILD_CREATEDAT: (date) => `Créé à: ${date}`,
+    SINFO_GUILD_CREATEDAT: 'Créé à',
 
     /* commands/userinfo.js */
     UINFO_USER_DISPLAYNAME: 'Afficher un nom',
