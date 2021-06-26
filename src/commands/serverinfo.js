@@ -16,9 +16,6 @@ module.exports = {
             thumbnail: {
                 url: message.guild.iconURL({ dynamic: true }),
             },
-            footer: {
-                text: tr.translate('SINFO_GUILD_CREATEDAT', lang, message.guild.createdAt),
-            },
             fields: [
                 {
                     name: tr.translate('SINFO_GUILD_NAME', lang),
@@ -48,6 +45,11 @@ module.exports = {
                 {
                     name: tr.translate('SINFO_GUILD_ROLES', lang),
                     value: message.guild.roles.cache.size,
+                    inline: true,
+                },
+                {
+                    name: tr.translate('SINFO_GUILD_CREATEDAT', lang),
+                    value: `<t:${Math.floor(message.guild.createdTimestamp / 1000)}>`,
                     inline: true,
                 },
             ],

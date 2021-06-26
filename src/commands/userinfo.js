@@ -1,5 +1,3 @@
-var moment = require('moment');
-
 module.exports = {
     name: 'userinfo',
     description: 'Returns information about a users account',
@@ -47,13 +45,13 @@ module.exports = {
                 },
                 {
                     name: tr.translate('UINFO_USER_JOINEDAT', lang),
-                    value: `${moment(user.joinedAt).fromNow()} (${moment(user.joinedAt).format('MMMM Do YYYY, h:mm:ss a')})`,
-                    inline: false,
+                    value: `<t:${Math.floor(user.joinedTimestamp / 1000)}>`,
+                    inline: true,
                 },
                 {
                     name: tr.translate('UINFO_USER_CREATEDAT', lang),
-                    value: `${moment(user.user.createdAt).fromNow()} (${moment(user.user.createdAt).format('MMMM Do YYYY, h:mm:ss a')})`,
-                    inline: false,
+                    value: `<t:${Math.floor(user.user.createdTimestamp / 1000)}>`,
+                    inline: true,
                 },
             ],
         };
