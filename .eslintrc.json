@@ -25,10 +25,6 @@
 			}
 		],
 		"no-console": "off",
-		"semi": [
-			"error",
-			"always"
-		],
 		"linebreak-style": 0
 	}
 }
