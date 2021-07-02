@@ -50,4 +50,4 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         prerelease: true 
-        title: "v${{ steps.package-version.outputs.version }}-devrelease"
+        title: "v${{ steps.package-version.outputs.version }}-dev"
