@@ -24,3 +24,11 @@ fs.readdir('./src/commands/', (err, files) => {
         client.commands.set(commandName, props);
     });
 });
+
+fs.readdir('./src/utils/', (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        if (!file.endsWith('.js') || file == 'index.js') return;
+        console.log(translator.translate('LOAD_UTILITY', process.env.language, file));
+    });
+});

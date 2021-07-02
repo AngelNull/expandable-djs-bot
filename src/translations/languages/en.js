@@ -15,6 +15,7 @@ const translateEN = {
     CLICK_HERE: `Click Here`,
     LOAD_EVENT: (event) => `⌛ Loading Event: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Loading Command: ${command}`,
+    LOAD_UTILITY: (utility) => `⌛ Loading Utility: ${utility}`,
 
     /*
 		Errors
