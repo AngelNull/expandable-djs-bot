@@ -1,5 +1,6 @@
 const { translateEN } = require('../../i18n/languages/en');
 const { translateFR } = require('../../i18n/languages/fr');
+const chalk = require('chalk');
 require('dotenv').config();
 
 const translations = {
@@ -17,6 +18,13 @@ const translations = {
 const translate = (messageId, language, ...params) => {
     if (translations[language || 'default']) {
         const translator = translations[language || 'default'];
+
+        // If the translation key doesn't exist in the language selected, throw a warning.
+        if (!translations[language][messageId] && translations['default'][messageId]) {
+            console.warn(`${chalk.yellowBright(`⚠ Warning: Translation key ${messageId} not available in ${language}, using default.`)}`);
+        }
+
+        // Run the translator if the key exists in either the language selected or the default.
         const translation = translator[messageId] || translations['default'][messageId];
         if (translation) {
             const translationType = typeof translation;
@@ -28,7 +36,8 @@ const translate = (messageId, language, ...params) => {
                 throw new Error('Unrecognized translation type');
             }
         } else {
-            console.warn(`⚠ Translation message ${messageId} not available in ${language}`);
+            // Throw an error if the key doesn't exist at all.
+            console.error(`${chalk.redBright(`⚠ Error: Translation key ${messageId} does not exist in ${language} or default language.`)}`);
             return null;
         }
     } else {
