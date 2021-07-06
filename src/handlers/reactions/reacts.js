@@ -5,7 +5,7 @@ require('dotenv').config();
  * the specified embed to edit
  * @param {any} message The discord message object
  * @param {string} userID The invoking users discord ID
- * @param {any} embed The discord embed object
+ * @param {MessageEmbed} embed The discord embed object
  */
 
 const confirm = async (message, userID, embed) => {
@@ -29,7 +29,8 @@ const confirm = async (message, userID, embed) => {
         return ['✅', '❎'].includes(reaction.emoji.name) && user.id === userID;
     };
     try {
-        const collected = await message.awaitReactions(filter, {
+        const collected = await message.awaitReactions({
+            filter,
             max: 1,
             time: 20000,
             errors: ['time'],

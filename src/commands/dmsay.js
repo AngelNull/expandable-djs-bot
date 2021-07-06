@@ -28,7 +28,7 @@ module.exports = {
             /* If the user confirmed the reaction from the function */
             if (confirmReact == 'confirmed') {
                 message.delete().catch();
-                handlers.embeds.success(trans('DM_CONFIRMED_TITLE', lang), trans('DM_CONFIRMED_DESC', lang, user, args), 'https://i.imgur.com/Jg0azl4.gif');
+                embed = handlers.embed.success(trans('DM_CONFIRMED_TITLE', lang), trans('DM_CONFIRMED_DESC', lang, user, args), 'https://i.imgur.com/Jg0azl4.gif');
                 /* If the user cancelled the reaction from the function */
                 await user.send(args).catch(() => {
                     embed = handlers.embed.error(trans('DM_FAILED_TITLE', lang), trans('DM_FAILED_DESC'), lang, user);

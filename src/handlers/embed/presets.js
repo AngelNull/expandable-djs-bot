@@ -47,7 +47,6 @@ function success(title, desc, optionalThumbnail) {
     embed.setDescription(desc || handlers.i18n.translate('SUCCESS'), lang);
     embed.setColor(process.env.successColour);
     embed.setTimestamp(new Date());
-    embed.setFooter();
     if (optionalThumbnail) embed.setThumbnail(optionalThumbnail);
 
     return embed;
