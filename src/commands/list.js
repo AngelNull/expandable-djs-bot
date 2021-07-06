@@ -24,13 +24,7 @@ module.exports = {
                 toWrite = `${toWrite}-------\nName: ${role.name}, ID: ${role.id}, Created: ${role.createdAt}\n`;
             });
 
-            /* Define the outputted file name */
-            const fileName = `${message.guild.name}_roles_${Math.floor(Math.random() * new Date())}`;
-            /* Create the file and send it back to the chat, then delete the file */
-            handlers.file.create(fileName, toWrite, 'txt');
-            const attachment = new MessageAttachment(`./out/${fileName}.txt`);
-            await message.channel.send({ files: [attachment] });
-            if (!process.env.keepOutFiles) handlers.file.remove(fileName, 'txt');
+            handleFileCreate(toWrite, message, 'txt', handlers);
         } else if (type == 'members') {
             /* This will output all users in the server */
             let toWrite = `Members in ${message.guild} @ ${new Date()}\n`;
@@ -38,16 +32,20 @@ module.exports = {
                 toWrite = `${toWrite}-------\nUsername: ${member.user.username}${member.user.discriminator}, ID: ${member.id}, Created: ${member.user.createdAt}\n`;
             });
 
-            /* Define the outputted file name */
-            const fileName = `${message.guild.name}_members_${Math.floor(Math.random() * new Date())}`;
-
-            /* Create the file and send it back to the chat, then delete the file */
-            handlers.file.create(fileName, toWrite, 'txt');
-            const attachment = new MessageAttachment(`./out/${fileName}.txt`);
-            await message.channel.send({ files: [attachment] });
-            if (process.env.keepOutFiles == 'false') handlers.file.remove(fileName, 'txt');
+            handleFileCreate(toWrite, message, 'txt', handlers);
         } else {
             return message.channel.send(trans('LIST_INVALID_CHOICE', lang, '`members`, `roles`'));
         }
     },
 };
+
+async function handleFileCreate(toWrite, message, fileType, handlers) {
+    /* Define the outputted file name */
+    const fileName = `${message.guild.name}_members_${Math.floor(Math.random() * new Date())}`;
+
+    /* Create the file and send it back to the chat, then delete the file */
+    handlers.file.create(fileName, toWrite, fileType);
+    const attachment = new MessageAttachment(`./out/${fileName}.${fileType}`);
+    await message.channel.send({ files: [attachment] });
+    if (process.env.keepOutFiles == 'false') handlers.file.remove(fileName, fileType);
+}
