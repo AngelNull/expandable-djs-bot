@@ -2,7 +2,7 @@ const fs = require('fs');
 
 /**
  * Output a file with the specified name and content in the out directory
- * @param  {string} fileName The file name
+ * @param {string} fileName The file name
  * @param {any} content The content in the file
  */
 

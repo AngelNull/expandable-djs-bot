@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const utils = require('../utils/');
+const handlers = require('../handlers/');
 require('dotenv').config();
 
 module.exports = {
@@ -28,8 +28,8 @@ module.exports = {
             embed.setDescription(tr.translate('DM_PENDING_DESC', lang, user, args));
             embed.setColor(process.env.embedColour);
             let confirmMessage = await message.channel.send({ embeds: [embed] });
-            /* Run the confirm reaction function from utils */
-            let confirmReact = await utils.reacts.confirm(confirmMessage, message.author.id, embed);
+            /* Run the confirm reaction function from handlers */
+            let confirmReact = await handlers.reacts.confirm(confirmMessage, message.author.id, embed);
             /* If the user confirmed the reaction from the function */
             if (confirmReact == 'confirmed') {
                 message.delete().catch();

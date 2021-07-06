@@ -1,4 +1,4 @@
-const translator = require('../translations/translator');
+const translator = require('../i18n/translator');
 
 require('dotenv').config();
 module.exports = (client) => {

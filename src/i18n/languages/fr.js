@@ -15,7 +15,7 @@ const translateFR = {
     CLICK_HERE: `Cliquez ici`,
     LOAD_EVENT: (event) => `⌛ Chargement: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Chargement: ${command}`,
-    LOAD_UTILITY: (utility) => `⌛ Chargement: ${utility}`,
+    LOAD_HANDLER: (handler) => `⌛ Chargement: ${handler}`,
 
     /*
 		Errors

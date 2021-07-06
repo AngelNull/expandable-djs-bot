@@ -25,10 +25,10 @@ fs.readdir('./src/commands/', (err, files) => {
     });
 });
 
-fs.readdir('./src/utils/', (err, files) => {
+fs.readdir('./src/handlers/', (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith('.js') || file == 'index.js') return;
-        console.log(translator.translate('LOAD_UTILITY', process.env.language, file));
+        console.log(translator.translate('LOAD_HANDLER', process.env.language, file));
     });
 });
