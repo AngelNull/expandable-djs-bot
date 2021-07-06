@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const translator = require('../i18n/translator.js');
+const { translate, lang } = require('../handlers/language/translator');
 const { structureIntents } = require('../handlers/intents/intentHandler.js');
 
 const client = new Discord.Client({
@@ -17,4 +17,4 @@ client.commands = new Discord.Collection();
 
 client.login(process.env.DISCORD_AUTH_TOKEN);
 
-module.exports = { client, ratelimitCooldown, cooldowns, translator };
+module.exports = { client, ratelimitCooldown, cooldowns, translate, lang };
