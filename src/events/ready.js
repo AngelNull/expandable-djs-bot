@@ -1,9 +1,10 @@
 const { translate: trans, lang } = require('../handlers/language/translator');
+const chalk = require('chalk');
 
 require('dotenv').config();
 module.exports = (client) => {
     /* Omitted once the bot has successfully authenticated */
-    console.log(trans('CLIENT_READY', lang(), client.user.tag, new Date()));
+    console.log(`${chalk.green(`${trans('CLIENT_READY', lang(), client.user.tag, new Date())}`)}`);
     /* Set the custom presence and activity for the bot */
     if (process.env.enableCustomActivity && process.env.streamingURL != 'None')
         client.user.setPresence({ activities: [{ name: process.env.botActivity, type: process.env.botActivityType, url: process.env.streamingURL }], status: process.env.botStatus });

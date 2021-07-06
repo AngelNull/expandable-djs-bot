@@ -19,7 +19,7 @@ function appendInvoker(invoker, embed) {
  * @param {*} optionalThumbnail The thumbnail for the embed (optional)
  * @returns {MessageEmbed} A MessageEmbed Object
  */
-function error(title, desc, optionalInvoker, optionalThumbnail) {
+function error(title, desc, optionalThumbnail) {
     let embed = new MessageEmbed();
     const lang = handlers.i18n.lang();
 
@@ -28,7 +28,6 @@ function error(title, desc, optionalInvoker, optionalThumbnail) {
     embed.setColor(process.env.errorColour);
     embed.setTimestamp(new Date());
     if (optionalThumbnail) embed.setThumbnail(optionalThumbnail);
-    if (optionalInvoker) embed.setFooter(`Invoker: ${optionalInvoker.user.tag}`, optionalInvoker.displayAvatarURL({ dynamic: true }));
     return embed;
 }
 
