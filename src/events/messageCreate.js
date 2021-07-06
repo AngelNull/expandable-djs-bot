@@ -1,7 +1,8 @@
 const { Collection } = require('discord.js');
-const { ratelimitCooldown, cooldowns, translator: tr } = require('../core/core.js');
+const { ratelimitCooldown, cooldowns, translate: trans, lang: figureLang } = require('../client/core.js');
+const handlers = require('../handlers');
+let lang = figureLang();
 require('dotenv').config();
-let lang = process.env.language;
 
 module.exports = async (client, message) => {
     /* If the author is a bot, or the message was not sent in a guild; return */
@@ -16,7 +17,7 @@ module.exports = async (client, message) => {
     /* This is where we check if the message starts with the prefix defined in .env, if not; return */
     if (message.content.startsWith(process.env.prefix)) {
         /* Due to the fact you cannot send an Embed unless EMBED_LINKS is granted; the bot will require it */
-        if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send(tr.translate('NEED_PERMS', lang, 'EMBED_LINKS'));
+        if (!message.guild.me.permissions.has('EMBED_LINKS')) return message.channel.send(trans('NEED_PERMS', lang, 'EMBED_LINKS'));
 
         /* A messy but easy way to check if the user is spamming the bot; when the user uses a command, the bot will ignore the next command used if it was within a small timeframe */
         if (ratelimitCooldown.has(message.author.id)) return;
@@ -26,15 +27,15 @@ module.exports = async (client, message) => {
         }, 630);
 
         /* Check if the user executing the command is the owner of the bot, if not, return it */
-        if (command.devOnly && process.env.ownerID != message.author.id) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
+        if (command.devOnly && process.env.ownerID != message.author.id) return message.channel.send(trans('NO_PERMISSION', lang, message.author));
 
         /* If the command has a permission object, and the user does not have that permission; deny the user from executing the command and return. */
-        if (command.permission && !message.member.permissions.has(command.permission)) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
+        if (command.permission && !message.member.permissions.has(command.permission)) return message.channel.send(trans('NO_PERMISSION', lang, message.author));
 
         /* If the command requires args and the user does not pass them; tell the user the correct usage of the command and return */
         if (command.args && !args.length) {
             /* Send the error message; delete the authors message and error message after elapsed time */
-            let errmsg = await message.channel.send(tr.translate('INCORRECT_USAGE', lang, process.env.prefix, commandName, command.usage));
+            let errmsg = await message.channel.send(trans('INCORRECT_USAGE', lang, process.env.prefix, commandName, command.usage));
             client.setTimeout(() => message.delete(), 6000);
             return client.setTimeout(() => errmsg.delete(), 8000);
         }
@@ -53,11 +54,9 @@ module.exports = async (client, message) => {
 
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                let cooldownMessage = await message.channel.send(tr.translate('ON_COOLDOWN', lang, message.author, timeLeft.toFixed(1), command.name));
+                let cooldownMessage = await message.channel.send(trans('ON_COOLDOWN', lang, message.author, timeLeft.toFixed(1), command.name));
                 client.setTimeout(() => message.delete(), 8000);
-                return cooldownMessage.delete({ timeout: 2500 }).catch(() => {
-                    return;
-                });
+                return client.setTimeout(() => cooldownMessage.delete(), 8000);
             }
         }
 
@@ -66,11 +65,11 @@ module.exports = async (client, message) => {
             setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
             /* Execute the command */
-            command.execute(message, lang, tr, args);
+            command.execute(message, handlers, lang, trans, args);
         } catch (error) {
             /* If we end up here; that means the command has failed to execute properly. */
             console.error(error);
-            message.channel.send(tr.translate('ERROR_OUTPUT', lang));
+            message.channel.send(trans('ERROR_OUTPUT', lang));
         }
     }
 };

@@ -9,7 +9,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 3,
-    execute: async (message, lang, tr) => {
+    execute: async (message, handlers, lang, trans) => {
         const embedContent = {
             color: process.env.embedColour,
             title: 'Guild Info',
@@ -18,44 +18,43 @@ module.exports = {
             },
             fields: [
                 {
-                    name: tr.translate('SINFO_GUILD_NAME', lang),
+                    name: trans('SINFO_GUILD_NAME', lang),
                     value: message.guild.name,
                     inline: true,
                 },
                 {
-                    name: tr.translate('SINFO_GUILD_ID', lang),
+                    name: trans('SINFO_GUILD_ID', lang),
                     value: message.guild.id,
                     inline: true,
                 },
                 {
-                    name: tr.translate('SINFO_GUILD_OWNER', lang),
+                    name: trans('SINFO_GUILD_OWNER', lang),
                     value: `<@${message.guild.ownerId}>`,
                     inline: true,
                 },
                 {
-                    name: tr.translate('SINFO_GUILD_MEMBERS', lang),
+                    name: trans('SINFO_GUILD_MEMBERS', lang),
                     value: message.guild.memberCount.toString(),
                     inline: true,
                 },
                 {
-                    name: tr.translate('SINFO_GUILD_CHANNELS', lang),
+                    name: trans('SINFO_GUILD_CHANNELS', lang),
                     value: message.guild.channels.cache.size.toString(),
                     inline: true,
                 },
                 {
-                    name: tr.translate('SINFO_GUILD_ROLES', lang),
+                    name: trans('SINFO_GUILD_ROLES', lang),
                     value: message.guild.roles.cache.size.toString(),
                     inline: true,
                 },
                 {
-                    name: tr.translate('SINFO_GUILD_CREATEDAT', lang),
+                    name: trans('SINFO_GUILD_CREATEDAT', lang),
                     value: `<t:${Math.floor(message.guild.createdTimestamp / 1000)}>`,
                     inline: true,
                 },
             ],
         };
 
-        console.log(message.guild);
         return message.channel.send({ embeds: [embedContent] });
     },
 };

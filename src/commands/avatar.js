@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 require('dotenv').config();
 
 module.exports = {
@@ -10,8 +9,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 3,
-    execute: async (message, lang, tr, args) => {
-        const embed = new MessageEmbed();
+    execute: async (message, handlers, lang, trans, args) => {
         /* Finding the user */
         let user = message.mentions.members.first();
         let userid = args[0];
@@ -26,13 +24,11 @@ module.exports = {
             });
         }
         /* User not found */
-        if (isError) return message.channel.send(tr.translate('USER_NOT_FOUND', lang));
+        if (isError) return message.channel.send(trans('USER_NOT_FOUND', lang));
 
         if (user) {
             /* User Found */
-            embed.setTitle(tr.translate('USERS_AVATAR', lang, user.user.tag));
-            embed.setColor(process.env.embedColour);
-            embed.setImage(user.user.displayAvatarURL({ dynamic: true, size: 2048 }));
+            let embed = handlers.embed.imageNoText(trans('USERS_AVATAR', lang, user.user.tag), user.user.displayAvatarURL({ dynamic: true, size: 2048 }), message.author);
             message.channel.send({ embeds: [embed] });
         }
     },

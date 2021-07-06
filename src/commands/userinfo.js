@@ -7,7 +7,7 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 5,
-    execute: async (message, lang, tr, args) => {
+    execute: async (message, handlers, lang, trans, args) => {
         let user = message.mentions.members.first();
         let invalidUser = false;
         if (!user) {
@@ -16,7 +16,7 @@ module.exports = {
                 invalidUser = true;
             });
         }
-        if (invalidUser == true) return message.channel.send(tr.translate('USER_NOT_FOUND', lang));
+        if (invalidUser == true) return message.channel.send(trans('USER_NOT_FOUND', lang));
 
         /* Building the embed */
         const embedContent = {
@@ -29,27 +29,27 @@ module.exports = {
             },
             fields: [
                 {
-                    name: tr.translate('UINFO_USER_DISPLAYNAME', lang),
+                    name: trans('UINFO_USER_DISPLAYNAME', lang),
                     value: user.displayName,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_ID', lang),
+                    name: trans('UINFO_USER_ID', lang),
                     value: user.id,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_HIGHESTROLE', lang),
+                    name: trans('UINFO_USER_HIGHESTROLE', lang),
                     value: `<@&${user.roles.highest.id}>`,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_JOINEDAT', lang),
+                    name: trans('UINFO_USER_JOINEDAT', lang),
                     value: `<t:${Math.floor(user.joinedTimestamp / 1000)}>`,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_CREATEDAT', lang),
+                    name: trans('UINFO_USER_CREATEDAT', lang),
                     value: `<t:${Math.floor(user.user.createdTimestamp / 1000)}>`,
                     inline: true,
                 },

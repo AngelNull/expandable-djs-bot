@@ -7,8 +7,8 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 2,
-    execute: async (message, lang, tr) => {
-        const m = await message.channel.send(tr.translate('PING_PINGING', lang));
-        m.edit(tr.translate('PING_RESPONSE', lang, m.createdTimestamp - message.createdTimestamp, message.client.ws.ping));
+    execute: async (message, handlers, lang, trans) => {
+        const m = await message.channel.send(trans('PING_PINGING', lang));
+        m.edit(trans('PING_RESPONSE', lang, m.createdTimestamp - message.createdTimestamp, message.client.ws.ping));
     },
 };

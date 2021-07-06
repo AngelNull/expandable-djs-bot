@@ -1,5 +1,6 @@
 const prompts = require('prompts');
 const fs = require('fs');
+const chalk = require('chalk');
 const { intentToObjects } = require('../handlers/intents/intentHandler.js');
 
 require('dotenv').config();
@@ -166,6 +167,14 @@ const questions = [
         initial: process.env.embedColour || '#ffa500',
     },
 
+    // Set the bots default loading colour
+    {
+        type: (prev) => (prev === true ? 'text' : null),
+        name: 'loadingColour',
+        message: 'Loading Embed Colour? (#Hex)',
+        initial: process.env.loadingColour || '#0080ff',
+    },
+
     // Set the bots success colour
     {
         type: (prev) => (prev.length >= 1 ? 'text' : null),
@@ -204,7 +213,7 @@ const questions = [
 ];
 
 const onCancel = () => {
-    console.log('\x1b[31m', "Configuration was cancelled, to start again, use 'npm run config'", '\x1b[0m');
+    console.log(`${chalk.redBright("Configuration was cancelled, to start again, use 'npm run config'")}`);
     process.exit(0);
 };
 
@@ -213,7 +222,7 @@ const onCancel = () => {
     const response = await prompts(questions, { onCancel });
 
     // Warn if escape character detected
-    if (response.prefix.match(/\\/g)) return console.error('\x1b[31m', '\nYour prefix contains an escape character, configuration aborted.\n', '\x1b[0m');
+    if (response.prefix.match(/\\/g)) return console.error(`${chalk.redBright('\nYour prefix contains an escape character, configuration aborted.\n')}`);
 
     console.log(`\n-----------------------------------\n          Bot Configured\n-----------------------------------\n\nTo reconfigure, simply do 'npm run config'\n`);
 
@@ -239,6 +248,7 @@ const onCancel = () => {
     advancedDebugging=${response.advancedDebugging}
     
     embedColour=${response.embedColour || '#ffa500'}
+    loadingColour=${response.loadingColour || '0080ff'}
     successColour=${response.successColour || '#1e90ff'}
     errorColour=${response.errorColour || '#8b0000'}
 

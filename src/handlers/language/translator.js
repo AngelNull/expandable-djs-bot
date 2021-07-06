@@ -1,5 +1,6 @@
-const { translateEN } = require('./languages/en');
-const { translateFR } = require('./languages/fr');
+const { translateEN } = require('../../i18n/languages/en');
+const { translateFR } = require('../../i18n/languages/fr');
+require('dotenv').config();
 
 const translations = {
     en: translateEN,
@@ -7,6 +8,12 @@ const translations = {
     default: translateEN,
 };
 
+/**
+ * Translate the following key into the specified language with the params specified if needed
+ * @param {String} messageId The key of the message to translate
+ * @param {String} language The language to translate the key into
+ * @param {String} ...params The rest of the params needed for the key, if any.
+ */
 const translate = (messageId, language, ...params) => {
     if (translations[language || 'default']) {
         const translator = translations[language || 'default'];
@@ -29,6 +36,15 @@ const translate = (messageId, language, ...params) => {
     }
 };
 
+/**
+ * This exists to allow for a source of truth for language, and to allow for per-server lang expansion easily.
+ * @returns The right language to use for the situation
+ */
+function lang() {
+    return process.env.language;
+}
+
 module.exports = {
     translate,
+    lang,
 };

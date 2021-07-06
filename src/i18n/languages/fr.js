@@ -11,7 +11,8 @@ const translateFR = {
     /* 
         Generic
     */
-
+    SUCCESS: 'Succès',
+    LOADING: 'Chargement',
     CLICK_HERE: `Cliquez ici`,
     LOAD_EVENT: (event) => `⌛ Chargement: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Chargement: ${command}`,
@@ -21,13 +22,16 @@ const translateFR = {
 		Errors
 	*/
 
+    Error: 'Erreur',
     COMMAND_NOT_FOUND: `Je n'ai pas trouvé de commande ou d'alias portant ce nom.`,
     USER_NOT_FOUND: `Cet utilisateur n'a pas pu être trouvé.`,
     NO_PERMISSION: (user) => `Vous n'avez pas la permission d'utiliser cela, ${user}.`,
-    ON_COOLDOWN: (user, cooldown, command) => `${user}, veuillez patienter ${cooldown} seconde (s) de plus avant d'utiliser à nouveau \`${command}\`.`,
+    ON_COOLDOWN: (user, cooldown, command) => `${user}, veuillez patienter **${cooldown}** seconde(s) de plus avant d'utiliser à nouveau \`${command}\`.`,
     ERROR_OUTPUT: `Une erreur inattendue s'est produite.`,
     ERROR_OUTPUT_TRACE: (err) => `Une erreur inattendue s'est produite.: ${err}.`,
     NEED_PERMS: (permissionName) => `Je n'ai pas l'autorisation ${permissionName}, veuillez m'accorder ceci avant de réessayer.`,
+    EMBED_MISSING_FIELD: `Embed malformé, il manque les champs valides`,
+    FILE_EXT_MISSING: 'Extension de fichier manquante arg.',
 
     /*          
         Events Files
@@ -37,7 +41,7 @@ const translateFR = {
     /* events/ready.js */
     CLIENT_READY: (user, date) => `✅ Prêt: ${user} @ ${date}`,
 
-    /* events/message.js */
+    /* events/messageCreate.js */
     INCORRECT_USAGE: (prefix, command, usage) => `Une utilisation incorrecte! L'utilisation correcte est: \n \`${prefix}${command} ${usage}\``,
 
     /* 

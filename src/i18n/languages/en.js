@@ -13,6 +13,8 @@ const translateEN = {
     */
 
     CLICK_HERE: `Click Here`,
+    SUCCESS: 'Success',
+    LOADING: 'Loading',
     LOAD_EVENT: (event) => `⌛ Loading Event: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Loading Command: ${command}`,
     LOAD_UTILITY: (handler) => `⌛ Loading Handler: ${handler}`,
@@ -21,13 +23,17 @@ const translateEN = {
 		Errors
 	*/
 
+    ERROR: 'Error',
     COMMAND_NOT_FOUND: `I could not find a command or alias with that name.`,
     USER_NOT_FOUND: `That user could not be found.`,
     NO_PERMISSION: (user) => `You do not have permission to use that, ${user}.`,
-    ON_COOLDOWN: (user, cooldown, command) => `${user}, Please wait ${cooldown} more second(s) before using \`${command}\` again.`,
+    ON_COOLDOWN: (user, cooldown, command) => `${user}, Please wait **${cooldown}** more second(s) before using \`${command}\` again.`,
     ERROR_OUTPUT: `An unexpected error occured.`,
     ERROR_OUTPUT_TRACE: (err) => `An unexpected error occured: ${err}.`,
     NEED_PERMS: (permissionName) => `I lack the permission ${permissionName}, please grant me this before trying again.`,
+    EMBED_LACKS_FIELD: 'Malformed embed, it lacks the valid fields.',
+    FILE_EXT_MISSING: 'Missing file extension arg.',
+
     /*          
         Events Files
         Every single event-only translation goes here. 
