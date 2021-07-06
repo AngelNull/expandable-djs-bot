@@ -37,7 +37,7 @@ const translateEN = {
     CLIENT_READY: (user, date) => `✅ Ready: ${user} @ ${date}`,
 
     /* events/message.js */
-    INCORRECT_USAGE: (prefix, command, usage) => `Incorrect usage! The correct usage is: \n \`${prefix}${command} ${usage}\``,
+    INCORRECT_USAGE: (prefix, command, usage) => `Incorrect usage! The correct usage is:\n\`${prefix}${command} ${usage}\``,
 
     /* 
         Commands
@@ -78,7 +78,7 @@ const translateEN = {
 
     /* commands/ping.js */
     PING_PINGING: `Pinging...`,
-    PING_RESPONSE: (latency) => `Pong!\nLatency is **${latency}**ms.`,
+    PING_RESPONSE: (latency, websocket) => `Pong!\nWebsocket Ping: **${websocket}**ms\nMessage Latency is **${latency}**ms.`,
 
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `Command \`${command}\` was reloaded!`,

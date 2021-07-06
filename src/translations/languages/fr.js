@@ -79,7 +79,7 @@ const translateFR = {
 
     /* commands/ping.js */
     PING_PINGING: `S'il vous plaît, attendez...`,
-    PING_RESPONSE: (latency) => `Terminé!\nLa latence est de **${latency}** ms.`,
+    PING_RESPONSE: (latency, websocket) => `Pong!\nPing Websocket: **${websocket}**ms\nLa latence du message est de **${latency}**ms.`,
 
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `La commande \`${command}\` a été rechargée!`,
