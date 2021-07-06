@@ -17,7 +17,7 @@ const translateEN = {
     LOADING: 'Loading',
     LOAD_EVENT: (event) => `⌛ Loading Event: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Loading Command: ${command}`,
-    LOAD_UTILITY: (handler) => `⌛ Loading Handler: ${handler}`,
+    LOAD_HANDLER: (handler) => `⌛ Loading Handler: ${handler}`,
 
     /*
 		Errors
@@ -44,6 +44,16 @@ const translateEN = {
 
     /* events/message.js */
     INCORRECT_USAGE: (prefix, command, usage) => `Incorrect usage! The correct usage is:\n\`${prefix}${command} ${usage}\``,
+
+    /* 
+        Handlers 
+    */
+
+    REACT_ACTION_CONFIRMED: 'Action Confirmed',
+    REACT_ACTION_CANCELLED: 'Action Cancelled',
+    REACT_ACTION_TIMEDOUT: 'Action Timed Out',
+    REACT_ACTION_TIMEDOUT_DESC: 'You failed to react in time so the action was automatically cancelled.',
+    REACT_ACTION_TIMEDOUT_FOOTER: 'Reactions fail to appear? Check your server permissions.',
 
     /* 
         Commands

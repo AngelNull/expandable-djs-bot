@@ -45,6 +45,16 @@ const translateFR = {
     INCORRECT_USAGE: (prefix, command, usage) => `Une utilisation incorrecte! L'utilisation correcte est: \n \`${prefix}${command} ${usage}\``,
 
     /* 
+        Handlers 
+    */
+
+    REACT_ACTION_CONFIRMED: 'Action Confirmée',
+    REACT_ACTION_CANCELLED: 'Action Annulée',
+    REACT_ACTION_TIMEDOUT: 'Action Expirée',
+    REACT_ACTION_TIMEDOUT_DESC: "Vous n'avez pas réagi à réagir à temps afin que l'action soit automatiquement annulée.",
+    REACT_ACTION_TIMEDOUT_FOOTER: 'Les réactions ne paraissent pas? Vérifiez vos autorisations de serveur.',
+
+    /* 
         Commands
         Every single command-only translation goes here
     */
