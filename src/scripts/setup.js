@@ -1,5 +1,6 @@
 const prompts = require('prompts');
 const fs = require('fs');
+const { intentToObjects } = require('../handlers/intents/intentHandler.js');
 
 require('dotenv').config();
 
@@ -11,7 +12,7 @@ This file must be updated with new configuration options when the bot is updated
 
 */
 
-console.log('-----------------------------------\n          Bot Configuration\n-----------------------------------\n');
+console.log('-----------------------------------\n         Bot Configuration\n-----------------------------------\n');
 
 const questions = [
     // The bots token
@@ -35,6 +36,13 @@ const questions = [
         name: 'ownerID',
         message: 'Owner UserID?',
         initial: process.env.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
+    },
+
+    {
+        type: 'multiselect',
+        name: 'intents',
+        message: 'Select Intents',
+        choices: intentToObjects(),
     },
 
     {
@@ -224,6 +232,8 @@ const onCancel = () => {
     botActivity=${response.botActivity || ''}
     botActivityType=${response.botActivityType || ''}
     streamingURL=${response.streamingURL || 'None'}
+
+    intents=${response.intents}
 
     keepOutFiles=${response.keepOutFiles}
     advancedDebugging=${response.advancedDebugging}

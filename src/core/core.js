@@ -1,10 +1,11 @@
 const Discord = require('discord.js');
-const translator = require('../translations/translator.js');
+const translator = require('../i18n/translator.js');
+const { structureIntents } = require('../handlers/intents/intentHandler.js');
 
 const client = new Discord.Client({
     disableMentions: 'everyone',
     shards: 'auto',
-    intents: ['DIRECT_MESSAGES', 'GUILDS', 'GUILD_MEMBERS', 'GUILD_INVITES', 'GUILD_PRESENCES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGES'],
+    intents: structureIntents(),
     partials: ['GUILD_MEMBER'],
 });
 
