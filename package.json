@@ -24,6 +24,7 @@
     "discord.js": "^13.0.0-dev.2e078e4.1625573006",
     "dotenv": "^10.0.0",
     "prompts": "^2.4.1",
+    "recursive-readdir": "^2.2.2",
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
