@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/AngelNull/expandable-djs-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.0.0-dev.2e078e4.1625573006",
     "dotenv": "^10.0.0",
     "prompts": "^2.4.1",
     "snekfetch": "^4.0.4"
