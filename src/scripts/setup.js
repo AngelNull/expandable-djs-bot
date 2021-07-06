@@ -22,6 +22,7 @@ const questions = [
         name: 'token',
         message: 'Bot Token?',
         initial: process.env.DISCORD_AUTH_TOKEN || '',
+        validate: (text) => text.length >= 15,
     },
     // The bots prefix
     {
@@ -37,6 +38,7 @@ const questions = [
         name: 'ownerID',
         message: 'Owner UserID?',
         initial: process.env.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
+        validate: (text) => text.length >= 15,
     },
 
     {
@@ -169,7 +171,7 @@ const questions = [
 
     // Set the bots default loading colour
     {
-        type: (prev) => (prev === true ? 'text' : null),
+        type: (prev) => (prev.length >= 1 ? 'text' : null),
         name: 'loadingColour',
         message: 'Loading Embed Colour? (#Hex)',
         initial: process.env.loadingColour || '#0080ff',
