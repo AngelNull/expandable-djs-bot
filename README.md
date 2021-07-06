@@ -50,6 +50,12 @@
   </ol>
 </details>
 
+
+# Notice 
+
+If you want to use the experimental EDB for discord.js@dev, it can be found in the `v13-support` branch. A warning that it is not finished and is entirely experimental. 
+--- 
+
 ## Purpose
 Expandable-DJS-Bot (EDB) is a discord.js bot template, allowing for easy expansion with new commands, translations and more. 
 
