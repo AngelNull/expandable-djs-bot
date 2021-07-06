@@ -1,4 +1,5 @@
 require('dotenv').config();
+const handlers = require('../../handlers');
 
 /**
  * This function sets up a "confirm/deny" reaction event on the given message, userid is for what user can confirm or deny this event and embed is for
@@ -9,6 +10,7 @@ require('dotenv').config();
  */
 
 const confirm = async (message, userID, embed) => {
+    const lang = handlers.i18n.lang();
     let isError = false;
 
     await message.react('✅').catch(() => {
@@ -37,21 +39,21 @@ const confirm = async (message, userID, embed) => {
         });
 
         if (collected.first().emoji.name === '✅') {
-            embed.setTitle('Action Confirmed');
+            embed.setTitle(handlers.i18n.translate('REACT_ACTION_CONFIRMED', lang));
             embed.setColor(process.env.successColour);
             await message.reactions.removeAll().catch();
             return 'confirmed';
         } else {
-            embed.setTitle('Action Cancelled');
+            embed.setTitle(handlers.i18n.translate('REACT_ACTION_CANCELLED', lang));
             embed.setColor(process.env.errorColour);
             await message.reactions.removeAll().catch();
             return 'denied';
         }
     } catch (error) {
-        embed.setTitle('Action Timed Out');
+        embed.setTitle('Action Timed Out', lang);
         embed.setColor(process.env.errorColour);
-        embed.setDescription('You failed to react in time so the action was automatically cancelled.');
-        embed.setFooter('Reactions fail to appear? Check your server permissions.');
+        embed.setDescription(handlers.i18n.translate('REACT_ACTION_TIMEDOUT_DESC', lang));
+        embed.setFooter(handlers.i18n.translate('REACT_ACTION_TIMEDOUT_FOOTER', lang));
         await message.reactions.removeAll().catch();
         await message.edit(embed).catch();
         return 'error';
