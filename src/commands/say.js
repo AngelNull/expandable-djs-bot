@@ -7,7 +7,7 @@ module.exports = {
     permission: '',
     devOnly: true,
     cooldown: 1,
-    execute: (message, args) => {
+    execute: (message, lang, tr, args) => {
         /* Join all args together */
         let toSend = args.join(' ');
         toSend = toSend.toString();

@@ -9,10 +9,10 @@ module.exports = {
     permission: '',
     devOnly: false,
     cooldown: 3,
-    execute: (message, lang, tr) => {
+    execute: async (message, lang, tr) => {
         const embedContent = {
             color: process.env.embedColour,
-            title: message.guild.name,
+            title: 'Guild Info',
             thumbnail: {
                 url: message.guild.iconURL({ dynamic: true }),
             },
@@ -29,22 +29,22 @@ module.exports = {
                 },
                 {
                     name: tr.translate('SINFO_GUILD_OWNER', lang),
-                    value: message.guild.owner,
+                    value: `<@${message.guild.ownerId}>`,
                     inline: true,
                 },
                 {
                     name: tr.translate('SINFO_GUILD_MEMBERS', lang),
-                    value: message.guild.memberCount,
+                    value: message.guild.memberCount.toString(),
                     inline: true,
                 },
                 {
                     name: tr.translate('SINFO_GUILD_CHANNELS', lang),
-                    value: message.guild.channels.cache.size,
+                    value: message.guild.channels.cache.size.toString(),
                     inline: true,
                 },
                 {
                     name: tr.translate('SINFO_GUILD_ROLES', lang),
-                    value: message.guild.roles.cache.size,
+                    value: message.guild.roles.cache.size.toString(),
                     inline: true,
                 },
                 {
@@ -55,6 +55,7 @@ module.exports = {
             ],
         };
 
-        return message.channel.send({ embed: embedContent });
+        console.log(message.guild);
+        return message.channel.send({ embeds: [embedContent] });
     },
 };

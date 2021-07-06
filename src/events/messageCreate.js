@@ -29,14 +29,14 @@ module.exports = async (client, message) => {
         if (command.devOnly && process.env.ownerID != message.author.id) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
 
         /* If the command has a permission object, and the user does not have that permission; deny the user from executing the command and return. */
-        if (command.permission && !message.member.hasPermission(command.permission)) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
+        if (command.permission && !message.member.permissions.has(command.permission)) return message.channel.send(tr.translate('NO_PERMISSION', lang, message.author));
 
         /* If the command requires args and the user does not pass them; tell the user the correct usage of the command and return */
         if (command.args && !args.length) {
             /* Send the error message; delete the authors message and error message after elapsed time */
             let errmsg = await message.channel.send(tr.translate('INCORRECT_USAGE', lang, process.env.prefix, commandName, command.usage));
-            message.delete({ timeout: 6000 });
-            return errmsg.delete({ timeout: 8000 });
+            client.setTimeout(() => message.delete(), 6000);
+            return client.setTimeout(() => errmsg.delete(), 8000);
         }
 
         /* Per-Command cooldown is handled here, if a user uses the same command before the cooldown has ended, deny the user from using the command */
@@ -54,7 +54,7 @@ module.exports = async (client, message) => {
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
                 let cooldownMessage = await message.channel.send(tr.translate('ON_COOLDOWN', lang, message.author, timeLeft.toFixed(1), command.name));
-                message.delete({ timeout: 4000 }).catch();
+                client.setTimeout(() => message.delete(), 8000);
                 return cooldownMessage.delete({ timeout: 2500 }).catch(() => {
                     return;
                 });

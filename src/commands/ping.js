@@ -9,6 +9,6 @@ module.exports = {
     cooldown: 2,
     execute: async (message, lang, tr) => {
         const m = await message.channel.send(tr.translate('PING_PINGING', lang));
-        m.edit(tr.translate('PING_RESPONSE', lang, m.createdTimestamp - message.createdTimestamp));
+        m.edit(tr.translate('PING_RESPONSE', lang, m.createdTimestamp - message.createdTimestamp, message.client.ws.ping));
     },
 };

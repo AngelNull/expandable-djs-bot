@@ -40,7 +40,7 @@ module.exports = {
                 },
                 {
                     name: tr.translate('UINFO_USER_HIGHESTROLE', lang),
-                    value: user.roles.highest,
+                    value: `<@&${user.roles.highest.id}>`,
                     inline: true,
                 },
                 {
@@ -56,6 +56,6 @@ module.exports = {
             ],
         };
 
-        return message.channel.send({ embed: embedContent });
+        return message.channel.send({ embeds: [embedContent] });
     },
 };

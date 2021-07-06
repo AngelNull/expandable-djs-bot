@@ -27,7 +27,7 @@ module.exports = {
             embed.setTitle(tr.translate('DM_PENDING_TITLE'), lang);
             embed.setDescription(tr.translate('DM_PENDING_DESC', lang, user, args));
             embed.setColor(process.env.embedColour);
-            let confirmMessage = await message.channel.send(embed);
+            let confirmMessage = await message.channel.send({ embeds: [embed] });
             /* Run the confirm reaction function from utils */
             let confirmReact = await utils.reacts.confirm(confirmMessage, message.author.id, embed);
             /* If the user confirmed the reaction from the function */
@@ -43,10 +43,10 @@ module.exports = {
                     embed.setColor(process.env.errorColour);
                     embed.setThumbnail('');
                 });
-                return confirmMessage.edit(embed);
+                return confirmMessage.edit({ embeds: [embed] });
             } else {
                 embed.setDescription(tr.translate('DM_CANCELLED', lang));
-                return confirmMessage.edit(embed);
+                return confirmMessage.edit({ embeds: [embed] });
             }
         } else {
             message.delete().catch();

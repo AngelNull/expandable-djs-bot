@@ -33,7 +33,7 @@ module.exports = {
             embed.setTitle(tr.translate('USERS_AVATAR', lang, user.user.tag));
             embed.setColor(process.env.embedColour);
             embed.setImage(user.user.displayAvatarURL({ dynamic: true, size: 2048 }));
-            message.channel.send(embed);
+            message.channel.send({ embeds: [embed] });
         }
     },
 };

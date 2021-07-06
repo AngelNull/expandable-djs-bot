@@ -37,7 +37,7 @@ module.exports = {
 
             /* Send the embed to the user; if the user has direct messages closed, react to the original message with a cross, otherwise with a tick */
             return message.author
-                .send(helpList)
+                .send({ embeds: [helpList] })
                 .then(() => {
                     return message.react('✅').catch(() => {
                         return;
@@ -72,7 +72,7 @@ module.exports = {
         if (command.permission) data.push(`**Permission:** ${command.permission}`);
         data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
         embed.setDescription(data);
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
     },
 };
 
