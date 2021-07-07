@@ -6,7 +6,7 @@ const client = new Discord.Client({
     disableMentions: 'everyone',
     shards: 'auto',
     intents: structureIntents(),
-    partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER', 'USER'],
+    partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER'],
 });
 
 const ratelimitCooldown = new Set();
