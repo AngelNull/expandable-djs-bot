@@ -1,6 +1,5 @@
 const { translate: trans, lang: figureLang } = require('../language/translator');
 const chalk = require('chalk');
-let lang = figureLang();
 
 /**
  *
@@ -8,8 +7,8 @@ let lang = figureLang();
  * @returns {Console} A console.error event with the translation
  * @example return generic('ERROR')
  */
-function generic(errorTransKey) {
-    return console.error(`${chalk.redBright(`⚠ ${trans('ERROR', lang)}`)} ${chalk.yellowBright(trans(errorTransKey, lang))}`);
+function generic(errorTransKey, ...args) {
+    return console.error(`${chalk.redBright(`⚠ ${trans('ERROR', figureLang())}!`)} ${chalk.yellowBright(trans(errorTransKey, figureLang(), ...args))}`);
 }
 
 module.exports = {
