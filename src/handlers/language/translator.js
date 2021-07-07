@@ -14,6 +14,7 @@ const translations = {
  * @param {String} messageId The key of the message to translate
  * @param {String} language The language to translate the key into
  * @param {String} ...params The rest of the params needed for the key, if any.
+ * @example interaction.editReply(translate('ERROR', 'en'))
  */
 const translate = (messageId, language, ...params) => {
     if (translations[language || 'default']) {

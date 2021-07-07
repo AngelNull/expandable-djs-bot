@@ -2,8 +2,8 @@ const intentsList = require('../../../node_modules/discord.js/src/util/Intents')
 require('dotenv').config();
 
 /**
- *   Resolve intents from the discord.js intents list
- *  @returns {object}
+ *   Resolve intents list from the discord.js
+ *  @returns {String[]} Intents
  */
 function resolveIntents() {
     let intents = Object.keys(intentsList.FLAGS);
@@ -12,7 +12,7 @@ function resolveIntents() {
 
 /**
  * Turn intents into an object
- * @returns {object} A list of intents with the key pair "name: intent" and "value: intent"
+ * @returns {any[]} A list of intents with the key pair "name: intent" and "value: intent"
  */
 function intentToObjects() {
     let intents = resolveIntents();

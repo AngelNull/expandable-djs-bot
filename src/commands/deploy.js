@@ -21,14 +21,14 @@ module.exports = {
 
         const public = interaction.options.get('public')?.value ?? false;
 
-        /* Privately redeploy all commands in the specified test server. Note: this does not apply custom permissions. */
+        /* Privately redeploy all commands in the specified test server. */
         if (public == false) {
             interaction.editReply({ content: trans('REDEPLOY_START', lang) });
             await interaction.client.guilds.cache.get(process.env.guildID)?.commands.set(interaction.client.commands);
             interaction.editReply({ content: trans('REDEPLOY_PRIVATE_DONE', lang) });
             return console.log(trans('REDEPLOY_PRIVATE_DONE', lang));
         } else {
-            /* Publically redeploy all commands and apply permissions where needed. */
+            /* Publically redeploy all commands except those with the private: true flag. */
             interaction.editReply({ content: trans('REDEPLOY_START', lang) });
             await interaction.client.commands.forEach(async (command) => {
                 if (!command.private) {

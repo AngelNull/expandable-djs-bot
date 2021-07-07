@@ -16,7 +16,7 @@ function appendInvoker(invoker, embed) {
  * Create an error embed
  * @param {String} title The title of the embed (optional)
  * @param {String} desc The description of the embed (optional)
- * @param {*} optionalThumbnail The thumbnail for the embed (optional)
+ * @param {URL} optionalThumbnail The thumbnail for the embed (optional)
  * @returns {MessageEmbed} A MessageEmbed Object
  */
 function error(title, desc, optionalThumbnail) {
@@ -37,6 +37,8 @@ function error(title, desc, optionalThumbnail) {
  * @param {String} desc The description of the embed
  * @param {*} optionalThumbnail The thumbnail for the embed (optional)
  * @returns {MessageEmbed} A MessageEmbed Object
+ * @example let successEmbed = success('Completed!', 'I was able to successfully perform that action.')
+ * interaction.editReply({embeds: [successEmbed]})
  */
 function success(title, desc, optionalThumbnail) {
     let embed = new MessageEmbed();
@@ -55,8 +57,10 @@ function success(title, desc, optionalThumbnail) {
  * Create a loading embed
  * @param {String} title The title of the embed
  * @param {String} desc The description of the embed
- * @param {*} optionalThumbnail The thumbnail for the embed (optional)
+ * @param {URL} optionalThumbnail The thumbnail for the embed (optional)
  * @returns {MessageEmbed} A MessageEmbed Object
+ * @example let loadEmbed = loading('Now Processing...,'I am processing your request, please wait.')
+ * interaction.editReply({embeds: [loadEmbed]})
  */
 function loading(title, desc, optionalThumbnail) {
     let embed = new MessageEmbed();
@@ -75,8 +79,10 @@ function loading(title, desc, optionalThumbnail) {
  * Create a basic embed
  * @param {String} title The title of the embed
  * @param {String} desc The description of the embed
- * @param {*} optionalThumbnail The thumbnail for the embed (optional)
+ * @param {URL} optionalThumbnail The thumbnail for the embed (optional)
  * @returns {MessageEmbed} A MessageEmbed Object
+ * @example let welcomeEmbed = basic('Hey!,'Welcome to the server.')
+ * interaction.editReply({embeds: [welcomeEmbed]})
  */
 function basic(title, desc, optionalThumbnail) {
     let embed = new MessageEmbed();
@@ -94,8 +100,10 @@ function basic(title, desc, optionalThumbnail) {
 /**
  * Creates an image embed with no description
  * @param {String} title The title of the embed
- * @param {*} image The image for the embed
+ * @param {URL} image The image for the embed
  * @returns {MessageEmbed} A MessageEmbed Object
+ * @example let imgEmbed = imageNoText('Dog Picture <3', 'https://example.com/dog.png')
+ * interaction.editReply({embeds: [imgEmbed]})
  */
 function imageNoText(title, image) {
     let embed = new MessageEmbed();
@@ -110,11 +118,13 @@ function imageNoText(title, image) {
 }
 
 /**
- * Create s an image embed with a description
+ * Creates an image embed with a description
  * @param {String} title The title of the embed
  * @param {String} desc The description of the embed
- * @param {*} image The image for the embed
- * @returns {Message} A MessageEmbed Object
+ * @param {URL} image The image for the embed
+ * @returns {MessageEmbed} A MessageEmbed Object
+ * @example let imgEmbed = imageWithText('Dog Picture <3', 'Look at this cute dog', 'https://example.com/dog.png')
+ * interaction.editReply({embeds: [imgEmbed]})
  */
 function imageWithText(title, desc, image) {
     let embed = new MessageEmbed();

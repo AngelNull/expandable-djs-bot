@@ -7,8 +7,8 @@ require('dotenv').config();
 module.exports = async (client, interaction) => {
     if (!interaction.isCommand()) return;
 
-    /* If the author is a bot, or the message was not sent in a guild; return */
-    if (interaction.user.bot || !interaction.guild) return;
+    /* If the author is a bot, or the interaction was not sent in a guild; return */
+    if (interaction.user?.bot || !interaction.guild) return;
 
     /* Due to the fact you cannot send an Embed unless EMBED_LINKS is granted; the bot will require it */
     if (!interaction.guild.me.permissions.has('EMBED_LINKS')) return interaction.reply(trans('NEED_PERMS', lang, 'EMBED_LINKS'));
@@ -43,7 +43,7 @@ module.exports = async (client, interaction) => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
-            await interaction.reply({ content: trans('ON_COOLDOWN', lang, interaction.user, timeLeft.toFixed(1), command.name), ephemeral: true });
+            return interaction.reply({ content: trans('ON_COOLDOWN', lang, interaction.user, timeLeft.toFixed(1), command.name), ephemeral: true });
         }
     }
 
