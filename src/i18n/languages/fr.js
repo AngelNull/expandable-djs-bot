@@ -25,7 +25,7 @@ const translateFR = {
     ERROR_OUTPUT: `Une erreur inattendue s'est produite.`,
     ERROR_OUTPUT_TRACE: (err) => `Une erreur inattendue s'est produite.: ${err}.`,
     NEED_PERMS: (permissionName) => `Je n'ai pas l'autorisation ${permissionName}, veuillez m'accorder ceci avant de réessayer.`,
-    EMBED_MISSING_FIELD: `Embed malformé, il manque les champs valides`,
+    EMBED_LACKS_FIELD: `Embed malformé, il manque les champs valides`,
     FILE_EXT_MISSING: 'Extension de fichier manquante arg.',
 
     /*          
@@ -111,6 +111,15 @@ const translateFR = {
     SINFO_GUILD_CHANNELS: 'Canaux',
     SINFO_GUILD_ROLES: 'Les rôles',
     SINFO_GUILD_CREATEDAT: 'Créé à',
+
+    /* commands/statistics.js */
+    STATS_TITLE: 'Statistiques',
+    STATS_DESCRIPTION: (user) => `Voici les statistiques pour ${user}`,
+    STATS_GUILDS: 'Total des guildes',
+    STATS_USERS: 'Total des utilisateurs',
+    STATS_CHANNELS: 'Total des canaux',
+    STATS_UPTIME: 'Heure de disponibilité',
+    STATS_WEBSOCKET: 'Websocket',
 
     /* commands/userinfo.js */
     UINFO_USER_DISPLAYNAME: 'Afficher un nom',

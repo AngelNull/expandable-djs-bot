@@ -10,6 +10,7 @@ const translateEN = {
     CLICK_HERE: `Click Here`,
     SUCCESS: 'Success',
     LOADING: 'Loading',
+    PLEASE_WAIT: 'Please wait...',
     LOAD_EVENT: (event) => `⌛ Loading Event: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Loading Command: ${command}`,
     LOAD_HANDLER: (handler) => `⌛ Loading Handler: ${handler}`,
@@ -113,6 +114,15 @@ const translateEN = {
     SINFO_GUILD_CHANNELS: 'Channels',
     SINFO_GUILD_ROLES: 'Roles',
     SINFO_GUILD_CREATEDAT: 'Created At',
+
+    /* commands/statistics.js */
+    STATS_TITLE: 'Statistics',
+    STATS_DESCRIPTION: (user) => `Here are the statistics for ${user}`,
+    STATS_GUILDS: 'Total Guilds',
+    STATS_USERS: 'Total Users',
+    STATS_CHANNELS: 'Total Channels',
+    STATS_UPTIME: 'Uptime',
+    STATS_WEBSOCKET: 'Websocket',
 
     /* commands/userinfo.js */
     UINFO_USER_DISPLAYNAME: 'Display Name',
