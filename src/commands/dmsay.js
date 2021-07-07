@@ -23,23 +23,22 @@ module.exports = {
     private: false,
     cooldown: 3,
     execute: async (interaction, handlers, lang, trans) => {
+        // Get the interaction option responses
         const { member } = interaction.options.get('member');
         const message = interaction.options.get('message').value;
-
-        /* Build the confirmation embed */
+        // Prepare the embed and add buttons for confirm/cancel
         let embed = handlers.embed.loading(trans('DM_PENDING_TITLE', lang), trans('DM_PENDING_DESC', lang, member, message));
         await interaction.editReply({ embeds: [embed] });
-        /* Run the confirm reaction function from handlers */
-        let confirmReact = await handlers.reacts.confirm(await interaction.fetchReply(), interaction.user.id, embed, true);
-        /* If the user confirmed the reaction from the function */
-        if (confirmReact == 'confirmed') {
+        const confirmButton = await handlers.buttons.confirmation(interaction, interaction.user.id, embed);
+        // If the user confirms, carry on
+        if (confirmButton) {
             embed = handlers.embed.success(trans('DM_CONFIRMED_TITLE', lang), trans('DM_CONFIRMED_DESC', lang, member, message), 'https://i.imgur.com/Jg0azl4.gif');
-            /* If the user cancelled the reaction from the function */
             await member.send(message).catch(() => {
                 embed = handlers.embed.error(trans('DM_FAILED_TITLE', lang), trans('DM_FAILED_DESC', lang, member));
             });
             return interaction.editReply({ embeds: [embed] });
         } else {
+            // If something goes wrong or the user cancels, cancel the sending.
             embed.setDescription(trans('DM_CANCELLED', lang));
             return interaction.editReply({ embeds: [embed] });
         }
