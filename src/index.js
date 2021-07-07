@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { client, translate: trans, lang } = require('./client/core.js');
+const handlers = require('./handlers');
 const chalk = require('chalk');
 var recursive = require('recursive-readdir');
 
@@ -32,4 +33,12 @@ recursive('./src/handlers/', (err, files) => {
         if (!file.endsWith('.js') || file == 'src\\handlers\\index.js') return;
         console.log(`${chalk.yellow(`${trans('LOAD_HANDLER', lang(), file)}`)}`);
     });
+});
+
+process.on('unhandledRejection', (e) => {
+    console.log(handlers.error.generic('ERROR_OUTPUT_TRACE', e));
+});
+
+process.on('uncaughtException', (e) => {
+    console.log(handlers.error.generic('ERROR_OUTPUT_TRACE', e));
 });
