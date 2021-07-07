@@ -1,12 +1,7 @@
 const translateEN = {
     /*
     READ THE DOCUMENTATION BEFORE CREATING A TRANSLATION
-    
-	When translating this file, please only change the parts in backticks and nothing else. all variables need to be used.
-    These can be placed anywhere within the string, refer back to the source language (English) for their original placement.
-
-    Please maintain the usage of the markdown usage where possible, including newlines. If a word cannot be translated at all, use a suitable alternative.
-    */
+    /*
 
     /* 
         Generic
@@ -49,11 +44,12 @@ const translateEN = {
         Handlers 
     */
 
-    REACT_ACTION_CONFIRMED: 'Action Confirmed',
-    REACT_ACTION_CANCELLED: 'Action Cancelled',
-    REACT_ACTION_TIMEDOUT: 'Action Timed Out',
-    REACT_ACTION_TIMEDOUT_DESC: 'You failed to react in time so the action was automatically cancelled.',
-    REACT_ACTION_TIMEDOUT_FOOTER: 'Reactions fail to appear? Check your server permissions.',
+    BUTTON_ACTION_CONFIRMED: `Action Confirmed`,
+    BUTTON_ACTION_CANCELLED: `Action Cancelled`,
+    BUTTON_ACTION_TIMEDOUT: `Action Timed Out`,
+    BUTTON_ACTION_TIMEDOUT_DESC: `You failed to react in time so the action was automatically cancelled.`,
+    BUTTON_CONFIRM: `Confirm`,
+    BUTTON_CANCEL: `Cancel`,
 
     /* 
         Commands
@@ -64,11 +60,11 @@ const translateEN = {
     USERS_AVATAR: (user) => `${user}'s Avatar`,
 
     /* commands/deploy.js */
-    REDEPLOY_START: 'Deploying...',
-    REDEPLOY_PRIVATE: 'Deploying privately...',
-    REDEPLOY_PRIVATE_DONE: 'Successfully redeployed all commands privately.',
-    REDEPLOY_PUBLIC_DONE: 'Successfully redeployed all commands publicly.',
-    REDEPLOY_PUBPRIV_DONE: 'Commands successfully deployed publicly and privately',
+    REDEPLOY_START: `Deploying...`,
+    REDEPLOY_PRIVATE: `Deploying privately...`,
+    REDEPLOY_PRIVATE_DONE: `Successfully redeployed all commands privately.`,
+    REDEPLOY_PUBLIC_DONE: `Successfully redeployed all commands publicly.`,
+    REDEPLOY_PUBPRIV_DONE: `Commands successfully deployed publicly and privately`,
     REDEPLOY_PUBLIC_CMD: (cmd) => `Publicly redeploying command: \`${cmd}\``,
     REDEPLOY_PRIVATE_CMD: (cmd) => `Privately redeploying command: \`${cmd}\``,
 

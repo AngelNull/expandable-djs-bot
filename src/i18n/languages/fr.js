@@ -1,11 +1,6 @@
 const translateFR = {
     /*
     READ THE DOCUMENTATION BEFORE CREATING A TRANSLATION
-    
-	When translating this file, please only change the parts in backticks and nothing else. all variables need to be used.
-    These can be placed anywhere within the string, refer back to the source language (English) for their original placement.
-
-    Please maintain the usage of the markdown usage where possible, including newlines. If a word cannot be translated at all, use a suitable alternative.
     */
 
     /* 
@@ -48,11 +43,12 @@ const translateFR = {
         Handlers 
     */
 
-    REACT_ACTION_CONFIRMED: 'Action Confirmée',
-    REACT_ACTION_CANCELLED: 'Action Annulée',
-    REACT_ACTION_TIMEDOUT: 'Action Expirée',
-    REACT_ACTION_TIMEDOUT_DESC: "Vous n'avez pas réagi à réagir à temps afin que l'action soit automatiquement annulée.",
-    REACT_ACTION_TIMEDOUT_FOOTER: 'Les réactions ne paraissent pas? Vérifiez vos autorisations de serveur.',
+    BUTTON_ACTION_CONFIRMED: `Action confirmée`,
+    BUTTON_ACTION_CANCELLED: `Action annulée`,
+    BUTTON_ACTION_TIMEDOUT: `L'action a expiré`,
+    BUTTON_ACTION_TIMEDOUT_DESC: `Vous n'avez pas réagi à temps, l'action a donc été automatiquement annulée.`,
+    BUTTON_CONFIRM: `Confirmer`,
+    BUTTON_CANCEL: `Annuler`,
 
     /* 
         Commands
@@ -64,11 +60,11 @@ const translateFR = {
     USERS_AVATAR: (user) => `${user}'s Avatar`,
 
     /* commands/deploy.js */
-    REDEPLOY_START: 'Déploiement...',
-    REDEPLOY_PRIVATE: 'Déploiement en privé...',
-    REDEPLOY_PRIVATE_DONE: 'Déploiement réussi de toutes les commandes en privé.',
-    REDEPLOY_PUBLIC_DONE: 'Déploiement public de toutes les commandes avec succès.',
-    REDEPLOY_PUBPRIV_DONE: 'Commandes déployées avec succès en public et en privé',
+    REDEPLOY_START: `Déploiement...`,
+    REDEPLOY_PRIVATE: `Déploiement en privé...`,
+    REDEPLOY_PRIVATE_DONE: `Déploiement réussi de toutes les commandes en privé.`,
+    REDEPLOY_PUBLIC_DONE: `Déploiement public de toutes les commandes avec succès.`,
+    REDEPLOY_PUBPRIV_DONE: `Commandes déployées avec succès en public et en privé`,
     REDEPLOY_PUBLIC_CMD: (cmd) => `Commande de redéploiement public: \`${cmd}\``,
     REDEPLOY_PRIVATE_CMD: (cmd) => `Commande de redéploiement privé: \`${cmd}\``,
 
