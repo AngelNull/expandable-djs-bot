@@ -1,10 +1,11 @@
 const { translate: trans, lang } = require('../handlers/language/translator');
+const { date } = require('../handlers/format/format');
 const chalk = require('chalk');
 
 require('dotenv').config();
 module.exports = async (client) => {
     /* Authenticated */
-    console.log(`${chalk.green(`${trans('CLIENT_READY', lang(), client.user.tag, new Date())}`)}`);
+    console.log(`${chalk.green(`${trans('CLIENT_READY', lang(), client.user.tag, date())}`)}`);
     /* Set the custom presence and activity for the bot */
     setPresence(client);
     /* Deploy commands in the test server on launch */

@@ -87,7 +87,7 @@ function loading(title, desc, optionalThumbnail) {
 function basic(title, desc, optionalThumbnail) {
     let embed = new MessageEmbed();
 
-    if (!title || !desc) handlers.error.generic('EMBED_MISSING_FIELD');
+    if (!title || !desc) handlers.error.generic('EMBED_LACKS_FIELD');
     embed.setTitle(title);
     embed.setDescription(desc);
     embed.setColor(process.env.embedColour);
@@ -108,7 +108,7 @@ function basic(title, desc, optionalThumbnail) {
 function imageNoText(title, image) {
     let embed = new MessageEmbed();
 
-    if (!title || !image) handlers.error.generic('EMBED_MISSING_FIELD');
+    if (!title || !image) handlers.error.generic('EMBED_LACKS_FIELD');
     embed.setTitle(title);
     embed.setImage(image);
     embed.setColor(process.env.embedColour);
@@ -129,7 +129,7 @@ function imageNoText(title, image) {
 function imageWithText(title, desc, image) {
     let embed = new MessageEmbed();
 
-    if (!title || !desc || !image) handlers.error.generic('EMBED_MISSING_FIELD');
+    if (!title || !desc || !image) handlers.error.generic('EMBED_LACKS_FIELD');
     embed.setTitle(title);
     embed.setDescription(desc);
     embed.setImage(image);
