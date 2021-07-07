@@ -7,9 +7,11 @@ const handlers = require('../../handlers');
  * @param {any} message The discord message object
  * @param {string} userID The invoking users discord ID
  * @param {MessageEmbed} embed The discord embed object
+ * @param {String} isInteraction Does this originate from an interaction
  */
 
-const confirm = async (message, userID, embed) => {
+const confirm = async (message, userID, embed, isInteraction) => {
+    console.log(message);
     const lang = handlers.i18n.lang();
     let isError = false;
 
@@ -55,7 +57,8 @@ const confirm = async (message, userID, embed) => {
         embed.setDescription(handlers.i18n.translate('REACT_ACTION_TIMEDOUT_DESC', lang));
         embed.setFooter(handlers.i18n.translate('REACT_ACTION_TIMEDOUT_FOOTER', lang));
         await message.reactions.removeAll().catch();
-        await message.edit(embed).catch();
+        if (isInteraction == false) await message.edit(embed).catch();
+        else await message.editReply(embed).catch();
         return 'error';
     }
 };

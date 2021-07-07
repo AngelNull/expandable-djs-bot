@@ -1,19 +1,24 @@
 module.exports = {
     name: 'say',
-    description: 'Repeats the given message',
-    aliases: ['repeat', 's'],
-    args: true,
-    usage: '[mesage]',
+    description: 'Repeats the given message. [Developer]',
+    options: [
+        {
+            name: 'message',
+            type: 'STRING',
+            description: 'The message to send',
+            required: true,
+        },
+    ],
+    ephemeral: true,
     permission: '',
     devOnly: true,
+    private: false,
     cooldown: 1,
-    execute: (message, handlers, lang, trans, args) => {
-        /* Join all args together */
-        let toSend = args.join(' ');
-        toSend = toSend.toString();
-        /* If the bot has access to manage messages, delete the authors message */
-        if (message.guild.me.permissions.has('MANAGE_MESSAGES')) message.delete();
+    execute: (interaction) => {
+        let toSend = interaction.options.get('message').value;
+        /* Tell the author the message is being sent */
+        interaction.editReply("Psst, I've sent your message into chat.");
         /* Send the message */
-        return message.channel.send(toSend);
+        return interaction.channel.send(toSend);
     },
 };

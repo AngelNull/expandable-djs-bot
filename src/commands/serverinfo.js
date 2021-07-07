@@ -2,59 +2,58 @@ require('dotenv').config();
 
 module.exports = {
     name: 'serverinfo',
-    description: 'Shows information about the server',
-    aliases: ['guildinfo', 'guild'],
-    args: false,
-    usage: '',
+    description: 'Shows information about the server.',
+    ephemeral: false,
     permission: '',
     devOnly: false,
+    private: false,
     cooldown: 3,
-    execute: async (message, handlers, lang, trans) => {
+    execute: async (interaction, handlers, lang, trans) => {
         const embedContent = {
             color: process.env.embedColour,
             title: 'Guild Info',
             thumbnail: {
-                url: message.guild.iconURL({ dynamic: true }),
+                url: interaction.guild.iconURL({ dynamic: true }),
             },
             fields: [
                 {
                     name: trans('SINFO_GUILD_NAME', lang),
-                    value: message.guild.name,
+                    value: interaction.guild.name,
                     inline: true,
                 },
                 {
                     name: trans('SINFO_GUILD_ID', lang),
-                    value: message.guild.id,
+                    value: interaction.guild.id,
                     inline: true,
                 },
                 {
                     name: trans('SINFO_GUILD_OWNER', lang),
-                    value: `<@${message.guild.ownerId}>`,
+                    value: `<@${interaction.guild.ownerId}>`,
                     inline: true,
                 },
                 {
                     name: trans('SINFO_GUILD_MEMBERS', lang),
-                    value: message.guild.memberCount.toString(),
+                    value: interaction.guild.memberCount.toString(),
                     inline: true,
                 },
                 {
                     name: trans('SINFO_GUILD_CHANNELS', lang),
-                    value: message.guild.channels.cache.size.toString(),
+                    value: interaction.guild.channels.cache.size.toString(),
                     inline: true,
                 },
                 {
                     name: trans('SINFO_GUILD_ROLES', lang),
-                    value: message.guild.roles.cache.size.toString(),
+                    value: interaction.guild.roles.cache.size.toString(),
                     inline: true,
                 },
                 {
                     name: trans('SINFO_GUILD_CREATEDAT', lang),
-                    value: `<t:${Math.floor(message.guild.createdTimestamp / 1000)}>`,
+                    value: `<t:${Math.floor(interaction.guild.createdTimestamp / 1000)}>`,
                     inline: true,
                 },
             ],
         };
 
-        return message.channel.send({ embeds: [embedContent] });
+        return interaction.followUp({ embeds: [embedContent] });
     },
 };

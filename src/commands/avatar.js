@@ -2,34 +2,25 @@ require('dotenv').config();
 
 module.exports = {
     name: 'avatar',
-    description: 'Displays the full version of a users avatar',
-    aliases: ['pfp', 'avi'],
-    args: true,
-    usage: '[user]',
+    description: 'Displays the full version of a users avatar.',
+    options: [
+        {
+            name: 'user',
+            type: 'USER',
+            description: 'The user to fetch the avatar of',
+            required: true,
+        },
+    ],
+    ephemeral: false,
     permission: '',
     devOnly: false,
+    private: false,
     cooldown: 3,
-    execute: async (message, handlers, lang, trans, args) => {
-        /* Finding the user */
-        let user = message.mentions.members.first();
-        let userid = args[0];
-        if (!user && !userid) return;
+    execute: async (interaction, handlers, lang, trans) => {
+        const { member } = interaction.options.get('user');
 
-        /* Resolving from an ID */
-        let isError = false;
-        if (!user) {
-            isError = false;
-            user = await message.guild.members.fetch(userid).catch((_) => {
-                isError = true;
-            });
-        }
-        /* User not found */
-        if (isError) return message.channel.send(trans('USER_NOT_FOUND', lang));
-
-        if (user) {
-            /* User Found */
-            let embed = handlers.embed.imageNoText(trans('USERS_AVATAR', lang, user.user.tag), user.user.displayAvatarURL({ dynamic: true, size: 2048 }), message.author);
-            message.channel.send({ embeds: [embed] });
-        }
+        /* User Found */
+        let embed = handlers.embed.imageNoText(trans('USERS_AVATAR', lang, member.user.tag), member.user.displayAvatarURL({ dynamic: true, size: 2048 }), interaction.user);
+        await interaction.followUp({ embeds: [embed] });
     },
 };

@@ -61,8 +61,16 @@ const translateEN = {
     */
 
     /* commands/avatar.js */
-    // This is set as the embed title for when a users avatar is posted
     USERS_AVATAR: (user) => `${user}'s Avatar`,
+
+    /* commands/deploy.js */
+    REDEPLOY_START: 'Deploying...',
+    REDEPLOY_PRIVATE: 'Deploying privately...',
+    REDEPLOY_PRIVATE_DONE: 'Successfully redeployed all commands privately.',
+    REDEPLOY_PUBLIC_DONE: 'Successfully redeployed all commands publicly.',
+    REDEPLOY_PUBPRIV_DONE: 'Commands successfully deployed publicly and privately',
+    REDEPLOY_PUBLIC_CMD: (cmd) => `Publicly redeploying command: \`${cmd}\``,
+    REDEPLOY_PRIVATE_CMD: (cmd) => `Privately redeploying command: \`${cmd}\``,
 
     /* commands/dmsay.js */
     DM_PENDING_TITLE: `Confirm Direct Message`,
@@ -78,6 +86,8 @@ const translateEN = {
     HELP_DESCRIPTION: (username) => `Use the information below to learn more about ${username}.`,
     HELP_NO_LINKS_TITLE: `Oh No!`,
     HELP_NO_LINKS_DESCRIPTION: `The bot owner hasn't provided any further information, sorry!`,
+    HELP_DMS_CLOSED: `I couldn't DM you since you have your DMs closed!`,
+    HELP_SENT: 'I sent you help via DM!',
     HELP_COMMANDS: `Commands List`,
     HELP_SUPPORT: `Support`,
     HELP_REPOSITORY: `Repository`,
@@ -93,8 +103,7 @@ const translateEN = {
     LIST_INVALID_CHOICE: (options) => `Invalid list generator option, the valid options are: ${options}.`,
 
     /* commands/ping.js */
-    PING_PINGING: `Pinging...`,
-    PING_RESPONSE: (latency, websocket) => `Pong!\nWebsocket Ping: **${websocket}**ms\nMessage Latency is **${latency}**ms.`,
+    PING_RESPONSE: (websocket) => `Pong!\nWebsocket Ping: **${websocket}**ms`,
 
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `Command \`${command}\` was reloaded!`,

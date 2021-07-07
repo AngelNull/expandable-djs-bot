@@ -1,14 +1,12 @@
 module.exports = {
     name: 'ping',
-    description: 'Displays the bots ping',
-    aliases: ['p'],
-    args: false,
-    usage: '',
+    description: 'Calculates the bots ping.',
+    ephemeral: false,
     permission: '',
     devOnly: false,
+    private: false,
     cooldown: 2,
-    execute: async (message, handlers, lang, trans) => {
-        const m = await message.channel.send(trans('PING_PINGING', lang));
-        m.edit(trans('PING_RESPONSE', lang, m.createdTimestamp - message.createdTimestamp, message.client.ws.ping));
+    execute: async (interaction, handlers, lang, trans) => {
+        interaction.followUp(trans('PING_RESPONSE', lang, interaction.client.ws.ping));
     },
 };

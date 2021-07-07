@@ -24,20 +24,21 @@ const questions = [
         initial: process.env.DISCORD_AUTH_TOKEN || '',
         validate: (text) => text.length >= 15,
     },
-    // The bots prefix
-    {
-        type: 'text',
-        name: 'prefix',
-        message: 'Bot Prefix?',
-        initial: process.env.prefix || '!',
-        validate: (text) => text.length >= 1,
-    },
     // The users ID
     {
         type: 'text',
         name: 'ownerID',
         message: 'Owner UserID?',
         initial: process.env.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
+        validate: (text) => text.length >= 15,
+    },
+
+    // The guild ID
+    {
+        type: 'text',
+        name: 'guildID',
+        message: 'Testing GuildID?',
+        initial: process.env.guildID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
         validate: (text) => text.length >= 15,
     },
 
@@ -234,8 +235,8 @@ const onCancel = () => {
         `
     DISCORD_AUTH_TOKEN=${response.token}
 
-    prefix=${response.prefix}
     ownerID=${response.ownerID}
+    guildID=${response.guildID}
     language=${response.language}
 
     botStatus=${response.botStatus}

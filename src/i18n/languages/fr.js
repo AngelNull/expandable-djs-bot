@@ -63,6 +63,15 @@ const translateFR = {
     // This is set as the embed title for when a users avatar is posted
     USERS_AVATAR: (user) => `${user}'s Avatar`,
 
+    /* commands/deploy.js */
+    REDEPLOY_START: 'Déploiement...',
+    REDEPLOY_PRIVATE: 'Déploiement en privé...',
+    REDEPLOY_PRIVATE_DONE: 'Déploiement réussi de toutes les commandes en privé.',
+    REDEPLOY_PUBLIC_DONE: 'Déploiement public de toutes les commandes avec succès.',
+    REDEPLOY_PUBPRIV_DONE: 'Commandes déployées avec succès en public et en privé',
+    REDEPLOY_PUBLIC_CMD: (cmd) => `Commande de redéploiement public: \`${cmd}\``,
+    REDEPLOY_PRIVATE_CMD: (cmd) => `Commande de redéploiement privé: \`${cmd}\``,
+
     /* commands/dmsay.js */
     DM_PENDING_TITLE: `Confirmer le message direct`,
     DM_PENDING_DESC: (user, message) => `Voulez-vous vraiment envoyer le message suivant à ${user}?\n\`\`\`${message}\`\`\``,
@@ -92,8 +101,7 @@ const translateFR = {
     LIST_INVALID_CHOICE: (options) => `Option de générateur de liste non valide, les options valides sont: ${options}.`,
 
     /* commands/ping.js */
-    PING_PINGING: `S'il vous plaît, attendez...`,
-    PING_RESPONSE: (latency, websocket) => `Pong!\nPing Websocket: **${websocket}**ms\nLa latence du message est de **${latency}**ms.`,
+    PING_RESPONSE: (websocket) => `Pong!\nPing Websocket: **${websocket}**ms`,
 
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `La commande \`${command}\` a été rechargée!`,
