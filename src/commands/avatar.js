@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
     name: 'avatar',
-    description: 'Displays the full version of a users avatar.',
+    description: 'Displays the full version of a users avatar',
     options: [
         {
             name: 'user',
@@ -11,8 +11,9 @@ module.exports = {
             required: true,
         },
     ],
+    botPermsNeeded: ['EMBED_LINKS'],
+    userPermsNeeded: [],
     ephemeral: false,
-    permission: '',
     devOnly: false,
     private: false,
     cooldown: 3,

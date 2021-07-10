@@ -1,8 +1,9 @@
 module.exports = {
     name: 'ping',
     description: 'Calculates the bots ping.',
+    botPermsNeeded: [],
+    userPermsNeeded: [],
     ephemeral: false,
-    permission: '',
     devOnly: false,
     private: false,
     cooldown: 2,

@@ -1,8 +1,9 @@
 module.exports = {
     name: 'statistics',
     description: 'Shows statistics for the bot',
+    botPermsNeeded: [],
+    userPermsNeeded: [],
     ephemeral: true,
-    permission: '',
     devOnly: false,
     private: false,
     cooldown: 3,

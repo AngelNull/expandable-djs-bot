@@ -3,8 +3,9 @@ require('dotenv').config();
 module.exports = {
     name: 'serverinfo',
     description: 'Shows information about the server.',
+    botPermsNeeded: [],
+    userPermsNeeded: [],
     ephemeral: false,
-    permission: '',
     devOnly: false,
     private: false,
     cooldown: 3,

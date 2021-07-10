@@ -23,16 +23,18 @@ module.exports = async (client, interaction) => {
         ratelimitCooldown.delete(interaction.user.id);
     }, 630);
 
-    /* Check if the user executing the command is the owner of the bot, if not, return it */
-    if (command.devOnly && process.env.ownerID != interaction.user.id) return interaction.reply({ content: trans('NO_PERMISSION', lang, interaction.user), ephemeral: true });
+    // Check if the user executing the command is the developer or not.
+    if (command.devOnly && process.env.ownerID != interaction.user.id) return interaction.reply({ content: trans('NO_PERMISSION', serverLang, interaction.user), ephemeral: true });
 
-    /* If the command has a permission object, and the user does not have that permission; deny the user from executing the command and return. */
-    if (command.permission && !interaction.member.permissions.has(command.permission)) return interaction.reply({ content: trans('NO_PERMISSION', lang, interaction.user), ephemeral: true });
+    // If the command has a permission object, and the user does not have that permission; deny the user from executing the command and return
+    if (command.permissionsNeeded && !interaction.member.permissions.has(command.permissionsNeeded))
+        return interaction.reply({ content: trans('NO_PERMISSION', serverLang, interaction.user), ephemeral: true });
+
+    if (command.botPermsNeeded && !interaction.guild.me.permissions.has(command.botPermsNeeded)) 
+        return interaction.reply({ content: trans('NEED_PERMS', serverLang, command.botPermsNeeded.join(', ')), ephemeral: true });
 
     /* Per-Command cooldown is handled here, if a user uses the same command before the cooldown has ended, deny the user from using the command */
-    if (!cooldowns.has(command.name)) {
-        cooldowns.set(command.name, new Collection());
-    }
+    if (!cooldowns.has(command.name)) cooldowns.set(command.name, new Collection());
 
     const now = Date.now();
     const timestamps = cooldowns.get(command.name);

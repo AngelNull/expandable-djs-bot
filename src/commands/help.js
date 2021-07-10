@@ -11,8 +11,9 @@ module.exports = {
             required: false,
         },
     ],
+    botPermsNeeded: ['EMBED_LINKS'],
+    userPermsNeeded: [],
     ephemeral: true,
-    permission: '',
     devOnly: false,
     private: false,
     cooldown: 3,
@@ -63,8 +64,9 @@ module.exports = {
             if (!command) return interaction.followUp(trans('COMMAND_NOT_FOUND', lang));
 
             /* Build a new embed for the command help comma and push the data */
-            data.push(command.description || 'No description given');
-            data.push(`\n**Permission:** ${command.permission || 'None'}`);
+            data.push(`\n**Description**: ${trans(`${command.name.toUpperCase()}_DESCRIPTION`, lang)}`);
+            data.push(`\n**User Permissions:** \`${command.userPermsNeeded.join(', ') || 'N/A'}\``);
+            data.push(`\n**Bot Permissions:** \`${command.botPermsNeeded.join(', ') || 'N/A'}\``);
             data.push(`\n**Cooldown:** ${command.cooldown || 3} second(s)`);
 
             const embed = handlers.embed.basic(`Command: ${name.toLowerCase().capitalize()}`, data.toString());
