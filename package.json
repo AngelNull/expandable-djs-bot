@@ -1,6 +1,6 @@
 {
   "name": "expandable-djs-bot",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "An easily expandable discord.js bot",
   "main": "src/index.js",
   "scripts": {
@@ -20,16 +20,17 @@
   },
   "homepage": "https://github.com/AngelNull/expandable-djs-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3",
+    "chalk": "^4.1.1",
+    "discord.js": "^13.0.0-dev.d6c43a5.1625918569",
     "dotenv": "^10.0.0",
     "prompts": "^2.4.1",
+    "recursive-readdir": "^2.2.2",
     "snekfetch": "^4.0.4"
   },
   "devDependencies": {
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "generate-changelog": "^1.8.0",
     "prettier": "^2.3.2"
   }
 }

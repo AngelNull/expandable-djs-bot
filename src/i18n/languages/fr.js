@@ -1,33 +1,32 @@
 const translateFR = {
     /*
     READ THE DOCUMENTATION BEFORE CREATING A TRANSLATION
-    
-	When translating this file, please only change the parts in backticks and nothing else. all variables need to be used.
-    These can be placed anywhere within the string, refer back to the source language (English) for their original placement.
-
-    Please maintain the usage of the markdown usage where possible, including newlines. If a word cannot be translated at all, use a suitable alternative.
     */
 
     /* 
         Generic
     */
-
+    SUCCESS: 'Succès',
+    LOADING: 'Chargement',
     CLICK_HERE: `Cliquez ici`,
     LOAD_EVENT: (event) => `⌛ Chargement: ${event}`,
     LOAD_COMMAND: (command) => `⌛ Chargement: ${command}`,
-    LOAD_UTILITY: (utility) => `⌛ Chargement: ${utility}`,
+    LOAD_HANDLER: (handler) => `⌛ Chargement: ${handler}`,
 
     /*
 		Errors
 	*/
 
+    Error: 'Erreur',
     COMMAND_NOT_FOUND: `Je n'ai pas trouvé de commande ou d'alias portant ce nom.`,
     USER_NOT_FOUND: `Cet utilisateur n'a pas pu être trouvé.`,
     NO_PERMISSION: (user) => `Vous n'avez pas la permission d'utiliser cela, ${user}.`,
-    ON_COOLDOWN: (user, cooldown, command) => `${user}, veuillez patienter ${cooldown} seconde (s) de plus avant d'utiliser à nouveau \`${command}\`.`,
+    ON_COOLDOWN: (user, cooldown, command) => `${user}, veuillez patienter **${cooldown}** seconde(s) de plus avant d'utiliser à nouveau \`${command}\`.`,
     ERROR_OUTPUT: `Une erreur inattendue s'est produite.`,
     ERROR_OUTPUT_TRACE: (err) => `Une erreur inattendue s'est produite.: ${err}.`,
     NEED_PERMS: (permissionName) => `Je n'ai pas l'autorisation ${permissionName}, veuillez m'accorder ceci avant de réessayer.`,
+    EMBED_LACKS_FIELD: `Embed malformé, il manque les champs valides`,
+    FILE_EXT_MISSING: 'Extension de fichier manquante arg.',
 
     /*          
         Events Files
@@ -37,8 +36,19 @@ const translateFR = {
     /* events/ready.js */
     CLIENT_READY: (user, date) => `✅ Prêt: ${user} @ ${date}`,
 
-    /* events/message.js */
+    /* events/messageCreate.js */
     INCORRECT_USAGE: (prefix, command, usage) => `Une utilisation incorrecte! L'utilisation correcte est: \n \`${prefix}${command} ${usage}\``,
+
+    /* 
+        Handlers 
+    */
+
+    BUTTON_ACTION_CONFIRMED: `Action confirmée`,
+    BUTTON_ACTION_CANCELLED: `Action annulée`,
+    BUTTON_ACTION_TIMEDOUT: `L'action a expiré`,
+    BUTTON_ACTION_TIMEDOUT_DESC: `Vous n'avez pas réagi à temps, l'action a donc été automatiquement annulée.`,
+    BUTTON_CONFIRM: `Confirmer`,
+    BUTTON_CANCEL: `Annuler`,
 
     /* 
         Commands
@@ -48,6 +58,15 @@ const translateFR = {
     /* commands/avatar.js */
     // This is set as the embed title for when a users avatar is posted
     USERS_AVATAR: (user) => `${user}'s Avatar`,
+
+    /* commands/deploy.js */
+    REDEPLOY_START: `Déploiement...`,
+    REDEPLOY_PRIVATE: `Déploiement en privé...`,
+    REDEPLOY_PRIVATE_DONE: `Déploiement réussi de toutes les commandes en privé.`,
+    REDEPLOY_PUBLIC_DONE: `Déploiement public de toutes les commandes avec succès.`,
+    REDEPLOY_PUBPRIV_DONE: `Commandes déployées avec succès en public et en privé`,
+    REDEPLOY_PUBLIC_CMD: (cmd) => `Commande de redéploiement public: \`${cmd}\``,
+    REDEPLOY_PRIVATE_CMD: (cmd) => `Commande de redéploiement privé: \`${cmd}\``,
 
     /* commands/dmsay.js */
     DM_PENDING_TITLE: `Confirmer le message direct`,
@@ -78,8 +97,7 @@ const translateFR = {
     LIST_INVALID_CHOICE: (options) => `Option de générateur de liste non valide, les options valides sont: ${options}.`,
 
     /* commands/ping.js */
-    PING_PINGING: `S'il vous plaît, attendez...`,
-    PING_RESPONSE: (latency) => `Terminé!\nLa latence est de **${latency}** ms.`,
+    PING_RESPONSE: (websocket) => `Pong!\nPing Websocket: **${websocket}**ms`,
 
     /* commands/reload.js */
     RELOAD_SUCCESS: (command) => `La commande \`${command}\` a été rechargée!`,
@@ -93,6 +111,15 @@ const translateFR = {
     SINFO_GUILD_CHANNELS: 'Canaux',
     SINFO_GUILD_ROLES: 'Les rôles',
     SINFO_GUILD_CREATEDAT: 'Créé à',
+
+    /* commands/statistics.js */
+    STATS_TITLE: 'Statistiques',
+    STATS_DESCRIPTION: (user) => `Voici les statistiques pour ${user}`,
+    STATS_GUILDS: 'Total des guildes',
+    STATS_USERS: 'Total des utilisateurs',
+    STATS_CHANNELS: 'Total des canaux',
+    STATS_UPTIME: 'Heure de disponibilité',
+    STATS_WEBSOCKET: 'Websocket',
 
     /* commands/userinfo.js */
     UINFO_USER_DISPLAYNAME: 'Afficher un nom',

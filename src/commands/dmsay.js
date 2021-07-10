@@ -1,56 +1,47 @@
-const { MessageEmbed } = require('discord.js');
-const utils = require('../utils/');
 require('dotenv').config();
 
 module.exports = {
     name: 'dmsay',
-    description: 'Sends a direct message to the specified user id',
-    aliases: ['saydm', 'tell'],
-    args: true,
-    usage: '[user] [message]',
-    permission: '',
+    description: 'Send a direct message to a user. [Developer]',
+    options: [
+        {
+            name: 'member',
+            type: 'USER',
+            description: 'The member to send a direct message to',
+            required: true,
+        },
+        {
+            name: 'message',
+            type: 'STRING',
+            description: 'The message to send to the member',
+            required: true,
+        },
+    ],
+    botPermsNeeded: ['EMBED_LINKS'],
+    userPermsNeeded: [],
+    ephemeral: false,
     devOnly: true,
-    cooldown: 1,
-    execute: async (message, lang, tr, args) => {
-        /* Set up the embed */
-        let embed = new MessageEmbed().setColor(process.env.successColour);
-        let sendToUser = args[0];
-        let user = await message.client.users.cache.get(sendToUser);
-
-        /* If the user could not be found in the client's user cache return an error */
-        if (!user) return message.channel.send(tr.translate('USER_NOT_FOUND', lang));
-        args.shift();
-        args = args.join(' ');
-
-        if (sendToUser) {
-            /* Build the confirmation embed */
-            embed.setTitle(tr.translate('DM_PENDING_TITLE'), lang);
-            embed.setDescription(tr.translate('DM_PENDING_DESC', lang, user, args));
-            embed.setColor(process.env.embedColour);
-            let confirmMessage = await message.channel.send(embed);
-            /* Run the confirm reaction function from utils */
-            let confirmReact = await utils.reacts.confirm(confirmMessage, message.author.id, embed);
-            /* If the user confirmed the reaction from the function */
-            if (confirmReact == 'confirmed') {
-                message.delete().catch();
-                embed.setTitle(tr.translate('DM_CONFIRMED_TITLE'));
-                embed.setDescription(tr.translate('DM_CONFIRMED_DESC', lang, user, args));
-                embed.setThumbnail(`https://i.imgur.com/Jg0azl4.gif`);
-                /* If the user cancelled the reaction from the function */
-                await user.send(args).catch(() => {
-                    embed.setTitle(tr.translate('DM_FAILED_TITLE'));
-                    embed.setDescription(tr.translate('DM_FAILED_DESC', lang, user));
-                    embed.setColor(process.env.errorColour);
-                    embed.setThumbnail('');
-                });
-                return confirmMessage.edit(embed);
-            } else {
-                embed.setDescription(tr.translate('DM_CANCELLED', lang));
-                return confirmMessage.edit(embed);
-            }
+    private: false,
+    cooldown: 3,
+    execute: async (interaction, handlers, lang, trans) => {
+        // Get the interaction option responses
+        const { member } = interaction.options.get('member');
+        const message = interaction.options.get('message').value;
+        // Prepare the embed and add buttons for confirm/cancel
+        let embed = handlers.embed.loading(trans('DM_PENDING_TITLE', lang), trans('DM_PENDING_DESC', lang, member, message));
+        await interaction.editReply({ embeds: [embed] });
+        const confirmButton = await handlers.buttons.confirmation(interaction, interaction.user.id, embed);
+        // If the user confirms, carry on
+        if (confirmButton) {
+            embed = handlers.embed.success(trans('DM_CONFIRMED_TITLE', lang), trans('DM_CONFIRMED_DESC', lang, member, message), 'https://i.imgur.com/Jg0azl4.gif');
+            await member.send(message).catch(() => {
+                embed = handlers.embed.error(trans('DM_FAILED_TITLE', lang), trans('DM_FAILED_DESC', lang, member));
+            });
+            return interaction.editReply({ embeds: [embed] });
         } else {
-            message.delete().catch();
-            return message.reply(tr.translate('ERROR_OUTPUT', lang));
+            // If something goes wrong or the user cancels, cancel the sending.
+            embed.setDescription(trans('DM_CANCELLED', lang));
+            return interaction.editReply({ embeds: [embed] });
         }
     },
 };

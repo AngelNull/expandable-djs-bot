@@ -1,29 +1,37 @@
 const Discord = require('discord.js');
-const { embedColour, errorColour } = require('../core/configs/embedcolours.json');
 const request = require('snekfetch');
+require('dotenv').config();
 
 module.exports = {
     name: 'invite',
-    description: 'Resolves a given invite link or code and provides information about the invite',
-    aliases: ['invfo', 'inviteinfo'],
-    args: true,
-    usage: '[invite]',
-    permission: 'KICK_MEMBERS',
+    description: 'Looks up the invite code and provides information about it.',
+    options: [
+        {
+            name: 'invite',
+            type: 'STRING',
+            description: 'The discord invite to look up',
+            required: true,
+        },
+    ],
+    botPermsNeeded: ['EMBED_LINKS'],
+    userPermsNeeded: ['KICK_MEMBERS'],
+    ephemeral: false,
     devOnly: false,
+    private: false,
     cooldown: 6,
-    execute: async (message, lang, tr, args) => {
-        let inviteCode = args[0];
-        const embed = new Discord.MessageEmbed().setColor(embedColour);
+    execute: async (interaction) => {
+        let inviteCode = interaction.options.get('invite').value.toString();
 
+        const embed = new Discord.MessageEmbed().setColor(process.env.successColour);
         /* Do some small checks to see if the invite is valid ourselves to prevent hitting the API immediately. */
         if (Number.isInteger(inviteCode) || inviteCode.length < 1) {
             embed.setTitle('Invalid Invite');
             embed.setDescription('That invite looks invalid. Please double check it.');
-            return message.channel.send(embed);
+            return interaction.followUp({ embeds: [embed] });
         }
 
         /* Replace everything apart from the invite code so we can query the API with it */
-        inviteCode = inviteCode.replace('discord.gg/', '').replace('discordapp.com/invites/', '').replace('https://', '').replace('www.', '');
+        inviteCode = inviteCode.replace('discord.gg/', '').replace('discord.com/invites/', '').replace('https://', '').replace('www.', '');
 
         /* Use snekfetch to send a request to the API */
         let isError = false;
@@ -32,8 +40,8 @@ module.exports = {
             isError = true;
             embed.setTitle('Invalid Invite');
             embed.setDescription('Could not find information for that invite, it is likely invalid or has expired.');
-            embed.setColor(errorColour);
-            return message.channel.send(embed);
+            embed.setColor(process.env.errorColour);
+            return interaction.followUp({ embeds: [embed] });
         });
 
         if (isError) return;
@@ -49,7 +57,7 @@ module.exports = {
                 { name: 'Inviter ID', value: `${body.inviter.id}`, inline: true },
                 { name: 'Channel ID', value: `${body.channel.id}`, inline: true },
             );
-            return message.channel.send(embed);
+            return interaction.followUp({ embeds: [embed] });
         } else {
             /* If the guild does have a vanity url, it needs to be treated differently */
             embed.addFields(
@@ -63,7 +71,7 @@ module.exports = {
             if (body.guild.description) embed.setDescription(body.guild.description);
             if (body.guild.splash) embed.setImage(`https://cdn.discordapp.com/splashes/${body.guild.id}/${body.guild.splash}.jpg?size=512`);
             if (body.guild.icon) embed.setThumbnail(`https://cdn.discordapp.com/icons/${body.guild.id}/${body.guild.icon}.webp`);
-            return message.channel.send(embed);
+            return interaction.followUp({ embeds: [embed] });
         }
     },
 };

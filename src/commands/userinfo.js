@@ -1,61 +1,61 @@
 module.exports = {
     name: 'userinfo',
-    description: 'Returns information about a users account',
-    aliases: ['whois'],
-    args: true,
-    usage: '[user]',
-    permission: '',
+    description: 'Returns information about a users account.',
+    options: [
+        {
+            name: 'user',
+            type: 'USER',
+            description: 'The member to get information for',
+            required: true,
+        },
+    ],
+    botPermsNeeded: [],
+    userPermsNeeded: [],
+    ephemeral: false,
     devOnly: false,
+    private: false,
     cooldown: 5,
-    execute: async (message, lang, tr, args) => {
-        let user = message.mentions.members.first();
-        let invalidUser = false;
-        if (!user) {
-            /* Fetch a user in the current guild with that UserID */
-            user = await message.guild.members.fetch(args[0]).catch(() => {
-                invalidUser = true;
-            });
-        }
-        if (invalidUser == true) return message.channel.send(tr.translate('USER_NOT_FOUND', lang));
+    execute: async (interaction, handlers, lang, trans) => {
+        const { member } = interaction.options.get('user');
 
         /* Building the embed */
         const embedContent = {
-            color: user.displayColor,
+            color: member.displayColor,
             author: {
-                name: user.user.tag,
+                name: member.user.tag,
             },
             thumbnail: {
-                url: user.user.displayAvatarURL({ dynamic: true }),
+                url: member.user.displayAvatarURL({ dynamic: true }),
             },
             fields: [
                 {
-                    name: tr.translate('UINFO_USER_DISPLAYNAME', lang),
-                    value: user.displayName,
+                    name: trans('UINFO_USER_DISPLAYNAME', lang),
+                    value: member.displayName,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_ID', lang),
-                    value: user.id,
+                    name: trans('UINFO_USER_ID', lang),
+                    value: member.id,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_HIGHESTROLE', lang),
-                    value: user.roles.highest,
+                    name: trans('UINFO_USER_HIGHESTROLE', lang),
+                    value: `<@&${member.roles.highest.id}>`,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_JOINEDAT', lang),
-                    value: `<t:${Math.floor(user.joinedTimestamp / 1000)}>`,
+                    name: trans('UINFO_USER_JOINEDAT', lang),
+                    value: `<t:${Math.floor(member.joinedTimestamp / 1000)}>`,
                     inline: true,
                 },
                 {
-                    name: tr.translate('UINFO_USER_CREATEDAT', lang),
-                    value: `<t:${Math.floor(user.user.createdTimestamp / 1000)}>`,
+                    name: trans('UINFO_USER_CREATEDAT', lang),
+                    value: `<t:${Math.floor(member.user.createdTimestamp / 1000)}>`,
                     inline: true,
                 },
             ],
         };
 
-        return message.channel.send({ embed: embedContent });
+        return interaction.followUp({ embeds: [embedContent] });
     },
 };

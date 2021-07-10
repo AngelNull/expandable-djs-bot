@@ -1,5 +1,7 @@
 const prompts = require('prompts');
 const fs = require('fs');
+const chalk = require('chalk');
+const { intentToObjects } = require('../handlers/intents/intentHandler.js');
 
 require('dotenv').config();
 
@@ -11,7 +13,7 @@ This file must be updated with new configuration options when the bot is updated
 
 */
 
-console.log('-----------------------------------\n          Bot Configuration\n-----------------------------------\n');
+console.log('-----------------------------------\n         Bot Configuration\n-----------------------------------\n');
 
 const questions = [
     // The bots token
@@ -20,14 +22,7 @@ const questions = [
         name: 'token',
         message: 'Bot Token?',
         initial: process.env.DISCORD_AUTH_TOKEN || '',
-    },
-    // The bots prefix
-    {
-        type: 'text',
-        name: 'prefix',
-        message: 'Bot Prefix?',
-        initial: process.env.prefix || '!',
-        validate: (text) => text.length >= 1,
+        validate: (text) => text.length >= 15,
     },
     // The users ID
     {
@@ -35,6 +30,23 @@ const questions = [
         name: 'ownerID',
         message: 'Owner UserID?',
         initial: process.env.ownerID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
+        validate: (text) => text.length >= 15,
+    },
+
+    // The guild ID
+    {
+        type: 'text',
+        name: 'guildID',
+        message: 'Testing GuildID?',
+        initial: process.env.guildID || 'https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID',
+        validate: (text) => text.length >= 15,
+    },
+
+    {
+        type: 'multiselect',
+        name: 'intents',
+        message: 'Select Intents',
+        choices: intentToObjects(),
     },
 
     {
@@ -158,6 +170,14 @@ const questions = [
         initial: process.env.embedColour || '#ffa500',
     },
 
+    // Set the bots default loading colour
+    {
+        type: (prev) => (prev.length >= 1 ? 'text' : null),
+        name: 'loadingColour',
+        message: 'Loading Embed Colour? (#Hex)',
+        initial: process.env.loadingColour || '#0080ff',
+    },
+
     // Set the bots success colour
     {
         type: (prev) => (prev.length >= 1 ? 'text' : null),
@@ -196,16 +216,13 @@ const questions = [
 ];
 
 const onCancel = () => {
-    console.log('\x1b[31m', "Configuration was cancelled, to start again, use 'npm run config'", '\x1b[0m');
+    console.log(`${chalk.redBright("Configuration was cancelled, to start again, use 'npm run config'")}`);
     process.exit(0);
 };
 
 (async () => {
     // Get the response from the prompts
     const response = await prompts(questions, { onCancel });
-
-    // Warn if escape character detected
-    if (response.prefix.match(/\\/g)) return console.error('\x1b[31m', '\nYour prefix contains an escape character, configuration aborted.\n', '\x1b[0m');
 
     console.log(`\n-----------------------------------\n          Bot Configured\n-----------------------------------\n\nTo reconfigure, simply do 'npm run config'\n`);
 
@@ -215,8 +232,8 @@ const onCancel = () => {
         `
     DISCORD_AUTH_TOKEN=${response.token}
 
-    prefix=${response.prefix}
     ownerID=${response.ownerID}
+    guildID=${response.guildID}
     language=${response.language}
 
     botStatus=${response.botStatus}
@@ -225,10 +242,13 @@ const onCancel = () => {
     botActivityType=${response.botActivityType || ''}
     streamingURL=${response.streamingURL || 'None'}
 
+    intents=${response.intents}
+
     keepOutFiles=${response.keepOutFiles}
     advancedDebugging=${response.advancedDebugging}
     
     embedColour=${response.embedColour || '#ffa500'}
+    loadingColour=${response.loadingColour || '0080ff'}
     successColour=${response.successColour || '#1e90ff'}
     errorColour=${response.errorColour || '#8b0000'}
 
