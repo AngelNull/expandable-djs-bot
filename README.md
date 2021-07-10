@@ -1,9 +1,7 @@
 <!--PROJECT HEAD-->
 <br />
 <p align="center">
-  <a href="https://edb.foxgirls.cc">
     <img src='assets/logo_269x150.png' alt='Logo'>
-  </a>
 
   <h3 align="center">Expandable-DJS-Bot</h3>
 
@@ -62,7 +60,7 @@ Expandable-DJS-Bot (EDB) is a discord.js bot template, allowing for easy expansi
 This template has been created from the ground up based on multiple discord bots made in the past, and provides an easy to understand and maintain environment.
 
 ## Setup
-A full version of the setup guide can be found [here](https://edb.foxgirls.cc/docs/installation/setup)
+A full version of the setup guide can be found [here](https://github.com/AngelNull/expandable-djs-bot/wiki/Getting-Started-(v2)p)
 
 Quick Setup Version
 ```
@@ -73,7 +71,7 @@ Quick Setup Version
 ````
 
 ## Documentation
-The documentation for this project can be found on the [website](https://edb.foxgirls.cc/docs) or in the documentation branch, if you plan to make any changes please target your pull requests there.
+The documentation for this project can be found on the [wiki](https://github.com/AngelNull/expandable-djs-bot/wiki/).
 
 ## Contributing
 First of all, thank you for thinking about contributing! Everything you need to know to contribute can be found [here](./.github/CONTRIBUTING.md)
