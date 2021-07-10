@@ -224,9 +224,6 @@ const onCancel = () => {
     // Get the response from the prompts
     const response = await prompts(questions, { onCancel });
 
-    // Warn if escape character detected
-    if (response.prefix.match(/\\/g)) return console.error(`${chalk.redBright('\nYour prefix contains an escape character, configuration aborted.\n')}`);
-
     console.log(`\n-----------------------------------\n          Bot Configured\n-----------------------------------\n\nTo reconfigure, simply do 'npm run config'\n`);
 
     // Write the bots authentication token
