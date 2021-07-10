@@ -21,7 +21,7 @@
   "homepage": "https://github.com/AngelNull/expandable-djs-bot#readme",
   "dependencies": {
     "chalk": "^4.1.1",
-    "discord.js": "^13.0.0-dev.2e078e4.1625573006",
+    "discord.js": "^13.0.0-dev.d6c43a5.1625918569",
     "dotenv": "^10.0.0",
     "prompts": "^2.4.1",
     "recursive-readdir": "^2.2.2",
